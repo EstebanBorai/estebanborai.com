@@ -1,30 +1,38 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HotModuleReplacementPlugin = require('webpack').HotModuleReplacementPlugin;
+const { HotModuleReplacementPlugin } = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-	entry: './src/index.js',
+	entry: './src/index.jsx',
 	output: {
 		filename: 'index.js',
-		path: path.resolve(__dirname, 'bundle')
+		path: path.resolve(__dirname, 'bundle'),
 	},
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
+				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: {
-					loader: 'babel-loader'
-				}
+					loader: 'babel-loader',
+				},
 			},
 			{
 				test: /\.css$/,
 				use: [
 					'style-loader',
-					'css-loader'
-				]
+					'css-loader',
+				],
 			},
+			{
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
 			{
 				test: /\.(png|jpg|gif|svg)$/,
 				use: [
@@ -32,32 +40,36 @@ module.exports = {
 						loader: 'file-loader',
 						options: {
 							name: 'assets/[name].[ext]',
-						}
-					}
-				]
+						},
+					},
+				],
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/,
 				loader: 'file-loader',
 				options: {
-					name: 'assets/[name].[ext]'
-				}
-			}
-		]
+					name: 'assets/[name].[ext]',
+				},
+			},
+		],
 	},
 	devServer: {
 		contentBase: path.join(__dirname, 'src'),
 		compress: true,
-		port: 8080
+		port: 8080,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: 'src/index.html'
+			template: 'src/index.html',
 		}),
-    new HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin()
+		new HotModuleReplacementPlugin(),
+		new CleanWebpackPlugin(),
 	],
 	resolve: {
-		extensions: ['.js']
-	}
+		extensions: ['.js', '.jsx'],
+		alias: {
+			components: path.resolve(__dirname, 'src/components'),
+			styles: path.resolve(__dirname, 'src/styles')
+		}
+	},
 };

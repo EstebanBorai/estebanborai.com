@@ -1,0 +1,25 @@
+// Fonts
+$body: 'Fira Code', monospace;
+
+// Body colors
+$base: #282a35;
+$text: #f8f8f8;
+$sublime: #5f72a2;
+
+body {
+	background-color: $base;
+	box-sizing: border-box;
+	color: $text;
+	font-family: $body;
+	font-size: 16px;
+	height: 100vh;
+	margin: 0;
+	padding: .4rem;
+
+	#app {
+		height: 100%;
+	}
+}
+
+// Color Scheme
+$white: #f8f8f8;
