@@ -67,8 +67,8 @@ const Job = ({
 Job.propTypes = {
 	company: PropTypes.string.isRequired,
 	position: PropTypes.string.isRequired,
-	dateStarted: PropTypes.instanceOf(Date).isRequired,
-	dateEnded: PropTypes.instanceOf(Date),
+	dateStarted: PropTypes.string.isRequired,
+	dateEnded: PropTypes.string,
 	about: PropTypes.string.isRequired,
 	technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
