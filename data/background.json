@@ -1,8 +1,13 @@
 [
   {
     "company": "Teleperformance",
-    "position": "Front-End Develper",
+    "position": "Front-End Developer",
     "dateStarted": "2017-11-01T03:00:00.000Z",
-    "dateEnded": "2019-03-01T03:00:00.000Z"
+    "dateEnded": "2019-03-01T03:00:00.000Z",
+    "about": "Develop mutliple CRMs and internal tols using ReactJS. Minimum experience with .NET Framework using C# to write REST APIs.",
+    "technologies": [
+      "ReactJS",
+      "C#"
+    ]
   }
 ]
