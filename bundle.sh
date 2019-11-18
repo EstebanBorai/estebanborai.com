@@ -1,6 +1,6 @@
 #!bin/bash
 echo "Building estebanborai.github.io"
-yarn build
+yarn && yarn build
 
 echo "Copying files to external `bundle` directory"
 mkdir -p ~/bundle-temporal-dir/
