@@ -1,0 +1,37 @@
+@import '~styles/theme.scss';
+
+#job-entries {
+  ol {
+    @include reset-list;
+    
+    .job-entry {
+      align-items: center;
+      display: flex;
+
+      &:hover {
+        background: #e3e5eb
+      }
+
+      div {
+        margin-left: 1rem;
+
+        * {
+          display: block;
+        }
+
+        .company-name {
+          margin: .3rem 0;
+        }
+
+        .job-position {
+          font-size: .8rem;
+        }
+
+        .timelapse {
+          font-size: .8rem;
+          font-weight: 200;
+        }
+      }
+    }
+  }
+}

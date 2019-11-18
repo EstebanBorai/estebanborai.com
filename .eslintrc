@@ -21,6 +21,7 @@
 	"rules": {
 			"indent": ["error", "tab"],
 			"no-tabs": "off",
-			"react/jsx-indent": "off"
+			"react/jsx-indent": "off",
+			"react/jsx-indent-props": "off",
 	}
 }
