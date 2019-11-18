@@ -26,13 +26,13 @@ module.exports = {
 				],
 			},
 			{
-        test: /\.s[ac]ss$/i,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
-      },
+				test: /\.s[ac]ss$/i,
+				use: [
+					'style-loader',
+					'css-loader',
+					'sass-loader',
+				],
+			},
 			{
 				test: /\.(png|jpg|gif|svg)$/,
 				use: [
@@ -57,10 +57,11 @@ module.exports = {
 		contentBase: path.join(__dirname, 'src'),
 		compress: true,
 		port: 8080,
+		historyApiFallback: true,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: 'src/index.html',
+			template: 'public/index.html',
 		}),
 		new HotModuleReplacementPlugin(),
 		new CleanWebpackPlugin(),
@@ -69,6 +70,7 @@ module.exports = {
 		extensions: ['.js', '.jsx'],
 		alias: {
 			components: path.resolve(__dirname, 'src/components'),
+			pages: path.resolve(__dirname, 'src/pages'),
 			styles: path.resolve(__dirname, 'src/styles')
 		}
 	},

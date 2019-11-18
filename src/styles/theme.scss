@@ -1,25 +1,11 @@
-// Fonts
-$body: 'Fira Code', monospace;
+$primary: #2a313f;
 
-// Body colors
-$base: #282a35;
-$text: #f8f8f8;
-$sublime: #5f72a2;
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 
-body {
-	background-color: $base;
-	box-sizing: border-box;
-	color: $text;
-	font-family: $body;
-	font-size: 16px;
-	height: 100vh;
-	margin: 0;
-	padding: .4rem;
-
-	#app {
-		height: 100%;
-	}
+  li {
+    display: inline-block;
+  }
 }
-
-// Color Scheme
-$white: #f8f8f8;

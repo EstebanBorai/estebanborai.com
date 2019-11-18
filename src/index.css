@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Calistoga|Open+Sans&display=swap');
+
+body {
+	background-color: #fafafa;
+	color: #2a313f;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3 {
+	font-family: 'Calistoga', cursive;
+	font-weight: 300;
+}
