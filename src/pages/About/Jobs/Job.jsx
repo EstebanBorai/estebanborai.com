@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 const Job = ({
 	company, position, dateStarted, dateEnded,
 }) => {
+	const dateStartedObj = new Date(dateStarted);
+	const dateEndedObj = dateEnded ? new Date(dateEnded) : null;
+
 	const timelapse = {
-		start: `${dateStarted.getMonth()} ${dateStarted.getFullYear()}`,
-		end: dateEnded ? `${dateEnded.getMonth()} ${dateEnded.getFullYear()}` : 'Now',
+		start: `${dateStartedObj.getMonth()} ${dateStartedObj.getFullYear()}`,
+		end: dateEnded ? `${dateEndedObj.getMonth()} ${dateEndedObj.getFullYear()}` : 'Now',
 	};
 
 	return (

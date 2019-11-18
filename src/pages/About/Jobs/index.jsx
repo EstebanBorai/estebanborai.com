@@ -6,7 +6,7 @@ const Jobs = () => {
 	const [jobs, setJobs] = React.useState(null);
 
 	React.useEffect(() => {
-		fetch('http://0.0.0.0:8000/background.json').then(res => res.json()).then((data) => {
+		fetch('https://raw.githubusercontent.com/estebanborai/estebanborai.github.io/master/data/background.json').then(res => res.json()).then((data) => {
 			setJobs(data);
 		});
 	});

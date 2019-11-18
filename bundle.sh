@@ -3,8 +3,9 @@ echo "Building estebanborai.github.io"
 yarn && yarn build
 
 echo "Copying files to external `bundle` directory"
-mkdir -p ~/bundle-temporal-dir/
+mkdir -p ~/bundle-temporal-dir/data
 cp -R ./bundle/** ~/bundle-temporal-dir/
+cp -R ./data/** ~/bundle-temporal-dir/data/
 
 echo "Checking out the current branch"
 git add .
