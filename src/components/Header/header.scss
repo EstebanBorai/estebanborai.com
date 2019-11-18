@@ -1,19 +1,28 @@
 @import '~styles/theme.scss';
 
 #app-header {
-  border-bottom: 1px solid $primary;
-  text-align: center;
+	border-bottom: 1px solid $primary;
+	text-align: center;
 
-  nav {
-    ul {
-      @include reset-list;
+	nav {
+		ul {
+			@include reset-list;
 
-      box-sizing: border-box;
-      padding: .4rem;
+			box-sizing: border-box;
+			padding: .4rem;
 
-      li {
-        margin: 0 .5rem;
-      }
-    }
-  }
+			li {
+				margin: 0 .5rem;
+
+				a {
+					color: $primary;
+					text-decoration: none;
+
+					&:hover {
+						background: #d3a44c;
+					}
+				}
+			}
+		}
+	}
 }
