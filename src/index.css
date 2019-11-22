@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Calistoga|Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab|Open+Sans&display=swap');
 
 body {
 	background-color: #fafafa;
@@ -10,6 +10,6 @@ body {
 }
 
 h1, h2, h3 {
-	font-family: 'Calistoga', cursive;
+	font-family: 'Zilla Slab', cursive;
 	font-weight: 300;
 }
