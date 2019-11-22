@@ -1,19 +1,14 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useIntl } from 'react-intl';
 
 const Home = () => {
-	const { t } = useTranslation();
+	const { messages } = useIntl();
 
 	return (
 		<section className="page">
 			<article>
-				<h3>{t('title')}</h3>
-				<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-				velit architecto excepturi nostrum veniam inventore consequuntur beatae
-				facere, delectus laborum. Beatae labore voluptate aliquid illo voluptatem
-				aliquam veritatis accusantium nihil!
-				</p>
+				<h3>{messages.home.title}</h3>
+				<p>{messages.home.entry}</p>
 			</article>
 		</section>
 	);

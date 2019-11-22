@@ -13,7 +13,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
+				exclude: /node_modules\/(?!react-intl|intl-messageformat|intl-messageformat-parser)/,
 				use: {
 					loader: 'babel-loader',
 				},
@@ -71,7 +71,7 @@ module.exports = {
 		alias: {
 			components: path.resolve(__dirname, 'src/components'),
 			pages: path.resolve(__dirname, 'src/pages'),
-			styles: path.resolve(__dirname, 'src/styles')
-		}
+			styles: path.resolve(__dirname, 'src/styles'),
+		},
 	},
 };
