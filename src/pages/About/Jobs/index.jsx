@@ -7,7 +7,7 @@ const Jobs = () => {
 
 	React.useEffect(() => {
 		fetch('https://raw.githubusercontent.com/estebanborai/estebanborai.github.io/master/data/background.json')
-			.then(res => res.json())
+			.then((res) => res.json())
 			.then((data) => {
 				setJobs(data);
 			});
@@ -18,8 +18,9 @@ const Jobs = () => {
 			<h3>Background</h3>
 			<ol>
 				{
-					jobs ? jobs.map(job => (
+					jobs ? jobs.map((job) => (
 						<Job
+							key={job.id}
 							about={job.about}
 							company={job.company}
 							position={job.position}
