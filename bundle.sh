@@ -6,7 +6,7 @@ PURPLE_COLOR='\033[0;35m'
 DEFAULT_COLOR='\033[0m'
 
 function log() {
-	if [ $2 = "error" ]; then
+	if [[ $2 = "error" ]]; then
 		printf "${PURPLE_COLOR}活動 ${RED_COLOR} (!) $1${DEFAULT_COLOR}\n\n"
 	else
 		printf "${PURPLE_COLOR}活動 ${GREEN_COLOR} $1${DEFAULT_COLOR}\n\n"
@@ -41,7 +41,7 @@ commit_and_publish () {
 	git push origin master
 	git checkout develop
 
-	echo "Build finished"
+	log "Build finished"
 }
 
 commit_and_publish
