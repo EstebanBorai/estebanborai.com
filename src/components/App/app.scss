@@ -1,4 +1,6 @@
 #app-main {
-  margin: 0 auto;
-  width: 90%;
+	display: grid;
+	grid-template-columns: 300px auto;
+	margin: 0 auto;
+	width: 95%;
 }

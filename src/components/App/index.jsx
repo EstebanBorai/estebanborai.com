@@ -9,20 +9,23 @@ import Header from 'components/Header';
 import Home from 'pages/Home';
 import About from 'pages/About';
 import Loader from 'components/Loader';
+import Sidebar from '../Sidebar';
 
 const App = () => (
 	<Router>
 		<div id="app-main">
-			<Header />
+			<Sidebar />
 			<main>
-				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
-					<Route path="/about">
-						<About />
-					</Route>
-				</Switch>
+				<div>
+					<Switch>
+						<Route exact path="/">
+							<Home />
+						</Route>
+						<Route path="/about">
+							<About />
+						</Route>
+					</Switch>
+				</div>
 			</main>
 		</div>
 	</Router>
