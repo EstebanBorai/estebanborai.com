@@ -1,6 +1,10 @@
 {
-  "home": {
-    "title": "Esta es mi pagina de GitHub Pages!",
-    "entry": "Esta pagina esta en construccion en el momento."
-  }
+	"nav": {
+		"home": "Inicio",
+		"repositories": "Repositorios"
+	},
+	"home": {
+		"title": "Esta es mi pagina para GitHub",
+		"entry": "Este sitio se encuentra en desarrollo, vuelva mas tarde."
+	}
 }

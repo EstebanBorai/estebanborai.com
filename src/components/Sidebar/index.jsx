@@ -12,7 +12,6 @@ const Sidebar = () => (
 			/>
 			<article>
 				<h1>Esteban Borai</h1>
-				<h3>estebanborai</h3>
 			</article>
 		</section>
 		<ol>

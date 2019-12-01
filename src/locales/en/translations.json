@@ -1,6 +1,10 @@
 {
-  "home": {
-    "title": "This is my GitHub Page",
-    "entry": "This page is under construction! Please, come back later!"
-  }
+	"nav": {
+		"home": "Home",
+		"repositories": "Repositories"
+	},
+	"home": {
+		"title": "This is my GitHub Page",
+		"entry": "This page is under construction! Please, come back later!"
+	}
 }
