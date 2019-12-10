@@ -5,6 +5,8 @@ import App from 'components/App';
 import { IntlProvider } from 'react-intl';
 import ESTranslations from './locales/es/translations.json';
 import ENTranslations from './locales/en/translations.json';
+import '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/free-solid-svg-icons';
 
 const locales = {
 	es: ESTranslations,
