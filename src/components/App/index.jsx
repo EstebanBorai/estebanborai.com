@@ -5,30 +5,16 @@ import {
 	Switch,
 	Route,
 } from 'react-router-dom';
-import Home from 'pages/Home';
-import Repositories from 'pages/Repositories';
 import Loader from 'components/Loader';
-import Sidebar from '../Sidebar';
-import Nav from '../Nav';
+import Home from 'sections/Home';
+import About from 'sections/About';
+import Projects from 'sections/Projects';
 
 const App = () => (
 	<Router>
-		<div id="app-main">
-			<Sidebar />
-			<Nav />
-			<main id="app-context">
-				<div>
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route path="/repositories">
-							<Repositories />
-						</Route>
-					</Switch>
-				</div>
-			</main>
-		</div>
+		<Home />
+		<About />
+		<Projects />
 	</Router>
 );
 

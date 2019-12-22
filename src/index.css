@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Zilla+Slab|Open+Sans&display=swap');
 
 body {
-	background-color: #fafafa;
+	background-color: #dedede;
 	color: #2a313f;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Vollkorn', serif;
 	font-weight: 300;
 	margin: 0;
 	padding: 0;
 }
 
 h1, h2, h3 {
-	font-family: 'Zilla Slab', cursive;
+	font-family: 'Francois One', sans-serif;
 	font-weight: 300;
 }
