@@ -1,59 +1,64 @@
 {
-  "name": "me",
+  "name": "estbanborai.github.io",
   "version": "0.1.0",
-  "description": "Esteban Borai Portfolio",
-  "main": "src/index.js",
-  "repository": "https://github.com/estebanborai/me.git",
-  "author": "Esteban Borai <estebanborai@outlook.com>",
-  "license": "MIT",
+  "description": "Esteban Borai's GitHub Page",
+  "main": "index.js",
   "scripts": {
+    "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production"
+    "eslint:init": "eslint --init"
   },
-  "browserslist": {
-    "development": [
-      "last 2 chrome versions",
-      "last 2 firefox versions",
-      "last 2 edge versions"
-    ],
-    "production": [
-      ">1%",
-      "last 4 versions",
-      "Firefox ESR",
-      "not ie < 11"
-    ]
+  "maintainers": [
+    {
+      "name": "Esteban Borai",
+      "email": "estebanborai@gmail.com",
+      "website": "github.com/estebanborai"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estebanborai/estebanborai.github.io.git"
+  },
+  "keywords": [
+    "github",
+    "portfolio"
+  ],
+  "author": "Esteban Borai <estebanborai@gmail.com> (github.com/estebanborai)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/estebanborai/estebanborai.github.io/issues"
+  },
+  "homepage": "https://github.com/estebanborai/estebanborai.github.io#readme",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "2.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-react": "^7.7.0",
-    "babel-loader": "^8.0.6",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^3.2.0",
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.16.0",
-    "file-loader": "^4.2.0",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "autoprefixer": "^9.7.4",
+    "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.0",
+    "extract-loader": "^3.1.0",
+    "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.13.0",
-    "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.0",
-    "webpack": "^4.41.2",
+    "node-sass": "^4.13.1",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
-    "@fortawesome/free-brands-svg-icons": "^5.11.2",
-    "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@fortawesome/react-fontawesome": "^0.1.8",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-i18next": "^11.2.1",
-    "react-intl": "^3.6.2",
-    "react-router-dom": "^5.1.2"
+    "webpack-dev-server": "^3.10.1"
   }
 }
