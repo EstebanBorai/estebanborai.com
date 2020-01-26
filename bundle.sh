@@ -36,13 +36,15 @@ commit_and_publish () {
 	log "Copying new bundle files"
 	git checkout master
 	yes | cp -rf ~/esteban-borai-github-io-bundle-temporal-dir/** ./
-	rm -rf ~/esteban-borai-github-io-bundle-temporal-dir/
-
-	log "Publshing to GitHub Pages"
+  
+  log "Publshing to GitHub Pages"
 	git add .
 	git commit -m "[🤖] $COMMIT_MESSAGE"
 	git push origin master
 	git checkout develop
+
+  log "Removing temporal directory \"~/esteban-borai-github-io-bundle-temporal-dir/\""
+	rm -rf ~/esteban-borai-github-io-bundle-temporal-dir/
 
 	log "Build finished"
 }
