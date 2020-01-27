@@ -35,7 +35,8 @@ module.exports = (env, args) => {
             loader: MiniCssExtractPlugin.loader,
             options: {
               hmr: isDevelopment,
-            },
+              reloadAll: true,
+            }
           },
           'css-loader',
           'postcss-loader',
@@ -46,7 +47,7 @@ module.exports = (env, args) => {
 
   // Webpack Dev Server
   config.devServer = {
-    contentBase: path.join(__dirname, 'src'),
+    contentBase: path.join(__dirname, 'dist'),
     hot: true,
     inline: true,
     compress: true,

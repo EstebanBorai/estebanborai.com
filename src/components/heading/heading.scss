@@ -1,4 +1,56 @@
+@import '../../style.scss';
+
+.temp {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
 #heading {
-  background-color: #706d6d;
+  align-items: center;
+  background-color: #f0f7f7;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
   width: 100%;
+
+  #avatar {
+    border-radius: 5rem;
+  }
+
+  #link-list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .link-item {
+      font-size: 1.5rem;
+      text-decoration: none;
+
+      a {
+        color: $link;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      &::after {
+        color: $link;
+        content: " | ";
+        margin-right: 0.5rem;
+      }
+
+      &:last-child {
+        &::after {
+          content: "";
+          margin-right: 0;
+        }
+      }
+    }
+  }
 }

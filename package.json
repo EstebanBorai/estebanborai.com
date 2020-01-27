@@ -30,6 +30,10 @@
   },
   "homepage": "https://github.com/estebanborai/estebanborai.github.io#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
@@ -39,6 +43,8 @@
   "devDependencies": {
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
+    "@types/react-fontawesome": "^1.6.4",
+    "@types/webpack-env": "^1.15.0",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
     "autoprefixer": "^9.7.4",
@@ -52,6 +58,7 @@
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^2.0.0",
     "precss": "^4.0.0",
