@@ -1,5 +1,10 @@
 module.exports = {
-  plugins: {
-    autoprefixer: { grid: true },
-  },
+  syntax: 'postcss-scss',
+  plugins: [
+    require('precss'),
+    require('autoprefixer'),
+    require('cssnano')({
+      preset: 'default',
+    })
+  ],
 };

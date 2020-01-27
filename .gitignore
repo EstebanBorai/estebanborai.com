@@ -1,5 +1,5 @@
 node_modules
 .DS_Store
 Thumbs.db
-bundle
+dist
 yarn-error.log

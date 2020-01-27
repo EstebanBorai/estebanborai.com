@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DefinePlugin = require('webpack').DefinePlugin;
 const HotModuleReplacementPlugin = require('webpack').HotModuleReplacementPlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, args) => {
   const config = {};
@@ -29,26 +29,16 @@ module.exports = (env, args) => {
         loader: 'ts-loader',
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: MiniCssExtractPlugin.loader,
             options: {
-              name: 'style.css',
-            }
+              hmr: isDevelopment,
+            },
           },
-          {
-            loader: 'extract-loader'
-          },
-          {
-            loader: 'css-loader?-url'
-          },
-          {
-            loader: 'postcss-loader'
-          },
-          {
-            loader: 'sass-loader'
-          }
+          'css-loader',
+          'postcss-loader',
         ],
       },
     ]
@@ -90,6 +80,9 @@ module.exports = (env, args) => {
       template: './public/index.ejs',
     }),
     new HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
+    })
   ];
 
   config.resolve = {
