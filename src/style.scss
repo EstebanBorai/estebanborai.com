@@ -1,15 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Source+Sans+Pro:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=DM+Serif+Text|Roboto+Mono&display=swap');
 
 $primary: #222;
 $link: #AAA;
 
 body {
   color: #222;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   margin: 0;
   padding: 0;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'DM Serif Text', serif;
+}
+
+.web-section {
+  box-sizing: border-box;
+  padding: 0.5rem 1.5rem;
+
+  h2 {
+    font-size: 2rem;
+    letter-spacing: .05rem;
+  }
 }

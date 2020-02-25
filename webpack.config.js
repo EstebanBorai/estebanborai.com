@@ -26,7 +26,14 @@ module.exports = (env, args) => {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true
+            }
+          }
+        ]
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -90,6 +97,7 @@ module.exports = (env, args) => {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
+      context: path.resolve(__dirname, 'src/context')
     }
   };
 
