@@ -17,7 +17,7 @@ const Heading = ({ isNav }: HeadingProps): JSX.Element => {
       </div>
       <nav>
         <ul>
-          <li>Profile</li>
+          {/* <li>Profile</li> */}
         </ul>
       </nav>
       <LinkList>

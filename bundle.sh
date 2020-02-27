@@ -24,8 +24,8 @@ commit_and_publish () {
   npm run build
 
   log "Copying files to external `bundle` directory"
-  mkdir  ~/esteban-borai-github-io-bundle-temporal-dir/
-  cp -R ./dist/** ~/esteban-borai-github-io-bundle-temporal-dir/
+  mkdir  ~/Desktop/esteban-borai-github-io-bundle-temporal-dir/
+  cp -R ./dist/** ~/Desktop/esteban-borai-github-io-bundle-temporal-dir/
 
   log "Checking out the current branch"
   git add .
@@ -35,7 +35,7 @@ commit_and_publish () {
   log "Copying new bundle files"
   git checkout master
   # yes | cp -rf ~/esteban-borai-github-io-bundle-temporal-dir/** ./
-  cp -rf ~/esteban-borai-github-io-bundle-temporal-dir/** ./
+  cp -rf ~/Desktop/esteban-borai-github-io-bundle-temporal-dir/** ./
   
   log "Publshing to GitHub Pages"
   git add .
@@ -43,8 +43,8 @@ commit_and_publish () {
   git push origin master
   git checkout develop
 
-  log "Removing temporal directory \"~/esteban-borai-github-io-bundle-temporal-dir/\""
-  rm -rf ~/esteban-borai-github-io-bundle-temporal-dir/
+  log "Removing temporal directory \"~/Desktop/esteban-borai-github-io-bundle-temporal-dir/\""
+  rm -rf ~/Desktop/esteban-borai-github-io-bundle-temporal-dir/
 
   log "Build finished"
 }
