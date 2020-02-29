@@ -1,5 +1,5 @@
 import React from 'react';
-import Heading from 'components/heading';
+import Header from 'components/Header';
 import Profile from 'components/Profile';
 import { GitHubContextProvider } from '../context';
 import CautionDeveloperWorkingOverhead from './CautionDeveloperWorkingOverhead';
@@ -7,7 +7,7 @@ import CautionDeveloperWorkingOverhead from './CautionDeveloperWorkingOverhead';
 const App = (): JSX.Element => (
   <GitHubContextProvider>
     <>
-      <Heading isNav={true} />
+      <Header isNav={true} />
       <main>
         {/* <Profile /> */}
         <CautionDeveloperWorkingOverhead />

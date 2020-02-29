@@ -2,7 +2,7 @@ import * as React from 'react';
 import './heading.scss';
 import LinkList from './LinkList';
 import LinkItem from './LinkItem';
-import { faGithub, faStackOverflow, faDev, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faStackOverflow, faDev, faTwitter, faGitlab } from '@fortawesome/free-brands-svg-icons';
 
 interface HeadingProps {
   isNav: boolean;
@@ -22,6 +22,7 @@ const Heading = ({ isNav }: HeadingProps): JSX.Element => {
       </nav>
       <LinkList>
         <LinkItem icon={faGithub} href="https://github.com/estebanborai" />
+        <LinkItem icon={faGitlab} href="https://gitlab.com/estebanborai" />
         <LinkItem icon={faStackOverflow} href="https://stackoverflow.com/users/9888500/esteban-borai?tab=topactivity" />
         <LinkItem icon={faDev} href="https://dev.to/estebanborai" />
         <LinkItem icon={faTwitter} href="https://twitter.com/estebanborai" />
