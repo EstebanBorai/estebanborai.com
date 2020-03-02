@@ -1,0 +1,21 @@
+#error-message {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  padding: .6rem 1.5rem;
+
+  &.fatal {
+    color: #fff;
+    background-color: #ae3e3e;
+  }
+
+  &.network {
+    background-color: #f7ed60;
+  }
+
+  .icon-container {
+    font-size: 1.3rem;
+    margin-right: 1rem;
+  }
+}
