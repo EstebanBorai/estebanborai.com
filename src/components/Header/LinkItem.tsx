@@ -1,5 +1,5 @@
-import * as React from 'react';
-import './heading.scss';
+import React from 'react';
+import './header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 

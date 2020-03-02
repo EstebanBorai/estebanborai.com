@@ -26,6 +26,10 @@ module.exports = (env, args) => {
     filename: '[name].[hash].js'
   }
 
+  if (isDev) {
+    config.devtool = 'source-maps';
+  }
+
   config.module.rules = [
     {
       test: /\.tsx?$/,

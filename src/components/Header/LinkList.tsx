@@ -1,5 +1,5 @@
-import * as React from 'react';
-import './heading.scss';
+import React from 'react';
+import './header.scss';
 
 interface LinkListProps {
   children: JSX.Element | JSX.Element[];

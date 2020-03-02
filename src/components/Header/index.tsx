@@ -1,16 +1,16 @@
-import * as React from 'react';
-import './heading.scss';
+import React from 'react';
+import './header.scss';
 import LinkList from './LinkList';
 import LinkItem from './LinkItem';
 import { faGithub, faStackOverflow, faDev, faTwitter, faGitlab } from '@fortawesome/free-brands-svg-icons';
 
-interface HeadingProps {
+interface HeaderProps {
   isNav: boolean;
 }
 
-const Heading = ({ isNav }: HeadingProps): JSX.Element => {
+const Header = ({ isNav }: HeaderProps): JSX.Element => {
   return (
-    <section id="heading" className={isNav && "top"}>
+    <header id="header" className={isNav && "top"}>
       <div className="personal">
         <img id="avatar" src="https://avatars2.githubusercontent.com/u/34756077?s=460&v=4" height="150" width="150" />
         <h1>Esteban Borai</h1>
@@ -27,8 +27,8 @@ const Heading = ({ isNav }: HeadingProps): JSX.Element => {
         <LinkItem icon={faDev} href="https://dev.to/estebanborai" />
         <LinkItem icon={faTwitter} href="https://twitter.com/estebanborai" />
       </LinkList>
-    </section>
+    </header>
   );
 };
 
-export default Heading;
+export default Header;
