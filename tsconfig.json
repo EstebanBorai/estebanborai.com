@@ -4,8 +4,10 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
     "module": "commonjs",
-    "target": "es6",
+    "target": "es5",
     "jsx": "react",
     "baseUrl": ".",
     "paths": {

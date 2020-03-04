@@ -1,0 +1,104 @@
+$white-text: #dddddd;
+
+#profile {
+  .profile-contents {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    article {
+      box-sizing: border-box;
+      padding: 0 2rem;
+    }
+  }
+
+  .top-languages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .lang-item {
+      background-color: #f8f2f2;
+      font-size: .9rem;
+      margin-bottom: .3rem;
+
+      p {
+        box-sizing: border-box;
+        padding: .4rem .8rem;
+
+        &.c {
+          background-color: #555555;
+          color: $white-text;
+        }
+  
+        &.cpp {
+          background-color: #f34b7d;
+          color: $white-text;
+        }
+  
+        &.css {
+          background-color: #563d7c;
+          color: $white-text;
+        }
+  
+        &.csharp {
+          background-color: #178600;
+          color: $white-text;
+        }
+  
+        &.dart {
+          background-color: #00B4AB;
+        }
+  
+        &.dockerfile {
+          background-color: #384d54;
+          color: $white-text;
+        }
+  
+        &.html {
+          background-color: #e34c26;
+          color: $white-text;
+        }
+        
+        &.go {
+          background-color: #00add8;
+          color: $white-text;
+        }
+  
+        &.javascript {
+          background-color: #f1e05a;
+        }
+  
+        &.python {
+          background-color: #3572A5;
+          color: $white-text;
+        }
+  
+        &.rust {
+          background-color: #dea584;
+        }
+  
+        &.shell {
+          background-color: #89e051;
+        }
+  
+        &.tsql {
+          background-color: #cccccc;
+        }
+  
+        &.typescript {
+          background-color: #2b7489;
+          color: $white-text;
+        }
+  
+        &.vimscript {
+          background-color: #199f4b;
+        }
+  
+        &.vue {
+          background-color: #2c3e50;
+          color: $white-text;
+        }
+      }
+    }
+  }
+}

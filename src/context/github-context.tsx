@@ -17,6 +17,7 @@ interface GitHubContext {
   isError: unknown;
   repos: Repo[];
   languages: LanguageMap;
+  mostUsedLanguageRatio: number;
 }
 
 interface GitHubData {
@@ -61,11 +62,22 @@ async function gatherStats(): Promise<GitHubData> {
     const repos: Repo[] = [];
 
   try {
+    let mostUsedLanguageRatio = 0;
+
     results.forEach((repo: GitHubReposItem) => {
-      if (repo.language in languages) {
-        languages[repo.language]++;
-      } else {
-        languages[repo.language] = 1;
+
+      if (repo.language) {
+        if (repo.language in languages) {
+          const next = languages[repo.language] + 1;
+
+          if (next > mostUsedLanguageRatio) {
+            mostUsedLanguageRatio = next;
+          }
+
+          languages[repo.language] = next;
+        } else {
+          languages[repo.language] = 1;
+        }
       }
 
       repos.push({
@@ -75,11 +87,19 @@ async function gatherStats(): Promise<GitHubData> {
       });
     });
 
+    console.log({
+      languages,
+      repos,
+      mostUsedLanguageRatio
+    });
+
     return {
       languages,
-      repos
+      repos,
+      mostUsedLanguageRatio
     }
   } catch (err) {
+    console.log(err);
     throw err;
   }
 }
@@ -98,12 +118,13 @@ export function GitHubContextProvider(props: unknown) {
   React.useEffect(() => {
     (async function() {
       try {
-        const { languages, repos } = await gatherStats();
+        const { languages, repos, mostUsedLanguageRatio } = await gatherStats();
 
         setValue({
           ...value,
           languages,
-          repos
+          repos,
+          mostUsedLanguageRatio
         })
       } catch (err) {
         updateNetwork(err);
