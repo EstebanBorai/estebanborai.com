@@ -2,11 +2,10 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "sourceMap": true,
-    "noImplicitAny": true,
     "esModuleInterop": true,
     "preserveConstEnums": true,
     "removeComments": true,
-    "module": "CommonJS",
+    "module": "commonjs",
     "target": "ES2018",
     "jsx": "react",
     "baseUrl": "./src",

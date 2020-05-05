@@ -1,8 +1,8 @@
 {
-  "name": "webpack-boilerplate",
-  "version": "0.0.0",
-  "description": "No description provided",
-  "main": "./src/main.js",
+  "name": "estebanborai.github.io",
+  "version": "0.1.0",
+  "description": "Esteban Borai's GitHub Page",
+  "main": "./src/main.tsx",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress",
     "staging": "cross-env NODE_ENV=staging webpack",
@@ -10,19 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/estebanborai/estebanborai.github.io.git"
   },
-  "author": "",
-  "license": "NO LICENSE",
+  "author": "Esteban Borai",
+  "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/estebanborai/estebanborai.github.io/issues"
   },
   "homepage": "",
   "maintainers": [
     {
-      "name": "",
-      "email": "",
-      "url": ""
+      "name": "Esteban Borai",
+      "email": "estebanborai@gmail.com",
+      "url": "https://github.com/estebanborai/estebanborai.github.io"
     }
   ],
   "optionalDependencies": {

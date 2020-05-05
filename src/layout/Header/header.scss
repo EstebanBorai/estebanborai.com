@@ -1,0 +1,32 @@
+#header {
+  align-items: center;
+  background-color: #eee3e3;
+  box-sizing: border-box;
+  display: flex;
+  height: 64px;
+  justify-content: flex-start;
+  padding: 0 5rem;
+
+  h1 {
+    display: flex;
+    font-size: 1.4rem;
+    flex-direction: column;
+    margin: 0;
+    text-transform: uppercase;
+
+    small {
+      font-size: .8rem;
+      letter-spacing: .03rem;
+
+      &::before {
+        content: '~';
+        margin-right: .1rem;
+      }
+
+      &::after {
+        content: '~';
+        margin-left: .1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import '../../style.scss';
+
+@mixin summary-text {
+  margin: 1rem auto;
+  min-width: 300px;
+  width: 50%;
+}
+
+#summary {
+  h2 {
+    text-align: center;
+  }
+
+  h3 {
+    @include summary-text();
+  }
+
+  .text-block {
+    @include summary-text();
+    font-family: $heading;
+    font-size: 1.1rem;
+  }
+
+  .quote {
+    background-color: #eee5e5;
+    border-left: .5rem solid $primary;
+    box-sizing: border-box;
+    display: flex;
+    padding: .5rem;
+  }
+}

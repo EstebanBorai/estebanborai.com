@@ -10,9 +10,15 @@ const config = {
     main: helpers.root('src', 'main')
   },
   resolve: {
+    alias: {
+      assets: helpers.root('src', 'assets'),
+      components: helpers.root('src', 'components'),
+      layout: helpers.root('src', 'layout')
+    },
     extensions: [
       '.js',
-      '.ts'
+      '.ts',
+      '.tsx'
     ]
   },
   module: {

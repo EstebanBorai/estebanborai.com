@@ -1,5 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Inter&display=swap');
+
+$background: #f1efeb;
+$primary: #b63248;
+$secondary: #16425f;
+$color: #0f1b22;
+
+$body: 'Inter', sans-serif;
+$heading: 'DM Serif Text', serif;
+
 body {
-  font-family: sans-serif;
+  background-color: $background;
+  color: $color;
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
+}
+
+h1, h2, h3 {
+  color: $primary;
+  font-family: $heading;
+}
+
+.site-section {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.link {
+  color: $secondary;
 }

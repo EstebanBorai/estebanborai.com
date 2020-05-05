@@ -1,8 +1,13 @@
 import React from 'react';
+import Header from './Header';
+import Summary from './Summary';
 
 const Layout = (): JSX.Element => (
   <div>
-    <h1>Hello</h1>
+    <Header />
+    <main>
+      <Summary />
+    </main>
   </div>
 );
 
