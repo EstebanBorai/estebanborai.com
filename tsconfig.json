@@ -1,19 +1,28 @@
 {
   "compilerOptions": {
+    "outDir": "./dist/",
     "sourceMap": true,
+    "noImplicitAny": true,
     "esModuleInterop": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "module": "CommonJS",
+    "target": "ES2018",
     "jsx": "react",
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "components/*": [
-        "src/components/*"
+      "~/*": [
+        "."
       ],
+      "assets/*": [
+        "assets/*"
+      ],
+      "components/*": [
+        "components/*"
+      ],
+      "layout/*": [
+        "layout/*"
+      ]
     }
-  },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "./node_modules/**/*"
-  ]
+  }
 }
