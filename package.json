@@ -1,0 +1,23 @@
+{
+  "name": "estebanborai.github.io",
+  "version": "0.1.0",
+  "description": "Esteban Borai's GitHub Page",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estebanborai/estebanborai.github.io.git"
+  },
+  "keywords": [
+    "gh-pages",
+    "portfolio"
+  ],
+  "author": "Esteban Borai <estebanborai@gmail.com> (https://github.com/estebanborai)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/estebanborai/estebanborai.github.io/issues"
+  },
+  "homepage": "https://github.com/estebanborai/estebanborai.github.io#readme"
+}
