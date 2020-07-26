@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import Header from '../Header';
 import Router from '../../pages/router';
 
 function Layout(): JSX.Element {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div id="layout">
         <Header />
         <main className="flex flex-wrap">
@@ -16,7 +16,7 @@ function Layout(): JSX.Element {
           <div className="w-0 sm:w-0 md:w-0 lg:w-0 xl:w-1/6 h-12"></div>
         </main>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
