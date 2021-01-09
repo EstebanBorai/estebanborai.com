@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Grokking Algorithms",
+    "authors": "Aditya Bhargava",
+    "coverURL": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/6172/9781617292231.jpg",
+    "isbn13": "9781617292231",
+    "bookDepositoryURL": "https://www.bookdepository.com/Grokking-Algorithms-Aditya-Bhargava/9781617292231?ref=grid-view&qid=1621054081855&sr=1-1"
+  },
+  {
+    "title": "The Rust Programming Language: (Covers Rust 2018)",
+    "authors": "Steve Klabnik and Carol Nichols",
+    "coverURL": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/7185/9781718500440.jpg",
+    "isbn13": "9781718500440",
+    "bookDepositoryURL": "https://www.bookdepository.com/The-Rust-Programming-Language/9781718500440"
+  },
+  {
+    "title": "Fullstack React",
+    "authors": "Anthony Accomazzo",
+    "coverURL": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/9913/9780991344628.jpg",
+    "isbn13": "9780991344628",
+    "bookDepositoryURL": "https://www.bookdepository.com/Fullstack-React/9780991344628"
+  },
+  {
+    "title": "JavaScript and JQuery: Interactive Front-End Web Development",
+    "authors": "Jon Duckett",
+    "coverURL": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/1185/9781118531648.jpg",
+    "isbn13": "9781118531648",
+    "bookDepositoryURL": "https://www.bookdepository.com/JavaScript-JQuery-Jon-Duckett/9781118531648?ref=pd_detail_1_sims_b_p2p_1"
+  },
+  {
+    "title": "HTML and CSS: Design and Build Websites",
+    "authors": "Jon Duckett",
+    "coverURL": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/1180/9781118008188.jpg",
+    "isbn13": "9781118008188",
+    "bookDepositoryURL": "https://www.bookdepository.com/HTML-CSS-Jon-Duckett/9781118008188?ref=grid-view&qid=1621057242002&sr=1-2"
+  },
+  {
+    "title": "Head First HTML and CSS: A Learner's Guide to Creating Standards-Based Web Pages",
+    "authors": "Elisabeth Robson and Eric Freeman",
+    "coverURL": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/5961/9780596159900.jpg",
+    "isbn13": "9780596159900",
+    "bookDepositoryURL": "https://www.bookdepository.com/Head-First-HTML-and-CSS-Elisabeth-Robson-Eric-Freeman/9780596159900"
+  },
+  {
+    "title": "Head First Python",
+    "authors": "Paul Barry",
+    "coverURL": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4493/9781449382674.jpg",
+    "isbn13": "9781449382674",
+    "bookDepositoryURL": "https://www.bookdepository.com/Head-First-Python-Paul-Barry/9781449382674?ref=grid-view&qid=1621054222801&sr=1-2"
+  }
+]

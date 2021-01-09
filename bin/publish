@@ -1,0 +1,3 @@
+#!/bin/bash
+
+yarn build && yarn wrangler publish --env $CF_ENVIRONMENT

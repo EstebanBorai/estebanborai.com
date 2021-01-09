@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-function Home() {
+import Main from './components/Main';
+
+export default function Home(): JSX.Element {
   return (
     <div>
-      <h2>Home</h2>
+      <Main />
     </div>
   );
 }
-
-export default Home;
