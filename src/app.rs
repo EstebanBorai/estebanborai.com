@@ -1,5 +1,8 @@
 use yew::prelude::*;
 
+use crate::components::header::Header;
+use crate::components::home::Home;
+
 pub struct App {}
 
 pub enum Msg {}
@@ -22,8 +25,14 @@ impl Component for App {
 
     fn view(&self) -> Html {
         html! {
-          <div>
-            <h1>{"Esteban Borai"}</h1>
+          <div class="bg-self-black">
+            <Header />
+            <main>
+                <Home />
+            </main>
+            <footer class="p-4 w-full text-self-white text-center">
+                <small>{"Made with code and 🧉 by Esteban Borai"}</small>
+            </footer>
           </div>
         }
     }

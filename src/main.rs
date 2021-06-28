@@ -1,6 +1,7 @@
 #![recursion_limit = "1024"]
 
 mod app;
+mod components;
 
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;

@@ -18,6 +18,16 @@ jobs:
           toolchain: stable
           override: true
 
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install NodeJS Dependencies
+        run: yarn install
+
+      - name: Build TailwindCSS Styles
+        run: yarn build
+
       - name: Setup "wasm32-unknown-unknown" target
         run: rustup target add wasm32-unknown-unknown
 

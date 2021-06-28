@@ -1,4 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Inconsolata&family=Source+Serif+Pro:wght@300;400;700&family=Calistoga&display=swap');
+
 body {
-  font-family: sans-serif;
   margin: 0;
+  padding: 0;
+}
+
+.section-height {
+  min-height: calc(100vh - 80px);
+}
+
+.home-avatar-image {
+  height: 320px;
+  width: 320px;
 }

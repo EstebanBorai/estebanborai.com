@@ -1,0 +1,17 @@
+{
+  "name": "estebanborai.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:EstebanBorai/estebanborai.github.io.git",
+  "author": "Esteban Borai <estebanborai@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tailwindcss -o src/styles/tailwind.css",
+    "dev": "tailwindcss -w -o src/styles/tailwind.css"
+  },
+  "devDependencies": {
+    "tailwindcss": "^2.2.4"
+  },
+  "dependencies": {
+  }
+}
