@@ -31,7 +31,12 @@ impl Component for App {
                 <Home />
             </main>
             <footer id="footer">
-                <small>{"Made with code and 🧉 by Esteban Borai"}</small>
+                <small>
+                    {"Made with Rust and 🧉 by Esteban Borai checkout the code "}
+                    <a class="link" href="https://github.com/EstebanBorai/estebanborai.github.io" target="_blank">
+                        {"here"}
+                    </a>
+                </small>
             </footer>
           </>
         }

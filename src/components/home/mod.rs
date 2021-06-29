@@ -37,9 +37,13 @@ impl Component for Home {
                     </figure>
                 </div>
                 <article class="personal-resume">
-                    <span class="greeting">{"Hi, there! 👋"}</span>
+                    <span class="greeting">
+                        {"Hi, there "}
+                        <span class="wave">{"👋"}</span>
+                        <span>{" !"}</span>
+                    </span>
                     <p class="brief">
-                        {"I'm a Software Engineer interested in Web Development and Systems Programming"}
+                        {"I'm a Software Engineer interested in Web Development and Systems Programming. Currently writing @rust-lang and TypeScript."}
                     </p>
                     <ul class="social">
                         <SocialLink href="https://github.com/EstebanBorai">

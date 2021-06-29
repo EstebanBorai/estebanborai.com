@@ -15,9 +15,7 @@ impl Component for SocialLink {
     type Properties = SocialLinkProps;
 
     fn create(props: Self::Properties, _: ComponentLink<Self>) -> Self {
-        Self {
-            props: props,
-        }
+        Self { props: props }
     }
 
     fn update(&mut self, _msg: Self::Message) -> ShouldRender {

@@ -2,11 +2,29 @@
 
 $main-color: #323232;
 $text-color: #fefefe;
+$link-color: #7bacac;
 $header-height: 64px;
 $font-body: 'Source Serif Pro';
 $font-display: 'Calistoga';
 $font-mono: 'Inconsolata';
 $font-head: 'Alata';
+
+@mixin mobile {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@keyframes wave-animation {
+  0% { transform: rotate( 0.0deg) }
+  10% { transform: rotate(14.0deg) }
+  20% { transform: rotate(-8.0deg) }
+  30% { transform: rotate(14.0deg) }
+  40% { transform: rotate(-4.0deg) }
+  50% { transform: rotate(10.0deg) }
+  60% { transform: rotate( 0.0deg) }
+  100% { transform: rotate( 0.0deg) }
+}
 
 body {
   background-color: $main-color;
@@ -33,6 +51,10 @@ img {
   }
 }
 
+.link {
+  color: $link-color;
+}
+
 .section-wrapper {
   margin: 0 auto;
   width: 90%;
@@ -47,6 +69,13 @@ img {
     display: inline-block;
     height: 320px;
     width: 320px;
+  }
+
+  @include mobile() {
+    img {
+      height: 260px;
+      width: 260px;
+    }
   }
 }
 
@@ -101,6 +130,14 @@ img {
   height: calc(100vh - 64px);
   width: 100%;
 
+  .wave {
+    display: inline-block;
+    animation-name: wave-animation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+  }
+
   .image-wrapper {
     align-items: center;
     display: flex;
@@ -136,15 +173,23 @@ img {
     }
 
     .social {
+      align-items: flex-start;
       display: flex;
-      margin: 0;
+      margin: 0 auto;
       margin-top: 1rem;
       padding: 0;
       list-style-type: none;
+      width: 90%;
     }
   }
 
   .social-link {
+    margin: 0 1rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
     a {
       text-decoration: none;
     }
@@ -152,12 +197,48 @@ img {
     svg {
       color: lighten($color: $main-color, $amount: 20);
       fill: currentColor;
-      margin: 0 1rem;
       height: 32px;
       width: 32px;
 
       &:hover {
         color: $text-color;
+      }
+    }
+  }
+
+  @include mobile() {
+    display: flex;
+    flex-direction: column;
+
+    .image-wrapper {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .personal-resume {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .greeting {
+        text-align: center;
+      }
+
+      .brief {
+        text-align: center;
+      }
+
+      .social {
+        align-items: center;
+        margin-top: 2rem;
+        justify-content: center;
+      }
+
+      .social-link {
+        margin: 0 1rem;
       }
     }
   }
