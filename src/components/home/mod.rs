@@ -1,11 +1,15 @@
+mod social_link;
+
 use yew::prelude::*;
+
+use crate::components::icon::{GitHub, LinkedIn, Twitter};
+
+use self::social_link::SocialLink;
 
 pub struct Home {}
 
-pub enum Msg {}
-
 impl Component for Home {
-    type Message = Msg;
+    type Message = ();
     type Properties = ();
 
     fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
@@ -22,19 +26,33 @@ impl Component for Home {
 
     fn view(&self) -> Html {
         html! {
-            <section class="flex items-center section-height justify-center relative">
-                <div class="flex items-center justify-center w-3/6 ml-auto">
-                    <div class="inline-block mr-3 ml-auto">
-                        <figure class="home-avatar-image rounded-full overflow-hidden">
-                            <img src="https://avatars.githubusercontent.com/u/34756077?v=4" height="320" width="320" />
-                        </figure>
-                    </div>
+            <section id="home" class="section-wrapper">
+                <div class="image-wrapper">
+                    <figure class="home-avatar-image">
+                        <img
+                            src="https://avatars.githubusercontent.com/u/34756077?v=4"
+                            height="320"
+                            width="320"
+                        />
+                    </figure>
                 </div>
-                <div class="flex items-center justify-center w-3/6 mr-auto">
-                    <p class="font-display text-4xl text-self-white text-left w-full">
-                        {"Hi! I'm Esteban Borai"}
+                <article class="personal-resume">
+                    <span class="greeting">{"Hi, there! 👋"}</span>
+                    <p class="brief">
+                        {"I'm a Software Engineer interested in Web Development and Systems Programming"}
                     </p>
-                </div>
+                    <ul class="social">
+                        <SocialLink href="https://github.com/EstebanBorai">
+                            <GitHub />
+                        </SocialLink>
+                        <SocialLink href="https://www.linkedin.com/in/esteban-b-241ba0135/">
+                            <LinkedIn />
+                        </SocialLink>
+                        <SocialLink href="https://twitter.com/EstebanBorai">
+                            <Twitter />
+                        </SocialLink>
+                    </ul>
+                </article>
             </section>
         }
     }

@@ -25,15 +25,15 @@ impl Component for App {
 
     fn view(&self) -> Html {
         html! {
-          <div class="bg-self-black">
+          <>
             <Header />
             <main>
                 <Home />
             </main>
-            <footer class="p-4 w-full text-self-white text-center">
+            <footer id="footer">
                 <small>{"Made with code and 🧉 by Esteban Borai"}</small>
             </footer>
-          </div>
+          </>
         }
     }
 }

@@ -22,11 +22,9 @@ impl Component for Header {
 
     fn view(&self) -> Html {
         html! {
-            <header class="bg-self-black flex items-center justify-between flex-wrap bg-teal-500 p-6">
-                <div class="flex items-center flex-shrink-0 text-white mr-6">
-                    <h1 class="font-display font-semibold text-xl tracking-tight">
-                        {"Esteban Borai"}
-                    </h1>
+            <header id="header">
+                <div class="wrapper">
+                    <h1>{"Esteban Borai"}</h1>
                 </div>
             </header>
         }
