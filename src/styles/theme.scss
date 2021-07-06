@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Inconsolata&family=Source+Serif+Pro:wght@300;400;700&family=Calistoga&display=swap');
+
+$main-color: #323232;
+$text-color: #fefefe;
+$link-color: #7bacac;
+$header-height: 64px;
+$font-body: 'Source Serif Pro';
+$font-display: 'Calistoga';
+$font-mono: 'Inconsolata';
+$font-head: 'Alata';
+
+@mixin mobile {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}

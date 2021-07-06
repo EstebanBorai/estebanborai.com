@@ -1,5 +1,6 @@
 use yew::prelude::*;
 
+use crate::components::article::Article;
 use crate::components::header::Header;
 use crate::components::home::Home;
 
@@ -29,6 +30,7 @@ impl Component for App {
             <Header />
             <main>
                 <Home />
+                <Article />
             </main>
             <footer id="footer">
                 <small>
