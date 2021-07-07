@@ -1,8 +1,11 @@
 use yew::prelude::*;
+use yew_router::prelude::*;
 
 use crate::components::article::Article;
 use crate::components::header::Header;
 use crate::components::home::Home;
+
+use super::router::AppRoute;
 
 pub struct App {}
 
@@ -29,8 +32,15 @@ impl Component for App {
           <>
             <Header />
             <main>
-                <Home />
-                <Article />
+                <Router<AppRoute, ()>
+                render = Router::render(|switch: AppRoute| {
+                        match switch {
+                            AppRoute::Home => html!{<Home />},
+                            AppRoute::Articles => html! {<h1>{"Articles"}</h1>},
+                            AppRoute::Article(id) => html!{<Article id=id />},
+                        }
+                    })
+                />
             </main>
             <footer id="footer">
                 <small>

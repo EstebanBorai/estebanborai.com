@@ -1,7 +1,5 @@
 use pulldown_cmark::html::push_html;
 use pulldown_cmark::{Options, Parser};
-use web_sys::Url;
-use yew::web_sys::window;
 
 pub fn parse_markdown(value: &str) -> String {
     let mut opts = Options::empty();
@@ -19,29 +17,6 @@ pub fn parse_markdown(value: &str) -> String {
     parsed
 }
 
-pub fn location() -> Option<String> {
-    if let Some(win) = window() {
-        let loc = win.location();
-
-        if let Ok(href) = loc.href() {
-            return Some(href);
-        }
-
-        return None;
-    }
-
-    None
-}
-
-pub fn article_url_from_location(location: String) -> Option<String> {
-    if let Ok(url) = Url::new(location.as_str()) {
-        let url_search_params = url.search_params();
-        if let Some(art_key) = url_search_params.get("art") {
-            return Some(format!("http://0.0.0.0:7878/{}", art_key));
-        }
-
-        return None;
-    }
-
-    None
+pub fn article_url_from_location(id: String) -> String {
+    format!("http://0.0.0.0:7878/{}.md", id)
 }

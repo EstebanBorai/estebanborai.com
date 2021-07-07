@@ -9,7 +9,8 @@ console_error_panic_hook = "0.1.6"
 pulldown-cmark = "0.7.2"
 wasm-bindgen = "0.2.73"
 wee_alloc = "0.4.5"
-yew = "0.17.3"
+yew = "0.18.0"
+yew-router = "0.15.0"
 
 [dependencies.web-sys]
 default-features = false

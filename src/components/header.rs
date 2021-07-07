@@ -1,4 +1,7 @@
 use yew::prelude::*;
+use yew_router::components::RouterAnchor;
+
+use crate::router::AppRoute;
 
 pub struct Header {}
 
@@ -25,6 +28,20 @@ impl Component for Header {
             <header id="header">
                 <div class="wrapper">
                     <h1>{"Esteban Borai"}</h1>
+                    <nav>
+                        <ul>
+                            <li>
+                                <RouterAnchor<AppRoute> route=AppRoute::Home classes="router,active">
+                                    {"Home"}
+                                </RouterAnchor<AppRoute>>
+                            </li>
+                            <li>
+                                <RouterAnchor<AppRoute> route=AppRoute::Articles>
+                                    {"Articles"}
+                                </RouterAnchor<AppRoute>>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </header>
         }

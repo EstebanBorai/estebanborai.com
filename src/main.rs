@@ -2,6 +2,7 @@
 
 mod app;
 mod components;
+mod router;
 
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;

@@ -78,29 +78,34 @@ img {
     width: 90%;
 
     h1 {
+      display: inline-block;
       margin: 0;
     }
-  }
 
-  nav {
-    font-family: $font-head;
+    nav {
+      font-family: $font-head;
+  
+      ul {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+  
+        li {
+          margin-left: 1rem;
+          margin-right: 1rem;
+  
+          a {
+            color: $text-color;
+            text-decoration: none;
 
-    ul {
-      align-items: center;
-      display: flex;
-      height: 100%;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-
-      li {
-        margin-left: 1rem;
-        margin-right: 1rem;
-
-        a {
-          color: $text-color;
-          text-decoration: none;
+            &:hover {
+              color: #ffffffAA;
+            }
+          }
         }
       }
     }

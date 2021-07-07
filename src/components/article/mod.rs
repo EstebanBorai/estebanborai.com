@@ -7,12 +7,18 @@ use yew::services::FetchService;
 use yew::virtual_dom::VNode;
 use yew::web_sys::Node;
 
+#[derive(Properties, Clone, PartialEq)]
+pub struct ArticleProps {
+    pub id: Option<String>,
+}
+
 pub struct Article {
     article_markdown: Option<String>,
     article_html: Option<String>,
     fetch_task: Option<FetchTask>,
     link: ComponentLink<Self>,
     error: Option<String>,
+    props: ArticleProps,
 }
 
 pub enum Msg {
@@ -44,22 +50,23 @@ impl Article {
 
 impl Component for Article {
     type Message = Msg;
-    type Properties = ();
+    type Properties = ArticleProps;
 
-    fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
+    fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
         Article {
             article_markdown: None,
             article_html: None,
             fetch_task: None,
             link,
             error: None,
+            props,
         }
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
             Msg::Fetch(url) => {
-                let request = Request::get("http://0.0.0.0:7878")
+                let request = Request::get(url)
                     .body(Nothing)
                     .expect("Failed to fetch article");
 
@@ -102,10 +109,10 @@ impl Component for Article {
 
     fn rendered(&mut self, first_render: bool) {
         if first_render {
-            if let Some(loc) = utils::location() {
-                if let Some(article_url) = utils::article_url_from_location(loc) {
-                    self.update(Msg::Fetch(article_url));
-                }
+            if let Some(id) = self.props.id.clone() {
+                let article_url = utils::article_url_from_location(id);
+
+                self.update(Msg::Fetch(article_url));
             }
         }
     }
