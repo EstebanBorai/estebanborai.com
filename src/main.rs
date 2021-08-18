@@ -2,6 +2,8 @@
 
 mod app;
 mod components;
+mod modules;
+mod pages;
 mod router;
 
 #[global_allocator]

@@ -1,19 +1,16 @@
-mod social_link;
-
 use yew::prelude::*;
 
 use crate::components::icon::{GitHub, LinkedIn, Twitter};
+use crate::modules::home::social_link::SocialLink;
 
-use self::social_link::SocialLink;
+pub struct Index {}
 
-pub struct Home {}
-
-impl Component for Home {
+impl Component for Index {
     type Message = ();
     type Properties = ();
 
     fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
-        Home {}
+        Index {}
     }
 
     fn update(&mut self, _msg: Self::Message) -> ShouldRender {

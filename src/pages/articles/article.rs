@@ -1,11 +1,11 @@
-mod utils;
-
 use yew::format::{Nothing, Text};
 use yew::prelude::*;
 use yew::services::fetch::{FetchTask, Request, Response};
 use yew::services::FetchService;
 use yew::virtual_dom::VNode;
 use yew::web_sys::Node;
+
+use crate::modules::articles::utils;
 
 #[derive(Properties, Clone, PartialEq)]
 pub struct ArticleProps {

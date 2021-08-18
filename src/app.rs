@@ -1,9 +1,9 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-use crate::components::article::Article;
-use crate::components::header::Header;
-use crate::components::home::Home;
+use crate::components::layout::Layout;
+use crate::pages::articles;
+use crate::pages::index;
 
 use super::router::AppRoute;
 
@@ -29,28 +29,17 @@ impl Component for App {
 
     fn view(&self) -> Html {
         html! {
-          <>
-            <Header />
-            <main>
+            <Layout>
                 <Router<AppRoute, ()>
-                render = Router::render(|switch: AppRoute| {
+                    render = Router::render(|switch: AppRoute| {
                         match switch {
-                            AppRoute::Home => html!{<Home />},
-                            AppRoute::Articles => html! {<h1>{"Articles"}</h1>},
-                            AppRoute::Article(id) => html!{<Article id=id />},
+                            AppRoute::Home => html!{<index::Index />},
+                            AppRoute::Articles => html! {<articles::index::Index />},
+                            AppRoute::Article(id) => html!{<articles::article::Article id=id />},
                         }
                     })
                 />
-            </main>
-            <footer id="footer">
-                <small>
-                    {"Made with Rust and 🧉 by Esteban Borai checkout the code "}
-                    <a class="link" href="https://github.com/EstebanBorai/estebanborai.github.io" target="_blank">
-                        {"here"}
-                    </a>
-                </small>
-            </footer>
-          </>
+          </Layout>
         }
     }
 }
