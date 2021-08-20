@@ -19,8 +19,25 @@
         display: inline-block;
         margin: 0;
       }
+
+      #mobile-nav-button {
+        background-color: transparent;
+        border: none;
+        color: #FFFFFF;
+        cursor: pointer;
+        height: 2rem;
+        width: 2rem;
+      }
+
+      .burger-nav-icon {
+        color: #FFFFFF;
+        height: 2rem;
+        width: 2rem;
+      }
   
-      nav {
+      #desktop-nav {
+        display: inline-block;
+
         font-family: $font-head;
     
         ul {
@@ -42,6 +59,63 @@
   
               &:hover {
                 color: #ffffffAA;
+              }
+            }
+          }
+        }
+
+        @media (max-width: 500px) {
+          display: none;
+        }
+      }
+
+      #mobile-nav, #mobile-nav-button {
+        display: none;
+
+        @media (max-width: 500px) {
+          display: flex;
+        }
+      }
+
+      #mobile-nav {
+        background-color: $main-color;
+        flex-direction: column;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        z-index: 100;
+
+        header {
+          align-items: center;
+          border-bottom: 1px solid #FFFFFF;
+          box-sizing: border-box;
+          font-size: 1.5rem;
+          display: flex;
+          justify-content: space-between;
+          padding: 1rem;
+          width: 100%;
+        }
+
+        main {
+          ul {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+              box-sizing: border-box;
+              padding: 1rem 0;
+
+              a {
+                color: #FFFFFF;
+                font-family: $font-head;
+                font-size: 1.15rem;
+                text-decoration: none;
               }
             }
           }
