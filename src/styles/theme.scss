@@ -8,6 +8,7 @@ $font-body: 'Source Serif Pro';
 $font-display: 'Calistoga';
 $font-mono: 'Inconsolata';
 $font-head: 'Alata';
+$layout-header-height: 64px;
 
 @mixin mobile {
   @media (max-width: 1024px) {

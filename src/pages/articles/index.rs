@@ -22,10 +22,24 @@ impl Component for Index {
         html! {
             <section id="articles">
                 <h1>{"Articles"}</h1>
-                <p>{"Notes and articles I'm planning to write at some point in time will live here."}</p>
-                <div>
-                    {"Opps! This looks like empty, theres no articles available yet. Come back tomorrow!"}
-                </div>
+                <ul id="article-listing">
+                    <li class="article-item">
+                        <a href="/articles/1">
+                            <figure style="background-image: url('https://images.unsplash.com/photo-1482160549825-59d1b23cb208?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');">{" "}</figure>
+                            <article>
+                                <strong>{"Testing"}</strong>
+                                <p>
+                                    {r#"
+                                        This is a sample article I'm using to
+                                        give a try on this feature of having my
+                                        own Article management system. It's a
+                                        WIP that I have published.
+                                    "#}
+                                </p>
+                            </article>
+                        </a>
+                    </li>
+                </ul>
             </section>
         }
     }
