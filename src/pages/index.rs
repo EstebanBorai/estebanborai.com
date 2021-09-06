@@ -40,7 +40,7 @@ impl Component for Index {
                         <span>{" !"}</span>
                     </span>
                     <p class="brief">
-                        {"I'm a Software Engineer interested in Web Development and Systems Programming. Currently writing @rust-lang and TypeScript."}
+                        {"I'm a Software Engineer who writes Web Applications and is also interested in Systems Programming and Game Development. I write Rust and TypeScript most of the time."}
                     </p>
                     <ul class="social">
                         <SocialLink href="https://github.com/EstebanBorai">
