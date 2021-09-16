@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy
 on:
   push:
     branches:
@@ -31,12 +31,11 @@ jobs:
       - name: Setup "wasm-bindgen-cli"
         run: cargo install wasm-bindgen-cli
 
-      # https://github.com/thedodd/trunk#install
       - name: Install Trunk
-        run: wget -qO- https://github.com/thedodd/trunk/releases/download/v0.11.0/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
+        run: cargo install --locked trunk
 
       - name: Build
-        run: ./trunk build
+        run: trunk build
 
       - name: Setup "wrangler"
         run: cargo install wrangler
