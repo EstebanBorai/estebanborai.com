@@ -18,5 +18,5 @@ pub fn parse_markdown(value: &str) -> String {
 }
 
 pub fn article_url_from_location(_id: String) -> String {
-    String::from("https://gist.githubusercontent.com/EstebanBorai/cdc9afd6097f70b801a0d2f9fbee2d03/raw/65e5ad53e3c28b17140b93d3ca0aa8bd1a9d05b0/testing_markdown_syntax.md")
+    String::from("https://raw.githubusercontent.com/EstebanBorai/EstebanBorai/main/notes/001-installing-the-rust-programming-language-on-windows.md")
 }
