@@ -1,18 +1,3 @@
-body {
-  background-color: $main-color;
-  color: $text-color;
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
-  font-family: $font-display, sans-serif;
-}
-
-h2, h3 {
-  font-family: $font-head, sans-serif;
-}
-
 img {
   filter: grayscale(100%);
   transition: 250ms filter ease;

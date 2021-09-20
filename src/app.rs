@@ -2,8 +2,8 @@ use yew::prelude::*;
 use yew_router::prelude::*;
 
 use crate::components::layout::Layout;
-use crate::pages::articles;
 use crate::pages::index;
+use crate::pages::notes;
 
 use super::router::AppRoute;
 
@@ -34,8 +34,8 @@ impl Component for App {
                     render = Router::render(|switch: AppRoute| {
                         match switch {
                             AppRoute::Home => html!{<index::Index />},
-                            AppRoute::Articles => html! {<articles::index::Index />},
-                            AppRoute::Article(id) => html!{<articles::article::Article id=id />},
+                            AppRoute::Notes => html! {<notes::index::Index />},
+                            AppRoute::Note(id) => html!{<notes::note::Note id=id />},
                         }
                     })
                 />

@@ -51,8 +51,8 @@ impl Component for Header {
                                 </RouterAnchor<AppRoute>>
                             </li>
                             <li>
-                                <RouterAnchor<AppRoute> route=AppRoute::Articles>
-                                    {"Articles"}
+                                <RouterAnchor<AppRoute> route=AppRoute::Notes>
+                                    {"Notes"}
                                 </RouterAnchor<AppRoute>>
                             </li>
                         </ul>
@@ -78,8 +78,8 @@ impl Component for Header {
                                                 </RouterAnchor<AppRoute>>
                                             </li>
                                             <li onclick=self.link.callback(|_| Msg::CloseMobileNav)>
-                                                <RouterAnchor<AppRoute> route=AppRoute::Articles>
-                                                    {"Articles"}
+                                                <RouterAnchor<AppRoute> route=AppRoute::Notes>
+                                                    {"Notes"}
                                                 </RouterAnchor<AppRoute>>
                                             </li>
                                         </ul>

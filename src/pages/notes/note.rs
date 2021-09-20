@@ -5,20 +5,20 @@ use yew::services::FetchService;
 use yew::virtual_dom::VNode;
 use yew::web_sys::Node;
 
-use crate::modules::articles::utils;
+use crate::modules::notes::utils;
 
 #[derive(Properties, Clone, PartialEq)]
-pub struct ArticleProps {
+pub struct NoteProps {
     pub id: Option<String>,
 }
 
-pub struct Article {
+pub struct Note {
     article_markdown: Option<String>,
     article_html: Option<String>,
     fetch_task: Option<FetchTask>,
     link: ComponentLink<Self>,
     error: Option<String>,
-    props: ArticleProps,
+    props: NoteProps,
 }
 
 pub enum Msg {
@@ -28,7 +28,7 @@ pub enum Msg {
     FetchLoading,
 }
 
-impl Article {
+impl Note {
     fn render_loading(&self) -> Html {
         if self.fetch_task.is_some() {
             html! {
@@ -48,12 +48,12 @@ impl Article {
     }
 }
 
-impl Component for Article {
+impl Component for Note {
     type Message = Msg;
-    type Properties = ArticleProps;
+    type Properties = NoteProps;
 
     fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
-        Article {
+        Note {
             article_markdown: None,
             article_html: None,
             fetch_task: None,
@@ -132,8 +132,8 @@ impl Component for Article {
             let vnode = VNode::VRef(node);
 
             return html! {
-                <section id="article">
-                    <div id="article-container">
+                <section id="notes">
+                    <div id="notes-container">
                         {vnode}
                     </div>
                 </section>

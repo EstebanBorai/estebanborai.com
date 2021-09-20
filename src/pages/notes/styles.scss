@@ -1,11 +1,11 @@
-#articles {
-  h1 {
+#notes {
+  h1, #section-description {
     @media (max-width: 1200px) {
       margin: 1rem 1.5rem;
     }
   }
 
-  #article-listing {
+  #notes-listing {
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(3, 30%);
@@ -15,13 +15,14 @@
 
     @media (max-width: 1200px) {
       grid-template-columns: 50% 50%;
+      margin: 1rem 1.5rem;
     }
 
     @media (max-width: 720px) {
       grid-template-columns: 100%;
     }
 
-    .article-item {
+    .note-item {
       align-items: center;
       border: 2px solid #FFFFFF;
       display: flex;
@@ -51,7 +52,7 @@
         article {
           box-sizing: border-box;
           font-family: $font-body;
-          padding: 1rem;
+          padding: .5rem;
 
           strong {
             font-family: $font-head;
@@ -63,8 +64,8 @@
   }
 }
 
-#article {
-  #article-container {
+#notes {
+  #notes-container {
     background: #fff;
     border-radius: 2px;
     box-sizing: border-box;
@@ -79,16 +80,70 @@
       width: 100%;
     }
 
+    h1 {
+      font-size: 2rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    a {
+      color: #178ed3;
+      font-family: $font-body;
+      text-decoration: underline;
+    }
+
+    code {
+      background-color: #f0f0f0;
+      border-radius: .25rem;
+      box-sizing: border-box;
+      color: #d31765;
+      padding: .25rem;
+      font-family: $font-mono;
+    }
+
     pre {
       background-color: #fffad5;
       border-radius: 2px;
       box-sizing: border-box;
       overflow-x: auto;
       padding: 1rem;
+
+      code {
+        background-color: transparent;
+        border-radius: none;
+        color: #000000;
+        font-family: $font-mono;
+        padding: 0;
+      }
     }
 
     img {
       max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.note-tags {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0;
+  width: 300px;
+
+  li {
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    padding: .25rem;
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: none;
     }
   }
 }

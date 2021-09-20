@@ -1,2 +1,2 @@
 pub mod index;
-pub mod notes;
+pub mod note;

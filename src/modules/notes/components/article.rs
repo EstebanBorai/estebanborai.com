@@ -5,7 +5,7 @@ use yew::services::FetchService;
 use yew::virtual_dom::VNode;
 use yew::web_sys::Node;
 
-use crate::modules::articles::utils;
+use crate::modules::notes::utils;
 
 #[derive(Properties, Clone, PartialEq)]
 pub struct ArticleProps {
