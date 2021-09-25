@@ -1,7 +1,18 @@
 use pulldown_cmark::html::push_html;
 use pulldown_cmark::{Options, Parser};
+use serde::Deserialize;
+use yaml_front_matter::{Document, YamlFrontMatter};
 
-pub fn parse_markdown(value: &str) -> String {
+#[derive(Clone, Deserialize)]
+pub struct Metadata {
+    pub title: String,
+    pub description: String,
+    pub categories: Vec<String>,
+    pub date: String,
+}
+
+pub fn parse_markdown(value: &str) -> (Metadata, String) {
+    let document: Document<Metadata> = YamlFrontMatter::parse::<Metadata>(&value).unwrap();
     let mut opts = Options::empty();
 
     opts.insert(Options::ENABLE_FOOTNOTES);
@@ -9,12 +20,11 @@ pub fn parse_markdown(value: &str) -> String {
     opts.insert(Options::ENABLE_TABLES);
     opts.insert(Options::ENABLE_TASKLISTS);
 
-    let parser = Parser::new_ext(&value, opts);
+    let parser = Parser::new_ext(&document.content, opts);
     let mut parsed = String::default();
 
     push_html(&mut parsed, parser);
-
-    parsed
+    (document.metadata, parsed)
 }
 
 pub fn article_url_from_location(_id: String) -> String {

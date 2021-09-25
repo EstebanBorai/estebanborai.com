@@ -5,7 +5,7 @@ use yew::services::FetchService;
 use yew::virtual_dom::VNode;
 use yew::web_sys::Node;
 
-use crate::modules::notes::utils;
+use crate::modules::notes::utils::{article_url_from_location, parse_markdown, Metadata};
 
 #[derive(Properties, Clone, PartialEq)]
 pub struct NoteProps {
@@ -16,6 +16,7 @@ pub struct Note {
     article_markdown: Option<String>,
     article_html: Option<String>,
     fetch_task: Option<FetchTask>,
+    front_matter: Option<Metadata>,
     link: ComponentLink<Self>,
     error: Option<String>,
     props: NoteProps,
@@ -42,10 +43,6 @@ impl Note {
     fn render_error(&self, error: String) -> Html {
         html! { <p>{ error.clone() }</p> }
     }
-
-    fn render_article(&self) -> Html {
-        html! { <p>{"This is your article"}</p> }
-    }
 }
 
 impl Component for Note {
@@ -57,6 +54,7 @@ impl Component for Note {
             article_markdown: None,
             article_html: None,
             fetch_task: None,
+            front_matter: None,
             link,
             error: None,
             props,
@@ -95,8 +93,10 @@ impl Component for Note {
             }
             Msg::FetchLoading => true,
             Msg::FetchSuccess(markdown) => {
+                let (metadata, content) = parse_markdown(markdown.as_str());
+                self.front_matter = Some(metadata);
                 self.article_markdown = Some(markdown.clone());
-                self.article_html = Some(utils::parse_markdown(markdown.as_str()));
+                self.article_html = Some(content);
 
                 true
             }
@@ -110,7 +110,7 @@ impl Component for Note {
     fn rendered(&mut self, first_render: bool) {
         if first_render {
             if let Some(id) = self.props.id.clone() {
-                let article_url = utils::article_url_from_location(id);
+                let article_url = article_url_from_location(id);
 
                 self.update(Msg::Fetch(article_url));
             }
@@ -119,6 +119,7 @@ impl Component for Note {
 
     fn view(&self) -> Html {
         if let Some(parsed_html) = self.article_html.clone() {
+            let metadata = self.front_matter.clone().unwrap();
             let wrapper = yew::web_sys::window()
                 .unwrap()
                 .document()
@@ -134,7 +135,12 @@ impl Component for Note {
             return html! {
                 <section id="notes">
                     <div id="notes-container">
-                        {vnode}
+                        <header>
+                            <h1 id="note-title">{metadata.title}</h1>
+                        </header>
+                        <main>
+                            {vnode}
+                        </main>
                     </div>
                 </section>
             };
