@@ -35,7 +35,7 @@ jobs:
         run: cargo install --locked trunk
 
       - name: Build
-        run: trunk build
+        run: trunk build --release ./client/index.html
 
       - name: Setup "wrangler"
         run: cargo install wrangler
