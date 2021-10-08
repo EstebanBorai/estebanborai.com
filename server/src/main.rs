@@ -8,5 +8,5 @@ extern crate rocket;
 fn rocket() -> _ {
     rocket::build()
         .manage(services::Services::new())
-        .mount("/hello", routes![routes::index])
+        .mount("/api/v1", routes![routes::notes::index])
 }
