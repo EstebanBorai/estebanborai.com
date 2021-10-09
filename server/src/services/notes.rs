@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 use yaml_front_matter::YamlFrontMatter;
 
+use crate::error::ErrorResponse;
 use crate::services::github::{DirectoryEntryType, GitHubService};
 
 pub struct NotesService {
@@ -42,7 +43,7 @@ impl NotesService {
 
     /// Lists all Markdown file's metadata living under the "notes" directory in
     /// the EstebanBorai/EstebanBorai repository
-    pub async fn list(&self) -> Vec<Metadata> {
+    pub async fn list(&self) -> Result<Vec<Metadata>, ErrorResponse> {
         // Fetch all directory entries in the EstebanBorai/EstebanBorai
         // repository. Entries under the `notes` directory must be retrieved
         let response = self
@@ -66,7 +67,7 @@ impl NotesService {
             })
             .collect::<Vec<_>>();
 
-        join_all(metadata_futures).await
+        Ok(join_all(metadata_futures).await)
     }
 
     async fn fetch_markdown_metadata(&self, markdown_url: String) -> Metadata {

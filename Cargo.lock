@@ -1354,6 +1354,7 @@ dependencies = [
  "reqwest",
  "rocket",
  "serde",
+ "serde_json",
  "yaml-front-matter",
 ]
 
