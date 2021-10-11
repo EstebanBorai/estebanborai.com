@@ -23,7 +23,10 @@ impl Services {
         .expect("Failed to create a database connection pool instance");
         let database = Arc::new(database);
         let github_service = Arc::new(GitHubService::new());
-        let notes_service = Arc::new(NotesService::new(Arc::clone(&github_service)));
+        let notes_service = Arc::new(NotesService::new(
+            Arc::clone(&github_service),
+            Arc::clone(&database),
+        ));
 
         Services {
             database,
