@@ -15,6 +15,8 @@ Script | Description
 
 ### Setup
 
+#### Client
+
 This solution makes use of Trunk for development and bundling you must
 install `trunk` in your system first.
 
@@ -47,3 +49,21 @@ Then install the WASM Bindgen CLI by running:
 ```bash
 cargo install wasm-bindgen-cli
 ```
+
+#### Server
+
+The API server is written using the Rocket.rs HTTP server framework.
+This server must connect to a PostgreSQL database which is
+available via Docker, execute `docker-compose up --build` in
+the root directory in order to start the database service.
+
+You must run migrations before consuming the database the first
+time, for this you will need to install de `sqlx-cli` binary crate
+in your system.
+
+```bash
+cargo install sqlx-cli
+```
+
+Create a `.env` file with the same contents from the `.env.sample`
+file available in the root directory.

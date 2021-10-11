@@ -2,3 +2,5 @@ target/
 dist/
 tailwind.css
 node_modules
+.env
+docker/volumes
