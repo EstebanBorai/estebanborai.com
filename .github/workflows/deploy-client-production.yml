@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy Client Production
 on:
   push:
     branches:
