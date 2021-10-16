@@ -1,3 +1,4 @@
+use async_recursion::async_recursion;
 use chrono::{DateTime, Utc};
 use futures::future::join_all;
 use reqwest::header::HeaderValue;
@@ -133,6 +134,22 @@ impl NotesService {
     /// Lists all Markdown file's metadata living under the "notes" directory in
     /// the EstebanBorai/EstebanBorai repository
     pub async fn list(&self) -> Result<Vec<Metadata>> {
+        if self.is_notes_metadata_updated().await? {
+            let query = std::include_str!("../../sql/select_notes_metadata.sql");
+            let rows: Vec<NoteMetadataRow> =
+                sqlx::query_as(query).fetch_all(&*self.database).await?;
+            let notes = rows
+                .into_iter()
+                .map(Metadata::from)
+                .collect::<Vec<Metadata>>();
+
+            return Ok(notes);
+        }
+
+        self.update_notes_metadata().await
+    }
+
+    async fn update_notes_metadata(&self) -> Result<Vec<Metadata>> {
         let directory_entries = self
             .github_service
             .repo_path_contents("EstebanBorai", "EstebanBorai", "notes")
@@ -162,7 +179,7 @@ impl NotesService {
             .map(|(entry, meta, content)| {
                 let meta = Metadata::from_yaml_front_matter(meta, entry.sha.clone());
 
-                self.persist_note(entry, meta, content)
+                self.upsert_note(entry, meta, content)
             })
             .collect::<Vec<_>>();
 
@@ -173,39 +190,45 @@ impl NotesService {
     }
 
     /// Fetches a note by the provided `slug`.
+    #[async_recursion]
     pub async fn find_by_slug(&self, slug: &str) -> Result<Note> {
-        let query = std::include_str!("../../sql/select_notes_content_where_slug.sql");
-        let row = sqlx::query(query)
-            .bind(slug)
-            .fetch_one(&*self.database)
-            .await?;
+        if self.is_notes_metadata_updated().await? {
+            let query = std::include_str!("../../sql/select_notes_content_where_slug.sql");
+            let row = sqlx::query(query)
+                .bind(slug)
+                .fetch_one(&*self.database)
+                .await?;
 
-        if row.is_empty() {
-            return Err(Error::new(
-                StatusCode::NOT_FOUND,
-                &format!("No notes found with slug: {}", slug),
-            ));
+            if row.is_empty() {
+                return Err(Error::new(
+                    StatusCode::NOT_FOUND,
+                    &format!("No notes found with slug: {}", slug),
+                ));
+            }
+            // TODO: Refactor this to use an easier to mantain approach
+            let categories = row
+                .get::<String, usize>(4)
+                .split(",")
+                .map(String::from)
+                .collect::<Vec<String>>();
+
+            return Ok(Note {
+                metadata: Metadata {
+                    id: row.get::<Uuid, usize>(0),
+                    title: row.get::<String, usize>(1),
+                    slug: row.get::<String, usize>(2),
+                    description: row.get::<String, usize>(3),
+                    categories,
+                    date: row.get::<DateTime<Utc>, usize>(5),
+                    sha: row.get::<String, usize>(6),
+                    lang: row.get::<String, usize>(7),
+                },
+                content: row.get::<String, usize>(8),
+            });
         }
-        // TODO: Refactor this to use an easier to mantain approach
-        let categories = row
-            .get::<String, usize>(4)
-            .split(",")
-            .map(String::from)
-            .collect::<Vec<String>>();
 
-        Ok(Note {
-            metadata: Metadata {
-                id: row.get::<Uuid, usize>(0),
-                title: row.get::<String, usize>(1),
-                slug: row.get::<String, usize>(2),
-                description: row.get::<String, usize>(3),
-                categories,
-                date: row.get::<DateTime<Utc>, usize>(5),
-                sha: row.get::<String, usize>(6),
-                lang: row.get::<String, usize>(7),
-            },
-            content: row.get::<String, usize>(8),
-        })
+        self.update_notes_metadata().await?;
+        self.find_by_slug(slug).await
     }
 
     async fn fetch_markdown_metadata(
@@ -219,20 +242,34 @@ impl NotesService {
         Ok((directory_entry, document.metadata, document.content))
     }
 
-    async fn persist_note(
+    async fn is_notes_metadata_updated(&self) -> Result<bool> {
+        let row = sqlx::query(std::include_str!(
+            "../../sql/select_most_recent_row_notes_metadata.sql"
+        ))
+        .fetch_all(&*self.database)
+        .await?;
+
+        if row.is_empty() {
+            return Ok(false);
+        }
+
+        Ok(true)
+    }
+
+    async fn upsert_note(
         &self,
         entry: DirectoryEntry,
         metadata: Metadata,
         content: String,
     ) -> Result<Metadata> {
-        let metadata = self.persist_note_metadata(metadata).await?;
-        self.persist_note_content(&metadata.id, &content).await?;
+        let metadata = self.upsert_note_metadata(metadata).await?;
+        self.upsert_note_content(&metadata.id, &content).await?;
 
         Ok(metadata)
     }
 
-    async fn persist_note_metadata(&self, metadata: Metadata) -> Result<Metadata> {
-        let query = std::include_str!("../../sql/insert_notes_metadata.sql");
+    async fn upsert_note_metadata(&self, metadata: Metadata) -> Result<Metadata> {
+        let query = std::include_str!("../../sql/upsert_notes_metadata.sql");
         let inserted: NoteMetadataRow = sqlx::query_as(query)
             .bind(metadata.title)
             .bind(metadata.slug)
@@ -247,8 +284,8 @@ impl NotesService {
         Ok(Metadata::from(inserted))
     }
 
-    async fn persist_note_content(&self, note_id: &Uuid, content: &str) -> Result<()> {
-        let query = std::include_str!("../../sql/insert_notes_content.sql");
+    async fn upsert_note_content(&self, note_id: &Uuid, content: &str) -> Result<()> {
+        let query = std::include_str!("../../sql/upsert_notes_content.sql");
 
         sqlx::query(query)
             .bind(&content)
