@@ -14,12 +14,26 @@ pub struct Error {
     status_code: u16,
 }
 
+impl std::fmt::Display for Error {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self)
+    }
+}
+
+impl std::error::Error for Error {}
+
 impl Error {
     pub fn new(status_code: StatusCode, message: &str) -> Self {
-        Error {
+        let err = Error {
             message: message.to_string(),
             status_code: status_code.as_u16(),
+        };
+
+        if cfg!(not(debug_assertions)) {
+            sentry::capture_error(&err);
         }
+
+        err
     }
 }
 
@@ -39,6 +53,9 @@ impl<'r> Responder<'r, 'static> for Error {
 impl From<reqwest::Error> for Error {
     fn from(err: reqwest::Error) -> Self {
         error!("{:#?}", err);
+        if cfg!(not(debug_assertions)) {
+            sentry::capture_error(&err);
+        }
 
         if err.is_status() {
             return Error::new(err.status().unwrap(), &err.to_string());
@@ -65,6 +82,9 @@ impl From<Box<dyn std::error::Error>> for Error {
 impl From<sqlx::error::Error> for Error {
     fn from(err: sqlx::error::Error) -> Self {
         error!("{:#?}", err);
+        if cfg!(not(debug_assertions)) {
+            sentry::capture_error(&err);
+        }
 
         Error::new(
             StatusCode::INTERNAL_SERVER_ERROR,

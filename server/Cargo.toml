@@ -17,6 +17,7 @@ rocket = { version = "0.5.0-rc.1", features = ["json"] }
 log = "0.4.14"
 serde = "1.0.130"
 serde_json = "1.0.68"
+sentry = "0.23.0"
 slug = "0.1.4"
 sqlx = { version = "0.5.5", features = ["chrono", "postgres", "uuid", "runtime-tokio-rustls" ] }
 uuid = { version = "0.8.2", features = ["serde"] }
