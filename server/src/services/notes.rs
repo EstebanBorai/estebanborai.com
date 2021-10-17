@@ -12,7 +12,6 @@ use uuid::Uuid;
 use yaml_front_matter::YamlFrontMatter;
 
 use crate::error::{Error, Result};
-
 use crate::services::github::{DirectoryEntryType, GitHubService};
 
 use super::github::DirectoryEntry;

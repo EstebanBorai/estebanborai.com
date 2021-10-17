@@ -5,6 +5,8 @@ use sqlx::postgres::PgPool;
 use std::env;
 use std::sync::Arc;
 
+use crate::config::Config;
+
 use self::github::GitHubService;
 use self::notes::NotesService;
 
@@ -15,12 +17,10 @@ pub struct Services {
 }
 
 impl Services {
-    pub async fn new() -> Self {
-        let database = PgPool::connect(
-            &env::var("DATABASE_URL").expect("Missing DATABASE_URL environment variable"),
-        )
-        .await
-        .expect("Failed to create a database connection pool instance");
+    pub async fn new(config: &Config) -> Self {
+        let database = PgPool::connect(&config.database_url)
+            .await
+            .expect("Failed to create a database connection pool instance");
         let database = Arc::new(database);
         let github_service = Arc::new(GitHubService::new());
         let notes_service = Arc::new(NotesService::new(

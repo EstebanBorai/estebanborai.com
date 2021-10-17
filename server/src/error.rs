@@ -38,7 +38,7 @@ impl<'r> Responder<'r, 'static> for Error {
 
 impl From<reqwest::Error> for Error {
     fn from(err: reqwest::Error) -> Self {
-        log::error!("{:#?}", err);
+        error!("{:#?}", err);
 
         if err.is_status() {
             return Error::new(err.status().unwrap(), &err.to_string());
@@ -53,7 +53,7 @@ impl From<reqwest::Error> for Error {
 
 impl From<Box<dyn std::error::Error>> for Error {
     fn from(err: Box<dyn std::error::Error>) -> Self {
-        log::error!("{:#?}", err);
+        error!("{:#?}", err);
 
         Error::new(
             StatusCode::INTERNAL_SERVER_ERROR,
@@ -64,7 +64,7 @@ impl From<Box<dyn std::error::Error>> for Error {
 
 impl From<sqlx::error::Error> for Error {
     fn from(err: sqlx::error::Error) -> Self {
-        log::error!("{:#?}", err);
+        error!("{:#?}", err);
 
         Error::new(
             StatusCode::INTERNAL_SERVER_ERROR,

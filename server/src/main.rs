@@ -1,9 +1,14 @@
+mod config;
 mod error;
 mod routes;
 mod services;
 
-use rocket::Config;
 use std::env;
+
+use self::config::Config;
+
+#[macro_use]
+extern crate log;
 
 #[macro_use]
 extern crate rocket;
@@ -12,24 +17,19 @@ use dotenv::dotenv;
 
 #[launch]
 async fn rocket() -> _ {
-    env_logger::init();
-
     if cfg!(debug_assertions) {
         dotenv().ok().expect("Failed to load dotenv");
     }
 
-    let port = env::var("PORT")
-        .unwrap_or(String::from("7878"))
-        .parse::<u16>()
-        .expect("Not a valid u16 value for PORT environment variable");
-    let config = Config {
-        port,
-        ..Config::debug_default()
-    };
-    let services = services::Services::new().await;
+    let config = Config::new();
+    env_logger::init();
 
-    rocket::custom(&config).manage(services).mount(
-        "/api/v1",
-        routes![routes::notes::index, routes::notes::find_by_slug],
-    )
+    let services = services::Services::new(&config).await;
+
+    rocket::custom(&config.server_config)
+        .manage(services)
+        .mount(
+            "/api/v1",
+            routes![routes::notes::index, routes::notes::find_by_slug],
+        )
 }
