@@ -1,22 +1,24 @@
-use yew::format::{Nothing, Text};
+use anyhow::Error;
+use domain::{NoteContent, NoteMetadata};
+use yew::format::{Json, Nothing};
 use yew::prelude::*;
 use yew::services::fetch::{FetchTask, Request, Response};
-use yew::services::FetchService;
+use yew::services::{ConsoleService, FetchService};
 use yew::virtual_dom::VNode;
 use yew::web_sys::Node;
 
-use crate::modules::notes::utils::{article_url_from_location, parse_markdown, Metadata};
+use crate::endpoint;
+use crate::modules::notes::utils::parse_markdown;
 
 #[derive(Properties, Clone, PartialEq)]
 pub struct NoteProps {
-    pub id: Option<String>,
+    pub slug: Option<String>,
 }
 
 pub struct Note {
-    article_markdown: Option<String>,
-    article_html: Option<String>,
+    metadata: Option<NoteMetadata>,
+    html: Option<String>,
     fetch_task: Option<FetchTask>,
-    front_matter: Option<Metadata>,
     link: ComponentLink<Self>,
     error: Option<String>,
     props: NoteProps,
@@ -24,7 +26,7 @@ pub struct Note {
 
 pub enum Msg {
     Fetch(String),
-    FetchSuccess(String),
+    FetchSuccess(NoteContent),
     FetchError(String),
     FetchLoading,
 }
@@ -51,10 +53,9 @@ impl Component for Note {
 
     fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
         Note {
-            article_markdown: None,
-            article_html: None,
+            metadata: None,
+            html: None,
             fetch_task: None,
-            front_matter: None,
             link,
             error: None,
             props,
@@ -70,9 +71,18 @@ impl Component for Note {
 
                 let callback =
                     self.link
-                        .callback(|response: Response<Text>| match response.into_body() {
-                            Ok(data) => Msg::FetchSuccess(data),
-                            Err(err) => Msg::FetchError(err.to_string()),
+                        .callback(|response: Response<Json<Result<NoteContent, Error>>>| {
+                            let Json(note_content) = response.into_body();
+
+                            match note_content {
+                                Ok(note_content) => Msg::FetchSuccess(note_content),
+                                Err(err) => {
+                                    ConsoleService::error(&err.to_string());
+                                    Msg::FetchError(String::from(
+                                        "Failed to fetch notes from server",
+                                    ))
+                                }
+                            }
                         });
 
                 match FetchService::fetch(request, callback) {
@@ -81,7 +91,12 @@ impl Component for Note {
 
                         Msg::FetchLoading
                     }
-                    Err(err) => Msg::FetchError(err.to_string()),
+                    Err(err) => {
+                        let error_string = err.to_string();
+
+                        ConsoleService::error(&error_string);
+                        Msg::FetchError(error_string)
+                    }
                 };
 
                 true
@@ -92,11 +107,11 @@ impl Component for Note {
                 true
             }
             Msg::FetchLoading => true,
-            Msg::FetchSuccess(markdown) => {
-                let (metadata, content) = parse_markdown(markdown.as_str());
-                self.front_matter = Some(metadata);
-                self.article_markdown = Some(markdown.clone());
-                self.article_html = Some(content);
+            Msg::FetchSuccess(note_content) => {
+                let html = parse_markdown(note_content.content.as_str());
+
+                self.metadata = Some(note_content.metadata.clone());
+                self.html = Some(html);
 
                 true
             }
@@ -109,17 +124,15 @@ impl Component for Note {
 
     fn rendered(&mut self, first_render: bool) {
         if first_render {
-            if let Some(id) = self.props.id.clone() {
-                let article_url = article_url_from_location(id);
-
-                self.update(Msg::Fetch(article_url));
+            if let Some(slug) = self.props.slug.clone() {
+                self.update(Msg::Fetch(endpoint!(&format!("/api/v1/notes/{}", slug))));
             }
         }
     }
 
     fn view(&self) -> Html {
-        if let Some(parsed_html) = self.article_html.clone() {
-            let metadata = self.front_matter.clone().unwrap();
+        if let Some(html) = self.html.clone() {
+            let metadata = self.metadata.clone().unwrap();
             let wrapper = yew::web_sys::window()
                 .unwrap()
                 .document()
@@ -127,7 +140,7 @@ impl Component for Note {
                 .create_element("div")
                 .unwrap();
 
-            wrapper.set_inner_html(&parsed_html);
+            wrapper.set_inner_html(&html);
 
             let node = Node::from(wrapper);
             let vnode = VNode::VRef(node);

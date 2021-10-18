@@ -2,6 +2,7 @@
 
 mod app;
 mod components;
+mod macros;
 mod modules;
 mod pages;
 mod router;

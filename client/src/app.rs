@@ -35,7 +35,7 @@ impl Component for App {
                         match switch {
                             AppRoute::Home => html!{<index::Index />},
                             AppRoute::Notes => html! {<notes::index::Index />},
-                            AppRoute::Note(id) => html!{<notes::note::Note id=id />},
+                            AppRoute::Note(slug) => html!{<notes::note::Note slug=slug />},
                         }
                     })
                 />

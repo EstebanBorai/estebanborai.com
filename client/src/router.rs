@@ -7,7 +7,7 @@ use yew_router::prelude::*;
 /// following Switch, the only route that would be matched would be AppRoute::Home.
 #[derive(Switch, Debug, Clone)]
 pub enum AppRoute {
-    #[to = "/notes/{id}"]
+    #[to = "/notes/{slug}"]
     Note(String),
     #[to = "/notes"]
     Notes,
