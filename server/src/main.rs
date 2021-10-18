@@ -1,5 +1,6 @@
 mod config;
 mod error;
+mod middleware;
 mod routes;
 mod services;
 
@@ -39,6 +40,7 @@ async fn rocket() -> _ {
     let services = services::Services::new(&config).await;
 
     rocket::custom(&config.server_config)
+        .attach(middleware::cors::Cors)
         .manage(services)
         .mount(
             "/api/v1",
