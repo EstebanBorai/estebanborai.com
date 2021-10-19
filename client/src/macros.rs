@@ -4,7 +4,7 @@ macro_rules! endpoint {
         if cfg!(debug_assertions) {
             format!("http://0.0.0.0:7878{}", $uri)
         } else {
-            format!("https://estebanborai.com{}", $uri)
+            format!("https://estebanborai.herokuapp.com{}", $uri)
         }
     };
 }
