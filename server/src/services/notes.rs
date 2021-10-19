@@ -34,6 +34,7 @@ pub struct Metadata {
     date: DateTime<Utc>,
     sha: String,
     lang: String,
+    preview_image_url: String,
 }
 
 impl Metadata {
@@ -50,6 +51,7 @@ impl Metadata {
             date: Utc::now(),
             sha,
             lang: yfm.lang,
+            preview_image_url: yfm.preview_image_url,
         }
     }
 }
@@ -62,6 +64,7 @@ pub struct MarkdownFileYamlFrontMatter {
     categories: Vec<String>,
     date: String,
     lang: String,
+    preview_image_url: String,
 }
 
 #[derive(Deserialize, Serialize)]
@@ -80,6 +83,7 @@ struct NoteMetadataRow {
     date: DateTime<Utc>,
     lang: String,
     sha: String,
+    preview_image_url: String,
     created_at: DateTime<Utc>,
     updated_at: DateTime<Utc>,
 }
@@ -95,6 +99,7 @@ impl From<Metadata> for NoteMetadataRow {
             date: Utc::now(),
             lang: metadata.lang.clone(),
             sha: metadata.sha,
+            preview_image_url: metadata.preview_image_url,
             created_at: Utc::now(),
             updated_at: Utc::now(),
         }
@@ -112,6 +117,7 @@ impl From<NoteMetadataRow> for Metadata {
             sha: row.sha,
             slug: row.slug,
             lang: row.lang,
+            preview_image_url: row.preview_image_url,
         }
     }
 }
@@ -221,8 +227,9 @@ impl NotesService {
                     date: row.get::<DateTime<Utc>, usize>(5),
                     sha: row.get::<String, usize>(6),
                     lang: row.get::<String, usize>(7),
+                    preview_image_url: row.get::<String, usize>(8),
                 },
-                content: row.get::<String, usize>(8),
+                content: row.get::<String, usize>(9),
             });
         }
 
@@ -277,6 +284,7 @@ impl NotesService {
             .bind(metadata.date)
             .bind(metadata.lang)
             .bind(metadata.sha)
+            .bind(metadata.preview_image_url)
             .fetch_one(&*self.database)
             .await?;
 

@@ -12,6 +12,7 @@ pub struct NoteMetadata {
     pub date: DateTime<Utc>,
     pub sha: String,
     pub lang: String,
+    pub preview_image_url: String,
 }
 
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]

@@ -1,5 +1,5 @@
-INSERT INTO notes_metadata (title, slug, description, categories, date, lang, sha)
-    VALUES($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (slug)
+INSERT INTO notes_metadata (title, slug, description, categories, date, lang, sha, preview_image_url)
+    VALUES($1, $2, $3, $4, $5, $6, $7, $8) ON CONFLICT (slug)
     DO
     UPDATE
     SET

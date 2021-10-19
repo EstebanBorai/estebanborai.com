@@ -7,6 +7,7 @@ SELECT
   nm. "date",
   nm.sha,
   nm.lang,
+  nm.preview_image_url,
   nc. "content"
 FROM
   notes_metadata nm

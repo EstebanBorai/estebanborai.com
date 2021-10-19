@@ -43,6 +43,7 @@ impl Index {
                                     description=note.description.clone()
                                     slug=note.slug.clone()
                                     categories=note.categories.clone()
+                                    preview_image_url=note.preview_image_url.clone()
                                 />
                             }
                         })

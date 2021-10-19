@@ -6,6 +6,7 @@ pub struct NoteItemProps {
     pub description: String,
     pub slug: String,
     pub categories: Vec<String>,
+    pub preview_image_url: String,
 }
 
 pub struct NoteItem {
@@ -50,11 +51,13 @@ impl Component for NoteItem {
 
     fn view(&self) -> Html {
         let link = format!("/notes/{}", self.props.slug);
+        let background_image =
+            format!("background-image: url('{}');", self.props.preview_image_url);
 
         html! {
             <li class="note-item">
                 <a href=link>
-                    <figure style="background-image: url('https://images.unsplash.com/photo-1538903723116-763313165283?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');">{" "}</figure>
+                    <figure style=background_image.clone()>{" "}</figure>
                     <article>
                         <strong>{self.props.title.clone()}</strong>
                         <p>{self.props.description.clone()}</p>
