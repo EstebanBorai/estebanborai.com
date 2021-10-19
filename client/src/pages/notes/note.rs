@@ -1,4 +1,5 @@
 use anyhow::Error;
+use chrono::Datelike;
 use domain::{NoteContent, NoteMetadata};
 use yew::format::{Json, Nothing};
 use yew::prelude::*;
@@ -133,6 +134,15 @@ impl Component for Note {
     fn view(&self) -> Html {
         if let Some(html) = self.html.clone() {
             let metadata = self.metadata.clone().unwrap();
+            let background_image =
+                format!("background-image: url('{}');", metadata.preview_image_url);
+            let human_date = format!(
+                "{}/{}/{}",
+                metadata.date.month(),
+                metadata.date.day(),
+                metadata.date.year()
+            );
+
             let wrapper = yew::web_sys::window()
                 .unwrap()
                 .document()
@@ -147,10 +157,17 @@ impl Component for Note {
 
             return html! {
                 <section id="notes">
-                    <div id="notes-container">
-                        <header>
-                            <h1 id="note-title">{metadata.title}</h1>
-                        </header>
+                    <header class="paper" id="notes-header">
+                        <h1 id="note-title">{metadata.title}</h1>
+                        <p>{metadata.description}</p>
+                        <time>
+                            {human_date}
+                        </time>
+                    </header>
+                    <figure id="note-preview-image" style=background_image>
+                        {" "}
+                    </figure>
+                    <div class="paper" id="notes-container">
                         <main>
                             {vnode}
                         </main>
