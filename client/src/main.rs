@@ -1,5 +1,7 @@
 #![recursion_limit = "1024"]
 
+extern crate wasm_bindgen;
+
 mod app;
 mod components;
 mod macros;

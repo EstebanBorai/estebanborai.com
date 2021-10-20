@@ -148,16 +148,17 @@
     }
 
     pre {
-      background-color: #fffad5;
+      background-color: #0F1216;
       border-radius: 2px;
       box-sizing: border-box;
+      color: #FFFFFF;
       overflow-x: auto;
       padding: 1rem;
 
       code {
         background-color: transparent;
         border-radius: none;
-        color: #000000;
+        color: #FFFFFF;
         font-family: $font-mono;
         padding: 0;
       }

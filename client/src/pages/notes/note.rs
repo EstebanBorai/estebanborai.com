@@ -1,6 +1,7 @@
 use anyhow::Error;
 use chrono::Datelike;
 use domain::{NoteContent, NoteMetadata};
+use wasm_bindgen::prelude::*;
 use yew::format::{Json, Nothing};
 use yew::prelude::*;
 use yew::services::fetch::{FetchTask, Request, Response};
@@ -10,6 +11,12 @@ use yew::web_sys::Node;
 
 use crate::endpoint;
 use crate::modules::notes::utils::parse_markdown;
+
+#[wasm_bindgen]
+extern "C" {
+    #[wasm_bindgen(js_namespace = ["window"])]
+    fn highlight_all();
+}
 
 #[derive(Properties, Clone, PartialEq)]
 pub struct NoteProps {
@@ -124,6 +131,7 @@ impl Component for Note {
     }
 
     fn rendered(&mut self, first_render: bool) {
+        highlight_all();
         if first_render {
             if let Some(slug) = self.props.slug.clone() {
                 self.update(Msg::Fetch(endpoint!(&format!("/api/v1/notes/{}", slug))));
