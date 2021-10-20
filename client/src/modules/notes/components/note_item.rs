@@ -13,26 +13,6 @@ pub struct NoteItem {
     props: NoteItemProps,
 }
 
-impl NoteItem {
-    pub fn render_categories(&self) -> Html {
-        if self.props.categories.len() >= 1 {
-            return html! {
-                <ul class="note-tags">
-                    {
-                        for self.props.categories.iter().map(|category| {
-                            html! {
-                                <li>{category}</li>
-                            }
-                        })
-                    }
-                </ul>
-            };
-        }
-
-        Html::default()
-    }
-}
-
 impl Component for NoteItem {
     type Message = ();
     type Properties = NoteItemProps;
@@ -61,7 +41,6 @@ impl Component for NoteItem {
                     <article>
                         <strong>{self.props.title.clone()}</strong>
                         <p>{self.props.description.clone()}</p>
-                        {self.render_categories()}
                     </article>
                 </a>
             </li>
