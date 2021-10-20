@@ -46,7 +46,7 @@ impl Component for Header {
                     <nav id="desktop-nav">
                         <ul>
                             <li>
-                                <RouterAnchor<AppRoute> route=AppRoute::Home classes="router,active">
+                                <RouterAnchor<AppRoute> route=AppRoute::Home>
                                     {"Home"}
                                 </RouterAnchor<AppRoute>>
                             </li>
@@ -72,7 +72,7 @@ impl Component for Header {
                                     <main>
                                         <ul>
                                             <li onclick=self.link.callback(|_| Msg::CloseMobileNav)>
-                                                <RouterAnchor<AppRoute> route=AppRoute::Home classes="router,active">
+                                                <RouterAnchor<AppRoute> route=AppRoute::Home>
                                                     {"Home"}
                                                 </RouterAnchor<AppRoute>>
                                             </li>

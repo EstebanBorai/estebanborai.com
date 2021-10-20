@@ -61,6 +61,10 @@
               &:hover {
                 color: #ffffffAA;
               }
+
+              &.active {
+                color: red;
+              }
             }
           }
         }
