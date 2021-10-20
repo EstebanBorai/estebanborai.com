@@ -26,8 +26,8 @@
         border: none;
         color: #FFFFFF;
         cursor: pointer;
-        height: 2rem;
-        width: 2rem;
+        height: 32px;
+        width: 32px;
       }
 
       .burger-nav-icon {
@@ -93,7 +93,7 @@
           box-sizing: border-box;
           font-size: 1.5rem;
           display: flex;
-          justify-content: space-between;
+          justify-content: flex-end;
           padding: 1rem;
           width: 100%;
         }

@@ -65,7 +65,6 @@ impl Component for Header {
                             html! {
                                 <nav id="mobile-nav">
                                     <header>
-                                        <strong>{"Where are you going?"}</strong>
                                         <button id="mobile-nav-button" onclick=self.link.callback(|_| Msg::CloseMobileNav)>
                                             <Times class="burger-nav-icon".to_string() />
                                         </button>
