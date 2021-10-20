@@ -35,12 +35,12 @@ pub enum Msg {
 impl Note {
     fn render_loading(&self) -> Html {
         if self.fetch_task.is_some() {
-            html! {
+            return html! {
                 <p>{ "Fetching data..." }</p>
-            }
-        } else {
-            html! { <p></p> }
+            };
         }
+
+        Html::default()
     }
 
     fn render_error(&self, error: String) -> Html {

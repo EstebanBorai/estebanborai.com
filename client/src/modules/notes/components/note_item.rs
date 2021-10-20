@@ -35,7 +35,7 @@ impl Component for NoteItem {
             format!("background-image: url('{}');", self.props.preview_image_url);
 
         html! {
-            <li class="note-item">
+            <li class="note-item paper">
                 <a href=link>
                     <figure style=background_image.clone()>{" "}</figure>
                     <article>

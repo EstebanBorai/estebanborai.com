@@ -130,12 +130,6 @@ impl Component for Index {
         html! {
             <section id="notes">
                 <h1>{"Notes"}</h1>
-                <p id="section-description">
-                    {r#"
-                        Notes on findings, and learnings that I keep for the
-                        future and in order to share with who needs them
-                    "#}
-                </p>
                 {self.render_body()}
             </section>
         }
