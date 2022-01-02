@@ -1,1 +1,0 @@
-window.highlight_all = hljs.highlightAll;
