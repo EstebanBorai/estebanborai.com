@@ -4,3 +4,4 @@ tailwind.css
 node_modules
 .env
 docker/volumes
+.pnpm-debug.log
