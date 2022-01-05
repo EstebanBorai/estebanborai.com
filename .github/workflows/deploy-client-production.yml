@@ -1,8 +1,10 @@
 name: Deploy Client Production
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
+    paths:
+      - 'client/**'
 
 env:
   CF_EMAIL: ${{ secrets.CF_EMAIL }}
@@ -45,3 +47,20 @@ jobs:
 
       - name: Publish
         run: wrangler publish --env $CF_ENVIRONMENT
+
+      - name: Deploy Success
+        if: success()
+        uses: zattoo/deploy-status@master
+        with:
+          environment: '${{ env.CF_ENVIRONMENT }}'
+          environment_url: 'https://estebanborai.com'
+          state: 'success'
+          token: '${{ github.token }}'
+
+      - name: Deploy Failure
+        if: failure()
+        uses: zattoo/deploy-status@master
+        with:
+          environment: production
+          state: 'failure'
+          token: '${{ github.token }}'

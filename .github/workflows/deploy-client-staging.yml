@@ -1,0 +1,55 @@
+name: Deploy Client Staging
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'client/**'
+
+env:
+  CF_EMAIL: ${{ secrets.CF_EMAIL }}
+  CF_API_KEY: ${{ secrets.CF_API_KEY }}
+  CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+  CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+  CF_ENVIRONMENT: 'staging'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2.5.0
+        with:
+          node-version: '16.x'
+
+      - name: Create wrangler.toml
+        run: ./bin/make-wrangler.sh && cp ./wrangler.toml ./client
+
+      - name: Installs pnpm
+        run: npm install -g pnpm
+
+      - name: Installs dependencies
+        run: cd ./client && pnpm install --frozen-lockfile
+
+      - name: Publish
+        run: cd ./client && pnpm run deploy:staging
+
+      - name: Deploy Success
+        if: success()
+        uses: zattoo/deploy-status@master
+        with:
+          environment: '${{ env.CF_ENVIRONMENT }}'
+          environment_url: 'https://staging.estebanborai.com'
+          state: 'success'
+          token: '${{ github.token }}'
+
+      - name: Deploy Failure
+        if: failure()
+        uses: zattoo/deploy-status@master
+        with:
+          environment: staging
+          state: 'failure'
+          token: '${{ github.token }}'

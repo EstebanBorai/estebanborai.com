@@ -1,8 +1,8 @@
-name: Deploy Server Production
+name: Deploy Server Staging
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
     paths-ignore:
       - 'client/**'
 
@@ -23,5 +23,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_app_name: ${{secrets.STAGING_HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
