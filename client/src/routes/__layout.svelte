@@ -11,7 +11,7 @@
 
 <div class="bg-light-background-alt dark:bg-dark-background-alt">
 	<Header />
-	<main class="container safe-zone m-auto p-4">
+	<main class="container safe-zone m-auto py-4">
 		<slot />
 	</main>
 	<Footer />

@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
+	import Moon from '$lib/components/icons/Moon.svelte';
+	import Sun from '$lib/components/icons/Sun.svelte';
+
 	let useDarkMode = false;
 
 	onMount(() => {
@@ -33,7 +36,7 @@
 <header class="flex justify-center px-4 h-[70px] bg-light-background dark:bg-dark-background">
 	<div class="safe-zone flex items-center justify-between">
 		<h1>Esteban Borai</h1>
-		<nav class="flex">
+		<nav class="flex items-center">
 			<ul class="flex pr-4">
 				<li class="mx-2 font-semibold">
 					<a href="/"> Home </a>
@@ -45,22 +48,17 @@
 					<a href="/notes"> Notes </a>
 				</li>
 			</ul>
-			<button class="light-mode-button" on:click={toggleDarkMode}>
+			<button class="flex justify-center items-center h-5 w-5" on:click={toggleDarkMode}>
 				{#if useDarkMode}
-					<span>🌞</span>
+					<span>
+						<Sun className="h-5 w-5" />
+					</span>
 				{:else}
-					<span>🌔</span>
+					<span>
+						<Moon className="h-5 w-5" />
+					</span>
 				{/if}
 			</button>
 		</nav>
 	</div>
 </header>
-
-<style>
-	.light-mode-button::before {
-		@apply pl-4;
-
-		content: '';
-		border-left: 0.5px solid currentColor;
-	}
-</style>
