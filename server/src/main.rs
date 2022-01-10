@@ -1,7 +1,9 @@
 mod config;
 mod error;
 mod middleware;
+mod models;
 mod routes;
+mod schema;
 mod services;
 
 use std::env;
@@ -13,6 +15,9 @@ extern crate log;
 
 #[macro_use]
 extern crate rocket;
+
+#[macro_use]
+extern crate diesel;
 
 use dotenv::dotenv;
 
@@ -42,8 +47,5 @@ async fn rocket() -> _ {
     rocket::custom(&config.server_config)
         .attach(middleware::cors::Cors)
         .manage(services)
-        .mount(
-            "/api/v1",
-            routes![routes::notes::index, routes::notes::find_by_slug],
-        )
+        .mount("/api/v1", routes![routes::notes::index])
 }

@@ -1,4 +1,5 @@
-use reqwest::header::HeaderValue;
+use http_auth_basic::Credentials;
+use reqwest::header::{HeaderMap, HeaderName, HeaderValue};
 use reqwest::{Client, ClientBuilder};
 use serde::{Deserialize, Serialize};
 
@@ -6,7 +7,7 @@ pub struct GitHubService {
     client: Client,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize, PartialEq)]
 pub enum DirectoryEntryType {
     #[serde(rename = "dir")]
     Directory,
@@ -14,7 +15,7 @@ pub enum DirectoryEntryType {
     File,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct DirectoryEntry {
     pub name: String,
     pub download_url: Option<String>,
@@ -23,9 +24,16 @@ pub struct DirectoryEntry {
 }
 
 impl GitHubService {
-    pub fn new() -> Self {
+    pub fn new(github_api_user: &str, github_api_token: &str) -> Self {
+        let credentials = Credentials::new(github_api_user, github_api_token).as_http_header();
+        let credentials = HeaderValue::from_str(&credentials).unwrap();
+        let mut headers = HeaderMap::new();
+
+        headers.insert(HeaderName::from_static("authorization"), credentials);
+
         let client = ClientBuilder::new()
-            .user_agent(HeaderValue::from_static("reqwest 0.11.5"))
+            .user_agent(HeaderValue::from_static("reqwest v0.11.5"))
+            .default_headers(headers)
             .build()
             .expect("Unable to create HTTP client for GitHub Service");
 

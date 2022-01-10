@@ -1,0 +1,21 @@
+use chrono::NaiveDate;
+use diesel::{Insertable, Queryable};
+use serde::{Deserialize, Serialize};
+use uuid::Uuid;
+
+use crate::schema::notes;
+
+#[derive(Clone, Debug, Deserialize, Insertable, PartialEq, Serialize, Queryable)]
+#[table_name = "notes"]
+pub struct Note {
+    pub id: Uuid,
+    pub title: String,
+    pub slug: String,
+    pub description: String,
+    pub categories: Vec<String>,
+    pub date: NaiveDate,
+    pub sha: String,
+    pub lang: String,
+    pub preview_image_url: String,
+    pub download_url: String,
+}

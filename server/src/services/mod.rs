@@ -1,7 +1,8 @@
 pub mod github;
 pub mod notes;
 
-use sqlx::postgres::PgPool;
+use diesel::pg::PgConnection;
+use diesel::r2d2::{ConnectionManager, Pool};
 use std::env;
 use std::sync::Arc;
 
@@ -10,28 +11,37 @@ use crate::config::Config;
 use self::github::GitHubService;
 use self::notes::NotesService;
 
+pub type PgConnPool = Pool<ConnectionManager<PgConnection>>;
+
 pub struct Services {
-    pub database: Arc<PgPool>,
+    pub dbconn_pool: Arc<PgConnPool>,
     pub github_service: Arc<GitHubService>,
     pub notes_service: Arc<NotesService>,
 }
 
 impl Services {
     pub async fn new(config: &Config) -> Self {
-        let database = PgPool::connect(&config.database_url)
-            .await
-            .expect("Failed to create a database connection pool instance");
-        let database = Arc::new(database);
-        let github_service = Arc::new(GitHubService::new());
+        let dbconn_pool = Services::make_connection_pool(config);
+        let dbconn_pool = Arc::new(dbconn_pool);
+        let github_service = Arc::new(GitHubService::new(
+            &config.github_api_user,
+            &config.github_api_token,
+        ));
         let notes_service = Arc::new(NotesService::new(
             Arc::clone(&github_service),
-            Arc::clone(&database),
+            Arc::clone(&dbconn_pool),
         ));
 
         Services {
-            database,
+            dbconn_pool,
             github_service,
             notes_service,
         }
+    }
+
+    fn make_connection_pool(config: &Config) -> PgConnPool {
+        let manager = ConnectionManager::<PgConnection>::new::<&String>(&config.database_url);
+
+        Pool::new(manager).expect("Failed to initialize database connection pool")
     }
 }

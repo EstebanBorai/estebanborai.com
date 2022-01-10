@@ -1,13 +1,15 @@
--- Add migration script here
-CREATE TABLE IF NOT EXISTS notes_metadata (
+-- Your SQL goes here
+CREATE TABLE IF NOT EXISTS notes (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   title VARCHAR(256) NOT NULL,
   slug VARCHAR(256) UNIQUE NOT NULL,
   description VARCHAR(255) NOT NULL,
-  categories VARCHAR(255) NOT NULL,
-  date TIMESTAMP WITH TIME ZONE NOT NULL,
+  categories TEXT[] NOT NULL,
+  date DATE NOT NULL,
   lang VARCHAR(4) NOT NULL,
   sha VARCHAR(255) NOT NULL,
+  preview_image_url VARCHAR(1024) NOT NULL,
+  download_url VARCHAR(1024) NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
