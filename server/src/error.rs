@@ -78,17 +78,3 @@ impl From<Box<dyn std::error::Error>> for Error {
         )
     }
 }
-
-impl From<sqlx::error::Error> for Error {
-    fn from(err: sqlx::error::Error) -> Self {
-        error!("{:#?}", err);
-        if cfg!(not(debug_assertions)) {
-            sentry::capture_error(&err);
-        }
-
-        Error::new(
-            StatusCode::INTERNAL_SERVER_ERROR,
-            "An error ocurred connecting to the database",
-        )
-    }
-}
