@@ -7,8 +7,9 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-async-recursion = "0.3.2"
-async-trait = "0.1.51"
+async-graphql = { version = "3.0.15", features = ["chrono", "uuid"] }
+async-graphql-rocket = "3.0.15"
+base64 = "0.13.0"
 chrono = { version = "0.4.19", features = ["serde"] }
 dotenv = "0.15.0"
 diesel = { version = "1.4.4", features = ["chrono", "postgres", "r2d2", "uuidv07"] }

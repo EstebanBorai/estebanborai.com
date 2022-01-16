@@ -1,17 +1,20 @@
 mod config;
 mod error;
+mod graphql;
 mod middleware;
 mod models;
 mod routes;
 mod schema;
 mod services;
 
+use async_graphql::{EmptyMutation, EmptySubscription};
 use std::env;
+use std::sync::Arc;
 
 use self::config::Config;
-
-#[macro_use]
-extern crate log;
+use self::graphql::query::Query;
+use self::graphql::Schema;
+use self::routes::{graphql_playground, graphql_query, graphql_request};
 
 #[macro_use]
 extern crate rocket;
@@ -43,9 +46,17 @@ async fn rocket() -> _ {
     env_logger::init();
 
     let services = services::Services::new(&config).await;
+    let services = Arc::new(services);
+    let graphql_schema = Schema::build(Query::default(), EmptyMutation, EmptySubscription)
+        .data(Arc::clone(&services))
+        .finish();
 
     rocket::custom(&config.server_config)
         .attach(middleware::cors::Cors)
         .manage(services)
-        .mount("/api/v1", routes![routes::notes::index])
+        .manage(graphql_schema)
+        .mount(
+            "/",
+            routes![graphql_playground, graphql_query, graphql_request],
+        )
 }

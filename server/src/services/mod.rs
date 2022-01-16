@@ -3,7 +3,6 @@ pub mod notes;
 
 use diesel::pg::PgConnection;
 use diesel::r2d2::{ConnectionManager, Pool};
-use std::env;
 use std::sync::Arc;
 
 use crate::config::Config;

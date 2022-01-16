@@ -1,3 +1,4 @@
+use async_graphql::SimpleObject;
 use chrono::NaiveDate;
 use diesel::{Insertable, Queryable};
 use serde::{Deserialize, Serialize};
@@ -5,7 +6,7 @@ use uuid::Uuid;
 
 use crate::schema::notes;
 
-#[derive(Clone, Debug, Deserialize, Insertable, PartialEq, Serialize, Queryable)]
+#[derive(Clone, Debug, Deserialize, Insertable, PartialEq, Serialize, SimpleObject, Queryable)]
 #[table_name = "notes"]
 pub struct Note {
     pub id: Uuid,

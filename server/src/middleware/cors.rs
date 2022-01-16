@@ -1,11 +1,10 @@
-use async_trait::async_trait;
 use rocket::fairing::{Fairing, Info, Kind};
 use rocket::http::Header;
 use rocket::{Request, Response};
 
 pub struct Cors;
 
-#[async_trait]
+#[rocket::async_trait]
 impl Fairing for Cors {
     fn info(&self) -> Info {
         Info {
@@ -14,7 +13,7 @@ impl Fairing for Cors {
         }
     }
 
-    async fn on_response<'r>(&self, request: &'r Request<'_>, response: &mut Response<'r>) {
+    async fn on_response<'r>(&self, _: &'r Request<'_>, response: &mut Response<'r>) {
         let access_control_allow_origin = if cfg!(debug_assertions) {
             "*"
         } else {
