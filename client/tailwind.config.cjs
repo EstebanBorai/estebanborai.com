@@ -11,7 +11,8 @@ const config = {
 			dark: {
 				background: '#222222',
 				'background-alt': '#2C2C2E'
-			}
+			},
+			link: '#6699CC'
 		},
 		extend: {
 			fontFamily: {
