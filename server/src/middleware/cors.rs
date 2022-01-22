@@ -1,6 +1,7 @@
 use rocket::fairing::{Fairing, Info, Kind};
-use rocket::http::Header;
+use rocket::http::{ContentType, Header, Method};
 use rocket::{Request, Response};
+use std::io::Cursor;
 
 pub struct Cors;
 
@@ -13,7 +14,7 @@ impl Fairing for Cors {
         }
     }
 
-    async fn on_response<'r>(&self, _: &'r Request<'_>, response: &mut Response<'r>) {
+    async fn on_response<'r>(&self, request: &'r Request<'_>, response: &mut Response<'r>) {
         let access_control_allow_origin = if cfg!(debug_assertions) {
             "*"
         } else {
@@ -26,9 +27,14 @@ impl Fairing for Cors {
         ));
         response.set_header(Header::new(
             "Access-Control-Allow-Methods",
-            "GET, PATCH, OPTIONS",
+            "GET, POST, PATCH, OPTIONS",
         ));
         response.set_header(Header::new("Access-Control-Allow-Headers", "*"));
         response.set_header(Header::new("Access-Control-Allow-Credentials", "true"));
+
+        if request.method() == Method::Options {
+            response.set_header(ContentType::Plain);
+            response.set_sized_body(0, Cursor::new(""));
+        }
     }
 }

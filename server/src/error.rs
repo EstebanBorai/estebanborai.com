@@ -78,3 +78,17 @@ impl From<Box<dyn std::error::Error>> for Error {
         )
     }
 }
+
+impl From<diesel::result::Error> for Error {
+    fn from(err: diesel::result::Error) -> Self {
+        use diesel::result::Error as DieselError;
+
+        match err {
+            DieselError::NotFound => Error::new(StatusCode::OK, "Resource not found"),
+            _ => Error::new(
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "A database error ocurred",
+            ),
+        }
+    }
+}

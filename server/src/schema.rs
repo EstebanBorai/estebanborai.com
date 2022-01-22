@@ -10,6 +10,7 @@ table! {
         sha -> Varchar,
         preview_image_url -> Varchar,
         download_url -> Varchar,
+        content -> Text,
         created_at -> Timestamptz,
         updated_at -> Timestamptz,
     }

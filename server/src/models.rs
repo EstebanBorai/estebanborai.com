@@ -1,5 +1,5 @@
 use async_graphql::SimpleObject;
-use chrono::NaiveDate;
+use chrono::{NaiveDate, NaiveDateTime};
 use diesel::{Insertable, Queryable};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
@@ -19,4 +19,7 @@ pub struct Note {
     pub lang: String,
     pub preview_image_url: String,
     pub download_url: String,
+    pub content: String,
+    pub created_at: NaiveDateTime,
+    pub updated_at: NaiveDateTime,
 }

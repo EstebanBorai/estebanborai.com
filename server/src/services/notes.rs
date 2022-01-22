@@ -1,9 +1,12 @@
-use chrono::NaiveDate;
-use diesel::RunQueryDsl;
+use chrono::{NaiveDate, Utc};
+use diesel::query_dsl::QueryDsl;
+use diesel::ExpressionMethods;
+use diesel::{OptionalExtension, RunQueryDsl};
 use reqwest::header::HeaderValue;
 use reqwest::{Client, ClientBuilder};
 use serde::{Deserialize, Serialize};
 use slug::slugify;
+use std::cmp::Ordering;
 use std::sync::Arc;
 use uuid::Uuid;
 use yaml_front_matter::{Document, YamlFrontMatter};
@@ -45,6 +48,15 @@ impl NotesService {
         }
     }
 
+    pub async fn find_by_slug(&self, slug: &str) -> Result<Option<Note>> {
+        let dbconn = self.dbconn_pool.get().unwrap();
+        let result = schema::notes::table
+            .filter(schema::notes::slug.eq(slug))
+            .first::<Note>(&dbconn);
+
+        Ok(result.optional()?)
+    }
+
     /// Lists all Markdown file's metadata living under the "notes" directory in
     /// the EstebanBorai/EstebanBorai repository
     pub async fn list(&self) -> Result<Vec<Note>> {
@@ -60,9 +72,10 @@ impl NotesService {
                 let res = self.client.get(&download_url).send().await?;
                 let markdown = res.text().await.unwrap();
                 let Document {
-                    content: _,
+                    content,
                     metadata: yfm,
                 } = YamlFrontMatter::parse::<MarkdownFileYamlFrontMatter>(&markdown).unwrap();
+                let now = Utc::now().naive_utc();
 
                 notes.push(Note {
                     id: Uuid::new_v4(),
@@ -75,6 +88,9 @@ impl NotesService {
                     lang: yfm.lang,
                     preview_image_url: yfm.preview_image_url,
                     download_url,
+                    content,
+                    created_at: now,
+                    updated_at: now,
                 });
             }
 
@@ -88,6 +104,14 @@ impl NotesService {
             .on_conflict_do_nothing()
             .execute(&dbconn)
             .unwrap();
+
+        notes.sort_by(|a, b| {
+            if b.date > a.date {
+                Ordering::Greater
+            } else {
+                Ordering::Less
+            }
+        });
 
         Ok(notes)
     }

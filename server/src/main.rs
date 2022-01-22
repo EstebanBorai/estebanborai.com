@@ -14,7 +14,7 @@ use std::sync::Arc;
 use self::config::Config;
 use self::graphql::query::Query;
 use self::graphql::Schema;
-use self::routes::{graphql_playground, graphql_query, graphql_request};
+use self::routes::{graphql_playground, graphql_query, graphql_request, preflight};
 
 #[macro_use]
 extern crate rocket;
@@ -57,6 +57,11 @@ async fn rocket() -> _ {
         .manage(graphql_schema)
         .mount(
             "/",
-            routes![graphql_playground, graphql_query, graphql_request],
+            routes![
+                graphql_playground,
+                graphql_query,
+                graphql_request,
+                preflight
+            ],
         )
 }

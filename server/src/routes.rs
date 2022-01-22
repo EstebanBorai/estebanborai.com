@@ -1,6 +1,7 @@
 use async_graphql::http::{playground_source, GraphQLPlaygroundConfig};
 use async_graphql_rocket::{GraphQLQuery, GraphQLRequest, GraphQLResponse};
-use rocket::{response::content, State};
+use rocket::response::{content, status};
+use rocket::State;
 
 use crate::graphql::Schema;
 
@@ -17,4 +18,9 @@ pub async fn graphql_query(schema: &State<Schema>, query: GraphQLQuery) -> Graph
 #[rocket::post("/graphql", data = "<request>", format = "application/json")]
 pub async fn graphql_request(schema: &State<Schema>, request: GraphQLRequest) -> GraphQLResponse {
     request.execute(schema).await
+}
+
+#[rocket::options("/graphql")]
+pub async fn preflight() -> status::Accepted<()> {
+    status::Accepted(None)
 }
