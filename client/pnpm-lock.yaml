@@ -7,6 +7,7 @@ specifiers:
   '@sveltejs/kit': next
   '@tailwindcss/forms': ^0.4.0
   '@tailwindcss/typography': ^0.5.0
+  '@types/remarkable': ^2.0.3
   '@typescript-eslint/eslint-plugin': ^4.31.1
   '@typescript-eslint/parser': ^4.31.1
   '@urql/svelte': ^1.3.3
@@ -16,9 +17,11 @@ specifiers:
   eslint-config-prettier: ^8.3.0
   eslint-plugin-svelte3: ^3.2.1
   graphql: ^16.2.0
+  highlight.js: ^11.4.0
   postcss: ^8.4.5
   prettier: ^2.4.1
   prettier-plugin-svelte: ^2.4.0
+  remarkable: ^2.0.1
   svelte: ^3.44.0
   svelte-check: ^2.2.6
   svelte-preprocess: ^4.10.1
@@ -37,6 +40,7 @@ devDependencies:
   '@sveltejs/kit': 1.0.0-next.239_svelte@3.44.3
   '@tailwindcss/forms': 0.4.0_tailwindcss@3.0.8
   '@tailwindcss/typography': 0.5.0_tailwindcss@3.0.8
+  '@types/remarkable': 2.0.3
   '@typescript-eslint/eslint-plugin': 4.33.0_3289a875d95a672b97ebf589745c66ef
   '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.5.4
   '@urql/svelte': 1.3.3_graphql@16.2.0+svelte@3.44.3
@@ -46,9 +50,11 @@ devDependencies:
   eslint-config-prettier: 8.3.0_eslint@7.32.0
   eslint-plugin-svelte3: 3.2.1_eslint@7.32.0+svelte@3.44.3
   graphql: 16.2.0
+  highlight.js: 11.4.0
   postcss: 8.4.5
   prettier: 2.5.1
   prettier-plugin-svelte: 2.5.1_prettier@2.5.1+svelte@3.44.3
+  remarkable: 2.0.1
   svelte: 3.44.3
   svelte-check: 2.2.11_postcss@8.4.5+svelte@3.44.3
   svelte-preprocess: 4.10.1_a77feb17e2d98801e15b65bd7ff1b1f2
@@ -333,6 +339,13 @@ packages:
     engines: { node: '>=10.13.0' }
     dev: true
 
+  /@types/highlight.js/9.12.4:
+    resolution:
+      {
+        integrity: sha512-t2szdkwmg2JJyuCM20e8kR2X59WCE5Zkl4bzm1u1Oukjm79zpbiAv+QjnwLnuuV0WHEcX2NgUItu0pAMKuOPww==
+      }
+    dev: true
+
   /@types/json-schema/7.0.9:
     resolution:
       {
@@ -359,6 +372,16 @@ packages:
       {
         integrity: sha512-SnHmG9wN1UVmagJOnyo/qkk0Z7gejYxOYYmaAwr5u2yFYfsupN3sg10kyzN8Hep/2zbHxCnsumxOoRIRMBwKCg==
       }
+    dev: true
+
+  /@types/remarkable/2.0.3:
+    resolution:
+      {
+        integrity: sha512-QQUBeYApuHCNl9Br6ZoI3PlKmwZ69JHrlJktJXnjxobia9liZgsI70fm8PnCqVFAcefYK+9PGzR5L/hzCslNYQ==
+      }
+    dependencies:
+      '@types/highlight.js': 9.12.4
+      highlight.js: 9.18.5
     dev: true
 
   /@types/sass/1.43.1:
@@ -668,6 +691,15 @@ packages:
         integrity: sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==
       }
     engines: { node: '>=8' }
+    dev: true
+
+  /autolinker/3.14.3:
+    resolution:
+      {
+        integrity: sha512-t81i2bCpS+s+5FIhatoww9DmpjhbdiimuU9ATEuLxtZMQ7jLv9fyFn7SWNG8IkEfD4AmYyirL1ss9k1aqVWRvg==
+      }
+    dependencies:
+      tslib: 1.14.1
     dev: true
 
   /autoprefixer/10.4.1_postcss@8.4.5:
@@ -1894,6 +1926,23 @@ packages:
       function-bind: 1.1.1
     dev: true
 
+  /highlight.js/11.4.0:
+    resolution:
+      {
+        integrity: sha512-nawlpCBCSASs7EdvZOYOYVkJpGmAOKMYZgZtUqSRqodZE0GRVcFKwo1RcpeOemqh9hyttTdd5wDBwHkuSyUfnA==
+      }
+    engines: { node: '>=12.0.0' }
+    dev: true
+
+  /highlight.js/9.18.5:
+    resolution:
+      {
+        integrity: sha512-a5bFyofd/BHCX52/8i8uJkjr9DYwXIPnM/plwI6W7ezItLGqzt7X2G2nXuYSfsIJdkwwj/g9DG1LkcGJI/dDoA==
+      }
+    deprecated: Support has ended for 9.x series. Upgrade to @latest
+    requiresBuild: true
+    dev: true
+
   /ignore/4.0.6:
     resolution:
       {
@@ -2895,6 +2944,18 @@ packages:
         integrity: sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==
       }
     engines: { node: '>=8' }
+    dev: true
+
+  /remarkable/2.0.1:
+    resolution:
+      {
+        integrity: sha512-YJyMcOH5lrR+kZdmB0aJJ4+93bEojRZ1HGDn9Eagu6ibg7aVZhc3OWbbShRid+Q5eAfsEqWxpe+g5W5nYNfNiA==
+      }
+    engines: { node: '>= 6.0.0' }
+    hasBin: true
+    dependencies:
+      argparse: 1.0.10
+      autolinker: 3.14.3
     dev: true
 
   /require-from-string/2.0.2:

@@ -48,7 +48,7 @@ query {
 
 	import type { LoadOutput, LoadInput } from '@sveltejs/kit';
 
-	export const error = null;
+	export let error = null;
 	export let notes = [];
 </script>
 
