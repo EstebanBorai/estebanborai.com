@@ -2,43 +2,24 @@
 
 ### Requirements
 
+- NodeJS
 - Rust
 
 ### Setup
 
 #### Client
 
-This solution makes use of Trunk for development and bundling you must
-install `trunk` in your system first.
-
-Follow the documentation available in the official [Trunk](https://github.com/thedodd/trunk)
-repository.
-
-Then make sure you have the WASM target installed otherwise
-add it to your Rust targets using:
+The client-side of this application is writen on Svelte using SvelteKit.
+You must install dependencies using:
 
 ```bash
-rustup target add wasm32-unknown-unknown
+pnpm install
 ```
 
-#### OpenSSL and Ubuntu 20
-
-> This is an important note for Ubuntu 20 users using this crate for development
-
-You must install `libssl-dev` in order to have `wasm-bindgen-cli` installed
-via `cargo install wasm-bindgen-cli` which is required by Trunk.
-
-In order to have it installed in your system you must run:
+And then run the development server by performing:
 
 ```bash
-sudo apt-get update
-sudo apt-get install libssl-dev
-```
-
-Then install the WASM Bindgen CLI by running:
-
-```bash
-cargo install wasm-bindgen-cli
+pnpm run dev
 ```
 
 ### Server
