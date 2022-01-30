@@ -27,9 +27,6 @@ jobs:
         with:
           node-version: '16.x'
 
-      - name: Remove development "wrangler.toml"
-        run: rm ./wrangler.toml
-
       - name: Create wrangler.toml
         run: ./bin/make-gateway-wrangler.sh
 

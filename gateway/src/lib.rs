@@ -54,6 +54,16 @@ pub async fn main(mut req: Request, env: Env) -> Result<Response> {
         outgoing_headers.append(header_name, header_value);
     }
 
+    outgoing_headers.append(
+        HeaderName::from_str("X-Auth-Token").map_err(|err| worker::Error::from(err.to_string()))?,
+        HeaderValue::from_str(
+            &env.var("X_AUTH_TOKEN")
+                .expect("Missing \"X_AUTH_TOKEN\" environment variable.")
+                .to_string(),
+        )
+        .unwrap(),
+    );
+
     let response = client
         .request(method, api_url)
         .headers(outgoing_headers)

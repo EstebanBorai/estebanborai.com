@@ -12,7 +12,7 @@ env:
   CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
   CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
   CF_ENVIRONMENT: 'staging'
-  X_AUTH_TOKEN: ${{ secrets.X_AUTH_TOKEN }}
+  X_AUTH_TOKEN: ${{ secrets.STAGING_X_AUTH_TOKEN }}
   API_URL: ${{ secrets.STAGING_API_URL }}
 
 jobs:
@@ -26,9 +26,6 @@ jobs:
       - uses: actions/setup-node@v2.5.0
         with:
           node-version: '16.x'
-
-      - name: Remove development "wrangler.toml"
-        run: rm ./wrangler.toml
 
       - name: Create wrangler.toml
         run: ./bin/make-gateway-wrangler.sh
