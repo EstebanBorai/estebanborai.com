@@ -27,8 +27,11 @@ jobs:
         with:
           node-version: '16.x'
 
+      - name: Step into working directory
+        run: cd ./gateway
+
       - name: Create wrangler.toml
-        run: ./bin/make-gateway-wrangler.sh
+        run: ../bin/make-gateway-wrangler.sh && cp ../wrangler.toml ./
 
       - name: Publish
         run: npx @cloudflare/wrangler publish --env staging
