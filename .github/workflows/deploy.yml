@@ -33,14 +33,14 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Publish
-        run: pnpm run deploy:staging
+        run: pnpm run deploy:production
 
       - name: Deploy Success
         if: success()
         uses: zattoo/deploy-status@master
         with:
           environment: '${{ env.CF_ENVIRONMENT }}'
-          environment_url: 'https://staging.estebanborai.com'
+          environment_url: 'https://estebanborai.com'
           state: 'success'
           token: '${{ github.token }}'
 
@@ -48,6 +48,6 @@ jobs:
         if: failure()
         uses: zattoo/deploy-status@master
         with:
-          environment: staging
+          environment: production
           state: 'failure'
           token: '${{ github.token }}'
