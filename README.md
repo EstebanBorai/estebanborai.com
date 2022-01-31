@@ -1,83 +1,38 @@
-## Development
+# create-svelte
 
-### Requirements
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
 
-- NodeJS
-- Rust
+## Creating a project
 
-### Setup
-
-#### Client
-
-The client-side of this application is writen on Svelte using SvelteKit.
-You must install dependencies using:
+If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-pnpm install
+# create a new project in the current directory
+npm init svelte@next
+
+# create a new project in my-app
+npm init svelte@next my-app
 ```
 
-And then run the development server by performing:
+> Note: the `@next` is temporary
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
-pnpm run dev
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-### Server
+## Building
 
-The API server is written using the Rocket.rs HTTP server framework.
-This server must connect to a PostgreSQL database which is
-available via Docker, execute `docker-compose up --build` in
-the root directory in order to start the database service.
-
-#### Database
-
-This project uses Diesel ORM to perform database related operations.
-
-It's recommended to install the Diesel CLI binary using `cargo install`
-to use this project.
-
-1. Install `libpq` using Homebrew
+Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
 
 ```bash
-brew install libpq && brew link --force libpq
+npm run build
 ```
 
-2. Then add the library to your PATH
-
-```bash
-echo 'export PATH="/usr/local/opt/libpq/bin:$PATH"' >> ~/.zshrc
-```
-
-3. Finally install Diesel CLI
-
-```bash
-cargo install diesel_cli --no-default-features --features postgres
-```
-
-The following sections will walk you through setting up Diesel for the project,
-instead of steps these are defined as sections to easily revisit/navigate them
-but you must follow them from top to bottom.
-
-#### Initialize Schemas
-
-Generates the `schema.rs` file.
-
-```bash
-DATABASE_URL=postgres://website-api:website-api@127.0.0.1:5432/website-api diesel database setup
-```
-
-#### Create migrations
-
-Create a new migration file.
-
-```bash
-DATABASE_URL=postgres://website-api:website-api@127.0.0.1:5432/website-api diesel migration generate create_uuid_extension
-```
-
-#### Run migrations
-
-Run migrations against the database instance.
-
-```bash
-DATABASE_URL=postgres://website-api:website-api@127.0.0.1:5432/website-api diesel migration run
-```
+> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.

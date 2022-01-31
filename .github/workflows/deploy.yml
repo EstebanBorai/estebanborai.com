@@ -1,17 +1,15 @@
-name: Deploy Client Staging
+name: Deploy Client Production
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'client/**'
+    tags:
+      - 'v*'
 
 env:
   CF_EMAIL: ${{ secrets.CF_EMAIL }}
   CF_API_KEY: ${{ secrets.CF_API_KEY }}
   CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
   CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
-  CF_ENVIRONMENT: 'staging'
+  CF_ENVIRONMENT: 'production'
 
 jobs:
   deploy:
@@ -26,16 +24,16 @@ jobs:
           node-version: '16.x'
 
       - name: Create wrangler.toml
-        run: ./bin/make-wrangler.sh && cp ./wrangler.toml ./client
+        run: ./bin/make-wrangler.sh
 
       - name: Installs pnpm
         run: npm install -g pnpm
 
       - name: Installs dependencies
-        run: cd ./client && pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Publish
-        run: cd ./client && pnpm run deploy:staging
+        run: pnpm run deploy:staging
 
       - name: Deploy Success
         if: success()
