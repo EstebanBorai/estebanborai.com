@@ -37,9 +37,9 @@
 				<time class="text-sm mr-2" datetime={publishDate.toString()}>{formattedDate}</time>
 			</span>
 		</div>
-		<ul class="flex">
+		<ul class="flex flex-wrap">
 			{#each tags as tag}
-				<li class="text-sm mr-2 bg-light-background dark:bg-dark-background rounded py-1 px-2">
+				<li class="text-sm mr-2 mb-2 bg-light-background dark:bg-dark-background rounded py-1 px-2">
 					{tag}
 				</li>
 			{/each}

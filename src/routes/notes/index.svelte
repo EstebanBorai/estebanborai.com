@@ -1,63 +1,56 @@
-<script context="module" lang="ts">
+<script lang="ts">
+	import { onMount } from 'svelte';
+
+	import Entry from '$lib/modules/notes/components/Entry.svelte';
 	import { urqlClient } from '$lib/utils/urql';
+	import { captureException } from '@sentry/browser';
+
+	let error = null;
+	let notes = [];
+	let isLoading = false;
 
 	const notesQuery = `
-query {
-  notes {
-    edges {
-      node {
-        id
-        title
-        date
-        description
-        slug
-        categories
-      }
-    }
-  }
-}
-`;
+			query {
+  			notes {
+    			edges {
+      			node {
+        			id
+        			title
+        			date
+        			description
+        			slug
+        			categories
+      			}
+    			}
+  			}
+			}`;
 
-	export async function load(): Promise<LoadOutput> {
+	onMount(async () => {
 		try {
+			isLoading = true;
 			const result = await urqlClient.query(notesQuery, null).toPromise();
 
 			if (result.data?.notes?.edges?.length) {
-				return {
-					props: {
-						notes: result.data.notes.edges.map(({ node }) => node),
-						error: result.error
-					}
-				};
+				notes = result.data.notes.edges.map(({ node }) => node);
+				error = result.error;
+				return;
 			}
 
-			return {
-				props: {
-					notes: [],
-					error: result.error
-				}
-			};
+			notes = [];
+			error = result.error;
 		} catch (err) {
-			return {
-				props: {
-					notes: [],
-					error: err.toString()
-				}
-			};
+			captureException(err);
+			notes = [];
+			error = 'An unhandled error ocurred!';
+		} finally {
+			isLoading = false;
 		}
-	}
+	});
 </script>
 
-<script lang="ts">
-	import Entry from '$lib/modules/notes/components/Entry.svelte';
-
-	import type { LoadOutput, LoadInput } from '@sveltejs/kit';
-
-	export let error = null;
-	export let notes = [];
-</script>
-
-{#if error}
+{#if isLoading}
+	<h1>Loading</h1>
+{:else if error}
 	{error}
 {:else}
 	<ul>
