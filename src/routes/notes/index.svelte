@@ -18,28 +18,33 @@ query {
 }
 `;
 
-	export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
-		const result = await urqlClient
-			.query(notesQuery, null, {
-				fetch
-			})
-			.toPromise();
+	export async function load(): Promise<LoadOutput> {
+		try {
+			const result = await urqlClient.query(notesQuery, null).toPromise();
 
-		if (result.data.notes?.edges?.length) {
+			if (result.data?.notes?.edges?.length) {
+				return {
+					props: {
+						notes: result.data.notes.edges.map(({ node }) => node),
+						error: result.error
+					}
+				};
+			}
+
 			return {
 				props: {
-					notes: result.data.notes.edges.map(({ node }) => node),
+					notes: [],
 					error: result.error
 				}
 			};
+		} catch (err) {
+			return {
+				props: {
+					notes: [],
+					error: err.toString()
+				}
+			};
 		}
-
-		return {
-			props: {
-				notes: [],
-				error: result.error
-			}
-		};
 	}
 </script>
 
