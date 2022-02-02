@@ -2,6 +2,8 @@ lockfileVersion: 5.3
 
 specifiers:
   '@cloudflare/wrangler': ^1.19.7
+  '@sentry/browser': ^6.17.3
+  '@sentry/tracing': ^6.17.3
   '@sveltejs/adapter-cloudflare-workers': ^1.0.0-next.30
   '@sveltejs/kit': ^1.0.0-next.251
   '@tailwindcss/forms': ^0.4.0
@@ -34,6 +36,8 @@ dependencies:
 
 devDependencies:
   '@cloudflare/wrangler': 1.19.7
+  '@sentry/browser': 6.17.3
+  '@sentry/tracing': 6.17.3
   '@sveltejs/adapter-cloudflare-workers': 1.0.0-next.30
   '@sveltejs/kit': 1.0.0-next.251_svelte@3.44.3
   '@tailwindcss/forms': 0.4.0_tailwindcss@3.0.8
@@ -202,6 +206,90 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
+    dev: true
+
+  /@sentry/browser/6.17.3:
+    resolution:
+      {
+        integrity: sha512-UElPk6/Q/78eL8tHGHy080uHVQAuieWXlSMSzrJMVNa+vwXPwEeyL+WbPtKkND2jGwdODjg+pSj960RqhIv+ig==
+      }
+    engines: { node: '>=6' }
+    dependencies:
+      '@sentry/core': 6.17.3
+      '@sentry/types': 6.17.3
+      '@sentry/utils': 6.17.3
+      tslib: 1.14.1
+    dev: true
+
+  /@sentry/core/6.17.3:
+    resolution:
+      {
+        integrity: sha512-h7WgrNL0RVlr8Dceh97ZiXNdmEumDutpoqFijjiX4x72IiC6zSaVD4IsqrdGln+v8iJ3l3lX44HHqzubDub1OQ==
+      }
+    engines: { node: '>=6' }
+    dependencies:
+      '@sentry/hub': 6.17.3
+      '@sentry/minimal': 6.17.3
+      '@sentry/types': 6.17.3
+      '@sentry/utils': 6.17.3
+      tslib: 1.14.1
+    dev: true
+
+  /@sentry/hub/6.17.3:
+    resolution:
+      {
+        integrity: sha512-TDxv8nRvk45xvfQg6zs8GYzQzgo0EMhI3wjQZLiNfW2rzybKmIwVp2x3O4PAc3WPzwg4bYNgSAkYKVlHmYjRCg==
+      }
+    engines: { node: '>=6' }
+    dependencies:
+      '@sentry/types': 6.17.3
+      '@sentry/utils': 6.17.3
+      tslib: 1.14.1
+    dev: true
+
+  /@sentry/minimal/6.17.3:
+    resolution:
+      {
+        integrity: sha512-zvGGfHNNA92Lqx6P8ZwOUkmRmAiQl0AQFRXl9So1Ayq9bJRnFLJZv4YFVnp2wE4HXYIlfBYb51+GlGB5LIuPmw==
+      }
+    engines: { node: '>=6' }
+    dependencies:
+      '@sentry/hub': 6.17.3
+      '@sentry/types': 6.17.3
+      tslib: 1.14.1
+    dev: true
+
+  /@sentry/tracing/6.17.3:
+    resolution:
+      {
+        integrity: sha512-GnHugxw5qkWwYmeQbbrswuWpb0bpYqyJr/dO25QQOCwp+cckQrvBYTMC8zGJG10u94O4el0lQaQnNFz9WF3r6g==
+      }
+    engines: { node: '>=6' }
+    dependencies:
+      '@sentry/hub': 6.17.3
+      '@sentry/minimal': 6.17.3
+      '@sentry/types': 6.17.3
+      '@sentry/utils': 6.17.3
+      tslib: 1.14.1
+    dev: true
+
+  /@sentry/types/6.17.3:
+    resolution:
+      {
+        integrity: sha512-0AXCjYcfl8Vx26GfyLY4rBQ78Lyt1oND3UozTTMaVXlcKYIjzV+f7TOo5IZx+Kbr6EGUNDLdpA4xfbkWdW/1NA==
+      }
+    engines: { node: '>=6' }
+    dev: true
+
+  /@sentry/utils/6.17.3:
+    resolution:
+      {
+        integrity: sha512-6/2awDIeHSj0JgiC7DDdV1lxvLmf+/BisWhw09dKvmhVQB3ADvQZbohjUgM+Qam5zE0xmZAfQhvuDwC41W8Wnw==
+      }
+    engines: { node: '>=6' }
+    dependencies:
+      '@sentry/types': 6.17.3
+      tslib: 1.14.1
     dev: true
 
   /@sveltejs/adapter-cloudflare-workers/1.0.0-next.30:
