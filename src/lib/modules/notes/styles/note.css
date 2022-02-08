@@ -22,3 +22,16 @@
 
 	color: #6699cc !important;
 }
+
+.note-container ul,
+.note-container ol {
+	@apply pl-4 my-4;
+}
+
+.note-container ul {
+	list-style-type: disc;
+}
+
+.note-container ol {
+	list-style-type: decimal;
+}

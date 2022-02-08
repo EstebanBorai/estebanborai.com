@@ -13,7 +13,9 @@ const config = {
 		preprocess({
 			postcss: true
 		}),
-		mdsvex()
+		mdsvex({
+			layout: './src/lib/modules/notes/components/Layout.svelte'
+		})
 	],
 
 	kit: {
