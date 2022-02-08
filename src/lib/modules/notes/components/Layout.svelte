@@ -6,10 +6,38 @@
 	import '../styles/prism-one-dark.css';
 
 	export let title;
+	export let description;
 	export let date;
+	export let preview_image_url;
 
-	let formattedDate = humanDate(new Date(date));
+	const publishedTime = new Date(date);
+	const formattedDate = humanDate(publishedTime);
 </script>
+
+<svelte:head>
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<!-- Schema.org markup for Google+ -->
+	<meta itemprop="name" content={title} />
+	<meta itemprop="description" content={description} />
+	<meta itemprop="image" content={preview_image_url} />
+	<!-- Open Graph data -->
+	<meta property="og:title" content={title} />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="https://estebanborai.com/" />
+	<meta property="og:image" content={preview_image_url} />
+	<meta property="og:description" content={description} />
+	<meta property="og:site_name" content="Esteban Borai" />
+	<meta property="article:published_time" content={publishedTime.toJSON()} />
+	<meta property="article:modified_time" content={publishedTime.toJSON()} />
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@EstebanBorai" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta name="twitter:creator" content="@EstebanBorai" />
+	<meta name="twitter:image:src" content={preview_image_url} />
+</svelte:head>
 
 <div class="safe-zone note-container">
 	<header class="py-4">
