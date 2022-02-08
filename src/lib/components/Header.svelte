@@ -42,9 +42,6 @@
 					<a href="/"> Home </a>
 				</li>
 				<li class="mx-2 font-semibold">
-					<a href="/about"> About </a>
-				</li>
-				<li class="mx-2 font-semibold">
 					<a href="/notes"> Notes </a>
 				</li>
 			</ul>
