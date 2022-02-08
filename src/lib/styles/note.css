@@ -1,0 +1,24 @@
+.note-container h2 {
+	@apply text-2xl py-4 !important;
+}
+
+.note-container p code {
+	@apply bg-light-background dark:bg-dark-background rounded;
+
+	color: #f04f4f !important;
+	font-size: 0.8rem;
+	padding: 0.2rem;
+}
+
+.note-container h2 code {
+	@apply text-xl bg-light-background dark:bg-dark-background rounded;
+
+	color: #f04f4f !important;
+	padding: 0.2rem;
+}
+
+.note-container a {
+	@apply underline !important;
+
+	color: #6699cc !important;
+}

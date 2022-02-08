@@ -2,32 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-	@apply font-body;
-}
-
-h1,
-h2 {
-	@apply font-body;
-
-	font-weight: 800;
-}
-
-h3 {
-	@apply font-body;
-
-	font-weight: 600;
-}
-
-.safe-zone {
-	max-width: 920px;
-	width: 100%;
-}
-
-html.dark * {
-	color: #ffffff;
-}
-
 @font-face {
 	font-family: 'Inter';
 	font-style: normal;
@@ -62,4 +36,36 @@ html.dark * {
 		/* Super Modern Browsers */ url('/fonts/inter-v7-latin-800.woff') format('woff'),
 		/* Modern Browsers */ url('/fonts/inter-v7-latin-800.ttf') format('truetype'),
 		/* Safari, Android, iOS */ url('/fonts/inter-v7-latin-800.svg#Inter') format('svg'); /* Legacy iOS */
+}
+
+body {
+	@apply font-body;
+}
+
+h1,
+h2 {
+	@apply font-body;
+
+	font-weight: 800;
+}
+
+h3 {
+	@apply font-body;
+
+	font-weight: 600;
+}
+
+.safe-zone {
+	max-width: 920px;
+	width: 100%;
+}
+
+html.dark * {
+	color: #ffffff;
+}
+
+@media only screen and (max-width: 920px) {
+	.safe-zone {
+		width: 95%;
+	}
 }
