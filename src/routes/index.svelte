@@ -23,7 +23,7 @@
 		<strong class="text-3xl md:text-4xl py-4 text-center md:text-left">Hi I'm Esteban Borai,</strong
 		>
 		<p class="text-center md:text-left">
-			A Software Engineer interested in Systems Programming and Web Development.
+			Software and Computer Science enthusiast. Using Rust 🦀 and TypeScript 👨🏻‍💻.
 		</p>
 		<ul class="flex py-4 mx-auto md:mx-0">
 			<li class="mr-4">
