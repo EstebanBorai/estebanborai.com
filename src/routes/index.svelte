@@ -25,7 +25,7 @@
       >Hi I'm Esteban Borai,</strong
     >
     <p class="text-center md:text-left">
-      Software and Computer Science enthusiast. Using Rust 🦀 and TypeScript 👨🏻‍💻.
+      Software and Computer Science enthusiast. Mainly use Rust 🦀 and TypeScript 👨🏻‍💻.
     </p>
     <ul class="flex py-4 mx-auto md:mx-0">
       <li class="mr-4">
