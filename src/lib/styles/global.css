@@ -3,69 +3,81 @@
 @tailwind utilities;
 
 @font-face {
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 400;
-	src: url('/fonts/inter-v7-latin-regular.eot'); /* IE9 Compat Modes */
-	src: local(''), url('/fonts/inter-v7-latin-regular.eot?#iefix') format('embedded-opentype'),
-		/* IE6-IE8 */ url('/fonts/inter-v7-latin-regular.woff2') format('woff2'),
-		/* Super Modern Browsers */ url('/fonts/inter-v7-latin-regular.woff') format('woff'),
-		/* Modern Browsers */ url('/fonts/inter-v7-latin-regular.ttf') format('truetype'),
-		/* Safari, Android, iOS */ url('/fonts/inter-v7-latin-regular.svg#Inter') format('svg'); /* Legacy iOS */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/inter-v7-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+    url('/fonts/inter-v7-latin-regular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/fonts/inter-v7-latin-regular.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/fonts/inter-v7-latin-regular.woff')
+      format('woff'),
+    /* Modern Browsers */ url('/fonts/inter-v7-latin-regular.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */ url('/fonts/inter-v7-latin-regular.svg#Inter')
+      format('svg'); /* Legacy iOS */
 }
 
 @font-face {
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 600;
-	src: url('/fonts/inter-v7-latin-600.eot'); /* IE9 Compat Modes */
-	src: local(''), url('/fonts/inter-v7-latin-600.eot?#iefix') format('embedded-opentype'),
-		/* IE6-IE8 */ url('/fonts/inter-v7-latin-600.woff2') format('woff2'),
-		/* Super Modern Browsers */ url('/fonts/inter-v7-latin-600.woff') format('woff'),
-		/* Modern Browsers */ url('/fonts/inter-v7-latin-600.ttf') format('truetype'),
-		/* Safari, Android, iOS */ url('/fonts/inter-v7-latin-600.svg#Inter') format('svg'); /* Legacy iOS */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/inter-v7-latin-600.eot'); /* IE9 Compat Modes */
+  src: local(''),
+    url('/fonts/inter-v7-latin-600.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/fonts/inter-v7-latin-600.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/fonts/inter-v7-latin-600.woff')
+      format('woff'),
+    /* Modern Browsers */ url('/fonts/inter-v7-latin-600.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */ url('/fonts/inter-v7-latin-600.svg#Inter')
+      format('svg'); /* Legacy iOS */
 }
 
 @font-face {
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 800;
-	src: url('/fonts/inter-v7-latin-800.eot'); /* IE9 Compat Modes */
-	src: local(''), url('/fonts/inter-v7-latin-800.eot?#iefix') format('embedded-opentype'),
-		/* IE6-IE8 */ url('/fonts/inter-v7-latin-800.woff2') format('woff2'),
-		/* Super Modern Browsers */ url('/fonts/inter-v7-latin-800.woff') format('woff'),
-		/* Modern Browsers */ url('/fonts/inter-v7-latin-800.ttf') format('truetype'),
-		/* Safari, Android, iOS */ url('/fonts/inter-v7-latin-800.svg#Inter') format('svg'); /* Legacy iOS */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/fonts/inter-v7-latin-800.eot'); /* IE9 Compat Modes */
+  src: local(''),
+    url('/fonts/inter-v7-latin-800.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/fonts/inter-v7-latin-800.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/fonts/inter-v7-latin-800.woff')
+      format('woff'),
+    /* Modern Browsers */ url('/fonts/inter-v7-latin-800.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */ url('/fonts/inter-v7-latin-800.svg#Inter')
+      format('svg'); /* Legacy iOS */
 }
 
 body {
-	@apply font-body;
+  @apply font-body;
 }
 
 h1,
 h2 {
-	@apply font-body;
+  @apply font-body;
 
-	font-weight: 800;
+  font-weight: 800;
 }
 
 h3 {
-	@apply font-body;
+  @apply font-body;
 
-	font-weight: 600;
+  font-weight: 600;
 }
 
 .safe-zone {
-	max-width: 920px;
-	width: 100%;
+  max-width: 920px;
+  width: 100%;
 }
 
 html.dark * {
-	color: #ffffff;
+  color: #ffffff;
 }
 
 @media only screen and (max-width: 920px) {
-	.safe-zone {
-		width: 95%;
-	}
+  .safe-zone {
+    width: 95%;
+  }
 }
