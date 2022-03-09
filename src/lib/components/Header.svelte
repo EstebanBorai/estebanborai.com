@@ -38,7 +38,9 @@
   class="flex justify-center px-4 h-[70px] bg-light-background dark:bg-dark-background"
 >
   <div class="safe-zone flex items-center justify-between">
-    <h1>Esteban Borai</h1>
+    <a href="/">
+      <h1>Esteban Borai</h1>
+    </a>
     <nav class="flex items-center">
       <ul class="flex pr-4">
         <li class="mx-2 font-semibold">
