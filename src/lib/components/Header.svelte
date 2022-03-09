@@ -56,11 +56,11 @@
       >
         {#if useDarkMode}
           <span>
-            <Sun className="h-5 w-5" />
+            <Sun class="h-5 w-5" />
           </span>
         {:else}
           <span>
-            <Moon className="h-5 w-5" />
+            <Moon class="h-5 w-5" />
           </span>
         {/if}
       </button>
