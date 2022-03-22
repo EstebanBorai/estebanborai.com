@@ -34,6 +34,7 @@
     "graphql": "^16.2.0",
     "highlight.js": "^11.4.0",
     "mdsvex": "^0.10.5",
+    "phosphor-svelte": "^1.1.2",
     "postcss": "^8.4.5",
     "prettier": "^2.4.1",
     "prettier-plugin-svelte": "^2.4.0",

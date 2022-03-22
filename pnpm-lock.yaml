@@ -19,6 +19,7 @@ specifiers:
   graphql: ^16.2.0
   highlight.js: ^11.4.0
   mdsvex: ^0.10.5
+  phosphor-svelte: ^1.1.2
   postcss: ^8.4.5
   prettier: ^2.4.1
   prettier-plugin-svelte: ^2.4.0
@@ -49,6 +50,7 @@ devDependencies:
   graphql: 16.2.0
   highlight.js: 11.4.0
   mdsvex: 0.10.5_svelte@3.44.3
+  phosphor-svelte: 1.1.2_svelte@3.44.3
   postcss: 8.4.5
   prettier: 2.5.1
   prettier-plugin-svelte: 2.5.1_prettier@2.5.1+svelte@3.44.3
@@ -2424,6 +2426,17 @@ packages:
         integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==,
       }
     engines: { node: '>=8' }
+    dev: true
+
+  /phosphor-svelte/1.1.2_svelte@3.44.3:
+    resolution:
+      {
+        integrity: sha512-YeS3qkENpg7oDG3G4fAWZBOgF5TnK1nSNKOxUyh/+K48RQ76qjK1nq7FaVjfQOCYiqrJqlul6HNdqRlX1RGZhw==,
+      }
+    peerDependencies:
+      svelte: '>=3'
+    dependencies:
+      svelte: 3.44.3
     dev: true
 
   /picocolors/1.0.0:

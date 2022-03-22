@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
+  import Calendar from 'phosphor-svelte/lib/Calendar';
 
-  import Calendar from '$lib/components/icons/Calendar.svelte';
+  import { goto } from '$app/navigation';
   import { humanDate } from '$lib/utils/date';
 
   export let title: string;
@@ -33,7 +33,9 @@
   <footer class="flex flex-col">
     <div class="flex mb-2">
       <span class="flex items-center mr-2">
-        <Calendar className="h-4 w-4 mr-2" />
+        <figure class="mr-2">
+          <Calendar size={16} />
+        </figure>
         <time class="text-sm mr-2" datetime={publishDate.toString()}
           >{formattedDate}</time
         >
