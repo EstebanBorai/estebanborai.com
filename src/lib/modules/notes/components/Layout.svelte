@@ -1,5 +1,6 @@
 <script lang="ts">
-  import Calendar from '$lib/components/icons/Calendar.svelte';
+  import Calendar from 'phosphor-svelte/lib/Calendar';
+
   import { humanDate } from '$lib/utils/date';
 
   import '../styles/note.css';
@@ -44,7 +45,7 @@
     <h1 class="text-3xl py-4">{title}</h1>
     <div class="flex mb-2">
       <span class="flex items-center mr-2">
-        <Calendar className="h-4 w-4 mr-2" />
+        <Calendar class="h-4 w-4 mr-2" />
         <time class="text-sm mr-2" datetime={date.toString()}
           >{formattedDate}</time
         >

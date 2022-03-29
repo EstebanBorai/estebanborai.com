@@ -20,7 +20,7 @@
 <li class="md:px-0 pb-8 px-4">
   <header>
     <h3
-      class="text-2xl font-extrabold cursor-pointer hover:text-link"
+      class="text-2xl font-extrabold cursor-pointer hover:text-link hover:underline"
       role="link"
       on:click={handleClick}
     >

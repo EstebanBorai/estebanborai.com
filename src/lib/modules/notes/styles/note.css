@@ -2,16 +2,16 @@
   @apply text-2xl py-4 !important;
 }
 
-.note-container p code {
+.note-container p code,
+.note-container ul li code {
   @apply bg-light-background dark:bg-dark-background rounded;
 
   color: #f04f4f !important;
-  font-size: 0.8rem;
   padding: 0.2rem;
 }
 
 .note-container h2 code {
-  @apply text-xl bg-light-background dark:bg-dark-background rounded;
+  @apply bg-light-background dark:bg-dark-background rounded;
 
   color: #f04f4f !important;
   padding: 0.2rem;
@@ -34,4 +34,12 @@
 
 .note-container ol {
   list-style-type: decimal;
+}
+
+.note-container p {
+  @apply pb-2;
+}
+
+.note-container pre code {
+  @apply text-base;
 }
