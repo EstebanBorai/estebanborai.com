@@ -4,6 +4,15 @@
   import { goto } from '$app/navigation';
   import { humanDate } from '$lib/utils/date';
 
+  const LANGUAGE_COLOR: {
+    [lang: string]: string;
+  } = {
+    python: '#3572A5',
+    rust: '#dea584',
+    svelte: '#ff3e00',
+    typescript: '#2b7489',
+  };
+
   export let title: string;
   export let description: string;
   export let publishDate: Date;
@@ -46,6 +55,12 @@
         <li
           class="text-sm mr-2 mb-2 bg-light-background dark:bg-dark-background rounded py-1 px-2"
         >
+          {#if tag.toLowerCase() in LANGUAGE_COLOR}
+            <span
+              class="inline-block mr-1 rounded-full h-2 w-2"
+              style="background-color: {LANGUAGE_COLOR[tag.toLowerCase()]};"
+            />
+          {/if}
           {tag}
         </li>
       {/each}
