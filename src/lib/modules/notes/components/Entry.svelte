@@ -18,6 +18,7 @@
   export let publishDate: Date;
   export let tags: string[];
   export let slug: string;
+  export let previewImageUrl: string;
 
   let formattedDate = humanDate(publishDate);
 
@@ -26,17 +27,22 @@
   }
 </script>
 
-<li class="md:px-0 pb-8 px-4">
+<li class="rounded overflow-hidden">
+  <figure
+    class="pb-4 flex justify-center items-center overflow-hidden h-[150px]"
+  >
+    <img src={previewImageUrl} />
+  </figure>
   <header>
     <h3
-      class="text-2xl font-extrabold cursor-pointer hover:text-link hover:underline"
+      class="text-xl py-4 font-extrabold cursor-pointer hover:text-link hover:underline"
       role="link"
       on:click={handleClick}
     >
       {title}
     </h3>
   </header>
-  <main class="py-4">
+  <main class="pb-4">
     <p>{description}</p>
   </main>
   <footer class="flex flex-col">

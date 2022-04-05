@@ -19,10 +19,6 @@
   });
 </script>
 
-<svelte:head>
-  <title>Esteban Borai</title>
-</svelte:head>
-
 <div class="bg-light-background-alt dark:bg-dark-background-alt">
   <Header />
   <main class="container safe-zone m-auto py-4">
