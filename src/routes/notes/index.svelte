@@ -59,6 +59,7 @@
       publishDate={new Date(note.date)}
       tags={note.categories}
       slug={note.slug}
+      previewImageUrl={note.preview_image_url}
     />
   {/each}
 </ul>

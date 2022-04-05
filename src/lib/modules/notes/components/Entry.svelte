@@ -27,11 +27,11 @@
   }
 </script>
 
-<li class="rounded overflow-hidden">
+<li class="mb-4 md:mb-0 last-of-type:mb-0">
   <figure
-    class="pb-4 flex justify-center items-center overflow-hidden h-[150px]"
+    class="rounded overflow-hidden pb-4 flex justify-center items-center overflow-hidden h-[150px]"
   >
-    <img src={previewImageUrl} />
+    <img alt={title} src={previewImageUrl} />
   </figure>
   <header>
     <h3

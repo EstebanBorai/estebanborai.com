@@ -41,6 +41,11 @@
 </svelte:head>
 
 <div class="safe-zone note-container">
+  <figure
+    class="flex justify-center items-center overflow-hidden rounded max-h-[300px]"
+  >
+    <img class="w-full" src={preview_image_url} alt={title} />
+  </figure>
   <header class="py-4">
     <h1 class="text-3xl py-4">{title}</h1>
     <div class="flex mb-2">
