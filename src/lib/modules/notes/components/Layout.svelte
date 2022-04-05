@@ -1,3 +1,8 @@
+<script lang="ts" context="module">
+  import h2 from './custom/h2.svelte';
+  export { h2 };
+</script>
+
 <script lang="ts">
   import Calendar from 'phosphor-svelte/lib/Calendar';
 
