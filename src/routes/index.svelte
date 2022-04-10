@@ -19,7 +19,10 @@
 </script>
 
 <script lang="ts">
+  import Calendar from 'phosphor-svelte/lib/Calendar';
+
   import { goto } from '$app/navigation';
+  import { humanDate } from '$lib/utils/date';
 
   import GitHub from '$lib/components/icons/GitHub.svelte';
   import Itchio from '$lib/components/icons/Itchio.svelte';
@@ -138,14 +141,24 @@
     <ul>
       {#each notes as note}
         <li
-          class="py-2 px-4 rounded hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer flex items-center mb-4 last-of-type:mb-0"
+          class="py-2 px-4 flex items-center justify-between rounded hover:bg-light-background dark:hover:bg-dark-background cursor-pointer flex items-center mb-4 last-of-type:mb-0"
           on:click={() => openNote(note.slug)}
         >
-          <figure class="mr-4 w-4 h-4">
-            <img src={`/images/icons/${note.icon}.png`} alt={note.icon} />
-          </figure>
-          <span>
-            {note.title}
+          <div class="flex items-center">
+            <figure class="mr-4 w-4 h-4">
+              <img src={`/images/icons/${note.icon}.png`} alt={note.icon} />
+            </figure>
+            <span>
+              {note.title}
+            </span>
+          </div>
+          <span class="flex items-center mr-2">
+            <figure class="mr-2">
+              <Calendar size={16} />
+            </figure>
+            <time class="text-sm mr-2" datetime={new Date(note.date).toString()}
+              >{humanDate(new Date(note.date))}</time
+            >
           </span>
         </li>
       {/each}
