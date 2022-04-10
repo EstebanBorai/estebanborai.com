@@ -2,6 +2,7 @@
 title: "Restore PostgreSQL database running in Docker Container"
 description: "Short guide on restoring your PostgreSQL database instance running in Docker"
 categories: [pg_restore, dump, restore, docker, postgresql, psql, sql]
+icon: docker
 date: 2021-11-13
 lang: "en"
 preview_image_url: "https://images.unsplash.com/photo-1589532768434-a92c95dad7cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"

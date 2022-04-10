@@ -17,12 +17,6 @@
   padding: 0.2rem;
 }
 
-.note-container a {
-  @apply underline !important;
-
-  color: #6699cc !important;
-}
-
 .note-container ul,
 .note-container ol {
   @apply pl-4 my-4;

@@ -72,10 +72,6 @@ h3 {
   width: 100%;
 }
 
-html.dark * {
-  color: #ffffff;
-}
-
 @media only screen and (max-width: 920px) {
   .safe-zone {
     width: 95%;

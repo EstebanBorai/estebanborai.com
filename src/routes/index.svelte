@@ -1,14 +1,42 @@
+<script lang="ts" context="module">
+  export async function load({ fetch }) {
+    const url = '/api/notes.json';
+    const res = await fetch(url);
+    if (res.ok) {
+      const { notes } = await res.json();
+      return {
+        props: {
+          notes,
+        },
+      };
+    }
+
+    return {
+      status: res.status,
+      error: new Error(`Could not load ${url}`),
+    };
+  }
+</script>
+
 <script lang="ts">
+  import { goto } from '$app/navigation';
+
   import GitHub from '$lib/components/icons/GitHub.svelte';
   import Itchio from '$lib/components/icons/Itchio.svelte';
   import LinkedIn from '$lib/components/icons/LinkedIn.svelte';
   import StackOverflow from '$lib/components/icons/StackOverflow.svelte';
   import Twitter from '$lib/components/icons/Twitter.svelte';
 
+  export let notes = [];
+
   let title = 'Esteban Borai | Software Developer';
   let description =
     'A Software Developer interested in Systems Programming and Web Development.';
   let avatarUrl = 'https://avatars.githubusercontent.com/u/34756077?v=4';
+
+  async function openNote(slug: string): Promise<void> {
+    await goto(`/notes/${slug}`);
+  }
 </script>
 
 <svelte:head>
@@ -35,7 +63,7 @@
 </svelte:head>
 
 <section
-  class="container flex flex-col justify-center items-center md:flex-row md:mx-auto md:justify-evenly md:items-center"
+  class="flex flex-col justify-center items-center md:flex-row md:mx-auto md:justify-evenly md:items-center"
 >
   <div class="flex md:items-center md:justify-center w-1/2 py-4 w-[300px]">
     <figure class="w-[300px]">
@@ -104,9 +132,23 @@
     </ul>
   </article>
 </section>
-
-<style>
-  .container {
-    min-height: calc(100vh - 70px);
-  }
-</style>
+<section class="my-4">
+  <div class="max-w-1/2">
+    <h2 class="text-xl mb-4">Latest Notes</h2>
+    <ul>
+      {#each notes as note}
+        <li
+          class="py-2 px-4 rounded hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer flex items-center mb-4 last-of-type:mb-0"
+          on:click={() => openNote(note.slug)}
+        >
+          <figure class="mr-4 w-4 h-4">
+            <img src={`/images/icons/${note.icon}.png`} alt={note.icon} />
+          </figure>
+          <span>
+            {note.title}
+          </span>
+        </li>
+      {/each}
+    </ul>
+  </div>
+</section>

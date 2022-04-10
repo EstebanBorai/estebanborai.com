@@ -3,17 +3,17 @@ const config = {
   mode: 'jit',
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    colors: {
-      light: {
-        background: '#F6F5F1',
-        'background-alt': '#FEFEFE',
-      },
-      dark: {
-        background: '#222222',
-        'background-alt': '#2C2C2E',
-      },
-    },
     extend: {
+      colors: {
+        light: {
+          background: '#F6F5F1',
+          'background-alt': '#FEFEFE',
+        },
+        dark: {
+          background: '#222222',
+          'background-alt': '#2C2C2E',
+        },
+      },
       fontFamily: {
         body: ['Inter', 'sans-serif'],
       },
