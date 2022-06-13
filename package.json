@@ -4,8 +4,8 @@
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
-    "deploy:production": "pnpm run build && pnpm run wrangler:publish:production",
-    "deploy:staging": "pnpm run build && pnpm run wrangler:publish:staging",
+    "deploy:production": "npm run build && npm run wrangler:publish:production",
+    "deploy:staging": "npm run build && npm run wrangler:publish:staging",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",

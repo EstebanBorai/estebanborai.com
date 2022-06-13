@@ -28,14 +28,11 @@ jobs:
       - name: Create wrangler.toml
         run: ./bin/make-wrangler.sh
 
-      - name: Installs pnpm
-        run: npm install -g pnpm
-
       - name: Installs dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install --frozen-lockfile
 
       - name: Publish
-        run: pnpm run deploy:staging
+        run: npm run deploy:staging
 
       - name: Deploy Success
         if: success()
