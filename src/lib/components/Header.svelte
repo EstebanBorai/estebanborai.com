@@ -49,9 +49,6 @@
         <li class="mx-2 font-semibold">
           <a href="/notes"> Notes </a>
         </li>
-        <li class="mx-2 font-semibold">
-          <a href="/projects"> Projects </a>
-        </li>
       </ul>
       <button
         class="flex justify-center items-center h-5 w-5"
