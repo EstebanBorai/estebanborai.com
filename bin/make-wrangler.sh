@@ -7,4 +7,4 @@
 
 WORKER_NAME="home"
 
-echo -e "type = 'javascript'\ncompatibility_date = '2022-01-30'\naccount_id = '$CF_ACCOUNT_ID'\nworkers_dev = false\nzone_id = '$CF_ZONE_ID'\n\n[site]\nbucket = './build'\nentry-point = 'workers-site'\n\n[build]\ncommand = 'npm run build'\nwatch_dir = 'app'\n\n[build.upload]\nformat = 'service-worker'\n\n[env.production]\nname = 'home'\nroute = 'estebanborai.com/*'\n\n[env.staging]\nname = 'home-staging'\nroute = 'staging.estebanborai.com/*'" > wrangler.toml
+echo -e "account_id = '$CF_ACCOUNT_ID'\ncompatibility_date = '2022-06-12'\nworkers_dev = false\nmain = './worker.mjs'\n\n[site]\nbucket = './.cloudflare/assets'\n[build]\ncommand = 'npm run build'\n\n[env.production]\nname = 'home'\nroute = 'estebanborai.com/*'\n\n[env.staging]\nname = 'home-staging'\nroute = 'staging.estebanborai.com/*'" > wrangler.toml
