@@ -23,7 +23,7 @@ async function listNotes() {
   return sorted;
 }
 
-export async function get(): Promise<{ body: Record<string, unknown> }> {
+export async function GET(): Promise<{ body: Record<string, unknown> }> {
   const notes = await listNotes();
 
   return {
