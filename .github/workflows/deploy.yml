@@ -1,52 +1,38 @@
-name: Deploy Client Production
+name: Deploy Production
 on:
   push:
     tags:
       - 'v*'
 
-env:
-  CF_EMAIL: ${{ secrets.CF_EMAIL }}
-  CF_API_KEY: ${{ secrets.CF_API_KEY }}
-  CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
-  CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
-  CF_ENVIRONMENT: 'production'
-  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-  VITE_GRAPHQL_URL: 'https://api.estebanborai.com/graphql/'
-
 jobs:
-  deploy:
+  publish:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      deployments: write
+    name: Publish
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.0.2
 
-      - uses: actions/setup-node@v2.5.0
+      - name: Install NodeJS
+        uses: actions/setup-node@v3.4.1
         with:
-          node-version: '16.x'
+          node-version: 18
 
-      - name: Create wrangler.toml
-        run: ./bin/make-wrangler.sh
+      - name: Install Dependencies
+        run: npm ci
 
-      - name: Installs dependencies
-        run: npm install --frozen-lockfile
+      - name: Builds for Production
+        env:
+          NODE_ENV: 'production'
+        run: npm run build
 
-      - name: Publish
-        run: npm run deploy:production
-
-      - name: Deploy Success
-        if: success()
-        uses: zattoo/deploy-status@master
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@1.0.0
         with:
-          environment: '${{ env.CF_ENVIRONMENT }}'
-          environment_url: 'https://estebanborai.com'
-          state: 'success'
-          token: '${{ github.token }}'
-
-      - name: Deploy Failure
-        if: failure()
-        uses: zattoo/deploy-status@master
-        with:
-          environment: production
-          state: 'failure'
-          token: '${{ github.token }}'
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: 'estebanborai-dotcom'
+          directory: ./.svelte-kit/cloudflare
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
