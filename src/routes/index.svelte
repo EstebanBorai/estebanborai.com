@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
   export async function load({ fetch }) {
-    const url = '/api/notes.json';
+    const url = '/api/notes';
     const res = await fetch(url);
     if (res.ok) {
       const { notes } = await res.json();
