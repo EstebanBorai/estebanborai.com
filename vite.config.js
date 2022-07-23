@@ -8,7 +8,6 @@ const config = {
   server: {
     port: 3000,
   },
-  assetsInclude: ['**/*.css', '**/*.svx'],
   plugins: [sveltekit()],
 };
 
