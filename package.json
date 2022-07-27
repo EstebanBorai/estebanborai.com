@@ -29,7 +29,6 @@
     "eslint-plugin-svelte3": "^4.0.0",
     "highlight.js": "^11.6.0",
     "mdsvex": "^0.10.6",
-    "phosphor-svelte": "^1.2.1",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.0",
