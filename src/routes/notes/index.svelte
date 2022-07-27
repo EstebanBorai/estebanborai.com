@@ -1,9 +1,10 @@
 <script lang="ts" context="module">
   export async function load({ fetch }) {
-    const url = '/api/notes';
-    const res = await fetch(url);
+    const res = await fetch('/api/notes');
+
     if (res.ok) {
       const { notes } = await res.json();
+
       return {
         props: {
           notes,
@@ -13,18 +14,25 @@
 
     return {
       status: res.status,
-      error: new Error(`Could not load ${url}`),
     };
   }
 </script>
 
-<script>
+<script lang="ts">
   import Entry from '$lib/modules/notes/components/Entry.svelte';
 
-  export let notes;
+  export let notes: {
+    title: string;
+    description: string;
+    date: string;
+    categories: string;
+    slug: string;
+    preview_image_url: string;
+  }[];
+
   let title = 'Esteban Borai | Notes';
   let description =
-    'Notes taken while reading about computer sciente and software development.';
+    'Notes taken while reading about computer science and software development.';
   let avatarUrl = 'https://avatars.githubusercontent.com/u/34756077?v=4';
 </script>
 
