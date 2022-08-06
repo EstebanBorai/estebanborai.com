@@ -19,7 +19,7 @@
 </script>
 
 <script lang="ts">
-  import Entry from '$lib/modules/notes/components/Entry.svelte';
+  import Entry from './_components/Entry.svelte';
 
   export let notes: {
     title: string;

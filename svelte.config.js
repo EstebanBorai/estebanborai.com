@@ -11,7 +11,7 @@ export default {
       postcss: true,
     }),
     mdsvex({
-      layout: './src/lib/modules/notes/components/Layout.svelte',
+      layout: './src/routes/notes/_components/Layout.svelte',
     }),
   ],
   kit: {

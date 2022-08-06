@@ -10,7 +10,15 @@ preview_image_url: "https://images.unsplash.com/photo-1538439907460-1596cafd4eff
 
 Recently I started to work with [Saleor][1]. Saleor is a headless e-commerce
 platform built with Python, specifically Django, which in my opinion it's a
-great HTTP Server Framework.
+great HTTP Server Framework. This experience took me back to Python development.
+
+Python is a very intuitive, easy to learn and a very enjoyable programming
+language. It allows you to express logic on a simple and minimalistic way,
+its dynamic, interpreted and it has a huge community, with solutions for almost
+anything.
+
+After having some time without using Python on a daily basis, I had to install
+it again on my system, so I decided to document it along the way.
 
 ## Tools Involved
 

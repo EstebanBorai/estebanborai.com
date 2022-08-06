@@ -1,13 +1,16 @@
 <script lang="ts" context="module">
+  import a from './custom/a.svelte';
   import h2 from './custom/h2.svelte';
-  export { h2 };
+  import h3 from './custom/h3.svelte';
+
+  export { a, h2, h3 };
 </script>
 
 <script lang="ts">
   import { humanDate } from '$lib/utils/date';
 
-  import '../styles/note.css';
-  import '../styles/prism-one-dark.css';
+  import '../_styles/note.css';
+  import '../_styles/prism-one-dark.css';
 
   export let title;
   export let description;
@@ -53,7 +56,6 @@
     <h1 class="text-3xl py-4">{title}</h1>
     <div class="flex mb-2">
       <span class="flex items-center mr-2">
-        <!-- <Calendar class="h-4 w-4 mr-2" /> -->
         <time class="text-sm mr-2" datetime={date.toString()}
           >{formattedDate}</time
         >
