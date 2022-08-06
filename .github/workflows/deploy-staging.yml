@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.2
+        with:
+          ref: 'main'
 
       - name: Install NodeJS
         uses: actions/setup-node@v3.4.1
