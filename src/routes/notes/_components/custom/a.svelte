@@ -2,6 +2,6 @@
   export let href = '';
 </script>
 
-<a class="text-blue-200" {href}>
+<a class="text-blue-600" {href}>
   <slot />
 </a>

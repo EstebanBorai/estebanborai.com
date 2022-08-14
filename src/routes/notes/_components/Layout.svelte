@@ -1,9 +1,11 @@
 <script lang="ts" context="module">
   import a from './custom/a.svelte';
+  import blockquote from './custom/blockquote.svelte';
   import h2 from './custom/h2.svelte';
   import h3 from './custom/h3.svelte';
+  import img from './custom/img.svelte';
 
-  export { a, h2, h3 };
+  export { a, blockquote, h2, h3, img };
 </script>
 
 <script lang="ts">
@@ -22,7 +24,7 @@
 </script>
 
 <svelte:head>
-  <title>{title}</title>
+  <title>{title} | Esteban Borai</title>
   <meta name="description" content={description} />
   <!-- Schema.org markup for Google+ -->
   <meta itemprop="name" content={title} />

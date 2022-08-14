@@ -1,7 +1,7 @@
 ---
 title: "How I setup my Python/Poetry Development Environment"
 description: "A walkthrough on setting up Poetry development environment for Unix systems"
-categories: [poetry, macos, setup, homebrew, python, development]
+categories: [python, poetry, macos, setup, homebrew, development]
 icon: python
 date: 2022-08-06
 lang: "en"
