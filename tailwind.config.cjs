@@ -13,12 +13,13 @@ module.exports = {
           'background-alt': '#FEFEFE',
         },
         dark: {
-          background: '#222222',
-          'background-alt': '#2C2C2E',
+          background: '#0D0A12',
+          'background-alt': '#16101D',
         },
       },
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
+        body: ['Spectral', 'serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
     },
   },

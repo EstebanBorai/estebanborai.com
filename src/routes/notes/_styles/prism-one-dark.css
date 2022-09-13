@@ -30,10 +30,12 @@
 
 code[class*='language-'],
 pre[class*='language-'] {
+  @apply font-mono;
+
   background: hsl(220, 13%, 18%);
   color: hsl(220, 14%, 71%);
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  font-family: monospace;
+  font-family: 'JetBrains Mono', monospace;
   direction: ltr;
   text-align: left;
   text-shadow: none;

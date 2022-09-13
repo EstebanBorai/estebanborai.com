@@ -32,6 +32,8 @@
 
 .note-container p {
   @apply pb-2;
+
+  font-size: 18px;
 }
 
 .note-container pre code {
