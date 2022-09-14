@@ -64,7 +64,8 @@
       >Hi I'm Esteban Borai,</strong
     >
     <p class="text-center md:text-left">
-      Software Developer. Using Rust 🦀 and TypeScript 👨🏻‍💻 on a daily basis.
+      I'm a Software Developer focused on Rust, Svelte and TypeScript. I'm
+      passionate about Web Development and Systems Programming.
     </p>
     <ul class="flex py-4 mx-auto md:mx-0">
       <li class="mr-4">

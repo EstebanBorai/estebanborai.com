@@ -18,8 +18,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        body: ['Spectral', 'serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        body: ['IBM Plex Sans', 'serif'],
+        mono: ['IBM Plex Mono', 'monospace'],
       },
     },
   },
