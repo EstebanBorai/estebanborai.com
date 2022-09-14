@@ -9,5 +9,5 @@ namespace Domain {
     slug: string;
     preview_image_url: string;
     icon: string;
-  }
+  };
 }
