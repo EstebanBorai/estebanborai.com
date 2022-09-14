@@ -1,25 +1,5 @@
-<script lang="ts" context="module">
-  export async function load({ fetch }) {
-    const res = await fetch('/api/notes');
-
-    if (res.ok) {
-      const { notes } = await res.json();
-
-      return {
-        props: {
-          notes,
-        },
-      };
-    }
-
-    return {
-      status: res.status,
-    };
-  }
-</script>
-
 <script lang="ts">
-  import Entry from './_components/Entry.svelte';
+  import Entry from './components/Entry.svelte';
 
   export let notes: {
     title: string;
@@ -28,7 +8,7 @@
     categories: string;
     slug: string;
     preview_image_url: string;
-  }[];
+  }[] = [];
 
   let title = 'Esteban Borai | Notes';
   let description =

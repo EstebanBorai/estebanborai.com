@@ -1,5 +1,5 @@
 async function listNotes() {
-  const modules = import.meta.glob('../notes/*.svx');
+  const modules = import.meta.glob('../../notes/*.svx');
   const promises = [];
 
   for (const [path, resolver] of Object.entries(modules)) {
@@ -26,9 +26,9 @@ async function listNotes() {
 export async function GET(): Promise<{ body: Record<string, unknown> }> {
   const notes = await listNotes();
 
-  return {
-    body: {
+  return new Response(
+    JSON.stringify({
       notes,
-    },
-  };
+    }),
+  );
 }
