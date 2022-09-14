@@ -1,14 +1,7 @@
 <script lang="ts">
   import Entry from './components/Entry.svelte';
 
-  export let notes: {
-    title: string;
-    description: string;
-    date: string;
-    categories: string;
-    slug: string;
-    preview_image_url: string;
-  }[] = [];
+  export let notes = [];
 
   let title = 'Esteban Borai | Notes';
   let description =

@@ -1,23 +1,3 @@
-<script lang="ts" context="module">
-  export async function load({ fetch }) {
-    const url = '/api/notes';
-    const res = await fetch(url);
-    if (res.ok) {
-      const { notes } = await res.json();
-      return {
-        props: {
-          notes,
-        },
-      };
-    }
-
-    return {
-      status: res.status,
-      error: new Error(`Could not load ${url}`),
-    };
-  }
-</script>
-
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { humanDate } from '$lib/utils/date';

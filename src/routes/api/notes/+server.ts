@@ -1,4 +1,5 @@
-async function listNotes() {
+/** @type {import('./$types').RequestHandler} */
+export async function GET() {
   const modules = import.meta.glob('../../notes/*.svx');
   const promises = [];
 
@@ -20,15 +21,5 @@ async function listNotes() {
     +new Date(a.date) > +new Date(b.date) ? -1 : 1,
   );
 
-  return sorted;
-}
-
-export async function GET(): Promise<{ body: Record<string, unknown> }> {
-  const notes = await listNotes();
-
-  return new Response(
-    JSON.stringify({
-      notes,
-    }),
-  );
+  return new Response(JSON.stringify(sorted));
 }
