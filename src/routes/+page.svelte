@@ -9,7 +9,7 @@
   import Twitter from '$lib/components/icons/Twitter.svelte';
 
   export let data: {
-    notes: object[];
+    notes: Domain.BlogNote[];
   };
 
   let title = 'Esteban Borai | Software Developer';

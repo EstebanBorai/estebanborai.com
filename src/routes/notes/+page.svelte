@@ -2,7 +2,7 @@
   import Entry from './components/Entry.svelte';
 
   export let data: {
-    notes: object[];
+    notes: Domain.BlogNote[];
   };
 
   let title = 'Esteban Borai | Notes';
