@@ -12,6 +12,7 @@ export default {
     }),
     mdsvex({
       layout: './src/routes/notes/components/Layout.svelte',
+      extensions: ['.svx'],
     }),
   ],
   kit: {
