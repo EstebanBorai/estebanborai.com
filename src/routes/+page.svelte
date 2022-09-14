@@ -8,7 +8,9 @@
   import StackOverflow from '$lib/components/icons/StackOverflow.svelte';
   import Twitter from '$lib/components/icons/Twitter.svelte';
 
-  export let notes = [];
+  export let data: {
+    notes: object[];
+  };
 
   let title = 'Esteban Borai | Software Developer';
   let description =
@@ -117,7 +119,7 @@
   <div class="max-w-1/2">
     <h2 class="text-xl mb-4">Latest Notes</h2>
     <ul>
-      {#each notes as note}
+      {#each data.notes as note}
         <li
           class="py-2 px-4 flex items-center justify-between rounded hover:bg-light-background dark:hover:bg-dark-background cursor-pointer flex items-center mb-4 last-of-type:mb-0"
           on:click={() => openNote(note.slug)}

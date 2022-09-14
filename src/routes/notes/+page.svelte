@@ -1,7 +1,9 @@
 <script lang="ts">
   import Entry from './components/Entry.svelte';
 
-  export let notes = [];
+  export let data: {
+    notes: object[];
+  };
 
   let title = 'Esteban Borai | Notes';
   let description =
@@ -33,7 +35,7 @@
 </svelte:head>
 
 <ul class="flex flex-col md:grid md:grid-cols-3 md:gap-6">
-  {#each notes as note}
+  {#each data.notes as note}
     <Entry
       title={note.title}
       description={note.description}
