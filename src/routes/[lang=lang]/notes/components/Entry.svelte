@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
+  import { page } from '$app/stores';
   import { humanDate } from '$lib/utils/date';
 
   const LANGUAGE_COLOR: {
@@ -19,10 +19,6 @@
   export let previewImageUrl: string;
 
   let formattedDate = humanDate(publishDate);
-
-  async function handleClick(): Promise<void> {
-    await goto(`/notes/${slug}`);
-  }
 </script>
 
 <li class="mb-4 md:mb-0 last-of-type:mb-0">
@@ -34,10 +30,10 @@
   <header>
     <h3
       class="text-xl py-4 font-extrabold cursor-pointer hover:text-link hover:underline"
-      role="link"
-      on:click={handleClick}
     >
-      {title}
+      <a href="/{$page.params.lang}/notes/{slug}">
+        {title}
+      </a>
     </h3>
   </header>
   <main class="pb-4">

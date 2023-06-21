@@ -11,8 +11,8 @@
 <script lang="ts">
   import { humanDate } from '$lib/utils/date';
 
-  import '../styles/note.css';
-  import '../styles/prism-one-dark.css';
+  import './styles/note.css';
+  import './styles/prism-one-dark.css';
 
   export let title;
   export let description;
