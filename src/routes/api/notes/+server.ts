@@ -1,6 +1,6 @@
 /** @type {import('./$types').RequestHandler} */
 export async function GET() {
-  const modules = import.meta.glob('../../notes/*.svx');
+  const modules = import.meta.glob('../../../mdsvex/en/*.svx');
   const promises = [];
 
   for (const [path, resolver] of Object.entries(modules)) {

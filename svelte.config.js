@@ -11,11 +11,14 @@ export default {
       postcss: true,
     }),
     mdsvex({
-      layout: './src/routes/notes/components/Layout.svelte',
+      layout: './src/lib/components/notes/Layout.svelte',
       extensions: ['.svx'],
     }),
   ],
   kit: {
     adapter: adapter(),
+    alias: {
+      $i18n: 'src/i18n',
+    },
   },
 };

@@ -2,11 +2,13 @@
   import { goto } from '$app/navigation';
   import { humanDate } from '$lib/utils/date';
 
+  import LL from '$i18n/i18n-svelte';
   import GitHub from '$lib/components/icons/GitHub.svelte';
   import Itchio from '$lib/components/icons/Itchio.svelte';
   import LinkedIn from '$lib/components/icons/LinkedIn.svelte';
   import StackOverflow from '$lib/components/icons/StackOverflow.svelte';
   import Twitter from '$lib/components/icons/Twitter.svelte';
+  import { page } from '$app/stores';
 
   export let data: {
     notes: Domain.BlogNote[];
@@ -16,10 +18,6 @@
   let description =
     'A Software Developer interested in Systems Programming and Web Development.';
   let avatarUrl = 'https://avatars.githubusercontent.com/u/34756077?v=4';
-
-  async function openNote(slug: string): Promise<void> {
-    await goto(`/notes/${slug}`);
-  }
 </script>
 
 <svelte:head>
@@ -61,11 +59,10 @@
   </div>
   <article class="flex flex-col py-4 md:w-3/6 w-4/6">
     <strong class="text-3xl md:text-4xl py-4 text-center md:text-left"
-      >Hi I'm Esteban Borai,</strong
+      >{$LL.HOMEPAGE.HI({ name: 'Esteban Borai' })}</strong
     >
     <p class="text-center md:text-left">
-      I'm a Software Developer focused on Rust, Svelte and TypeScript. I'm
-      passionate about Web Development and Systems Programming.
+      {$LL.HOMEPAGE.ABOUT()}
     </p>
     <ul class="flex py-4 mx-auto md:mx-0">
       <li class="mr-4">
@@ -118,29 +115,33 @@
 </section>
 <section class="my-4">
   <div class="max-w-1/2">
-    <h2 class="text-xl mb-4">Latest Notes</h2>
+    <h2 class="text-xl mb-4">{$LL.HOMEPAGE.LATEST_NOTES()}</h2>
     <ul>
       {#each data.notes as note}
-        <li
-          class="py-2 px-4 flex items-center justify-between rounded hover:bg-light-background dark:hover:bg-dark-background cursor-pointer flex items-center mb-4 last-of-type:mb-0"
-          on:click={() => openNote(note.slug)}
-        >
-          <div class="flex items-center">
-            <figure class="mr-4 w-4 h-4">
-              <img src={`/images/icons/${note.icon}.png`} alt={note.icon} />
-            </figure>
-            <span>
-              {note.title}
+        <li>
+          <a
+            href="/{$page.params.lang}/notes/{note.slug}"
+            class="py-2 px-4 flex items-center justify-between rounded hover:bg-light-background dark:hover:bg-dark-background cursor-pointer flex items-center mb-4 last-of-type:mb-0"
+          >
+            <div class="flex items-center">
+              <figure class="mr-4 w-4 h-4">
+                <img src={`/images/icons/${note.icon}.png`} alt={note.icon} />
+              </figure>
+              <span>
+                {note.title}
+              </span>
+            </div>
+            <span class="flex items-center mr-2">
+              <figure class="mr-2">
+                <!-- <Calendar size={16} /> -->
+              </figure>
+              <time
+                class="text-sm mr-2"
+                datetime={new Date(note.date).toString()}
+                >{humanDate(new Date(note.date))}</time
+              >
             </span>
-          </div>
-          <span class="flex items-center mr-2">
-            <figure class="mr-2">
-              <!-- <Calendar size={16} /> -->
-            </figure>
-            <time class="text-sm mr-2" datetime={new Date(note.date).toString()}
-              >{humanDate(new Date(note.date))}</time
-            >
-          </span>
+          </a>
         </li>
       {/each}
     </ul>
