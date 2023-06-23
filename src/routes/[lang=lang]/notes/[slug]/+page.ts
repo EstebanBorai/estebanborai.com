@@ -1,12 +1,7 @@
-const postUrl = ({ slug, lang }) => `./mdsvex/${slug}/${lang}.svx`;
-
 export async function load({ params }) {
   try {
     const post = await import(
-      postUrl({
-        slug: params.slug,
-        lang: params.lang,
-      })
+      `../../../../mdsvex/${params.slug}/${params.lang}.svx`
     );
     const content = post.default;
 
@@ -14,13 +9,7 @@ export async function load({ params }) {
       content,
     };
   } catch (error) {
-    const post = await import(
-      /* @vite-ignore */
-      postUrl({
-        slug: params.slug,
-        lang: 'en',
-      })
-    );
+    const post = await import(`../../../../mdsvex/${params.slug}/en.svx`);
     const content = post.default;
 
     return {

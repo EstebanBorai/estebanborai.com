@@ -37,9 +37,7 @@ export async function GET(e) {
 }
 
 async function parseModules(): Promise<NoteEntry[]> {
-  const modules = import.meta.glob(
-    `../../[lang=lang]/notes/[slug]/mdsvex/**/*.svx`,
-  );
+  const modules = import.meta.glob(`../../../mdsvex/**/*.svx`);
   const promises = [];
 
   for (const [path, resolver] of Object.entries(modules)) {
