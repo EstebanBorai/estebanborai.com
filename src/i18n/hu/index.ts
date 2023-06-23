@@ -8,6 +8,7 @@ const hu = {
     },
     FOOTER: {
       COPYRGHT: `Készült 🧉 és ❤️ írta Esteban Borai © {start:number} - {end:number}`,
+      SOURCE_CODE: 'Forráskód',
     },
   },
   HOMEPAGE: {

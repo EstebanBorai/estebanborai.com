@@ -25,8 +25,7 @@ export type I18nNoteEntry = {
 };
 
 /** @type {import('./$types').RequestHandler} */
-export async function GET(e) {
-  console.log('params', e);
+export async function GET() {
   const entries = await parseModules();
   const dictionary = collect(entries);
   const sorted = Object.values(dictionary).sort((a, b) =>

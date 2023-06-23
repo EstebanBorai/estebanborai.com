@@ -8,6 +8,7 @@ const es = {
     },
     FOOTER: {
       COPYRGHT: `Hecho con 🧉 y ❤️ por Esteban Borai © {start:number} - {end:number}`,
+      SOURCE_CODE: 'Código Fuente',
     },
   },
   HOMEPAGE: {

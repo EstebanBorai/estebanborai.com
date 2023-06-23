@@ -34,6 +34,10 @@ type RootTranslation = {
        * @param {number} start
        */
       COPYRGHT: RequiredParams<'end' | 'start'>;
+      /**
+       * S​o​u​r​c​e​ ​C​o​d​e
+       */
+      SOURCE_CODE: string;
     };
   };
   HOMEPAGE: {
@@ -70,6 +74,10 @@ export type TranslationFunctions = {
        * Made with 🧉 and ❤️ by Esteban Borai © {start} - {end}
        */
       COPYRGHT: (arg: { end: number; start: number }) => LocalizedString;
+      /**
+       * Source Code
+       */
+      SOURCE_CODE: () => LocalizedString;
     };
   };
   HOMEPAGE: {

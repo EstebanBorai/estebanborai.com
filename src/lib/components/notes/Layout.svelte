@@ -50,7 +50,7 @@
 
 <div class="safe-zone note-container">
   <figure
-    class="flex justify-center items-center overflow-hidden rounded max-h-[300px]"
+    class="flex justify-center items-center overflow-hidden rounded h-[300px]"
   >
     <img class="w-full" src={preview_image_url} alt={title} />
   </figure>
