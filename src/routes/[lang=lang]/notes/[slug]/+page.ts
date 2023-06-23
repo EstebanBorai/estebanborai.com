@@ -1,4 +1,4 @@
-const postUrl = ({ slug, lang }) => `../../../../mdsvex/${slug}/${lang}.svx`;
+const postUrl = ({ slug, lang }) => `./mdsvex/${slug}/${lang}.svx`;
 
 export async function load({ params }) {
   try {
