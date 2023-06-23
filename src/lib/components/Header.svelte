@@ -1,13 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import LL from '$i18n/i18n-svelte';
+  import LL, { setLocale } from '$i18n/i18n-svelte';
   import Translate from '$lib/components/icons/Translate.svelte';
   import Moon from '$lib/components/icons/Moon.svelte';
   import Sun from '$lib/components/icons/Sun.svelte';
-  import type { Locales } from '$i18n/i18n-types';
   import { page } from '$app/stores';
   import { replaceLocaleInUrl } from '$lib/utils/locale';
+
+  import type { Locales } from '$i18n/i18n-types';
 
   let useDarkMode = false;
   let isLangMenuOpen = false;
@@ -52,6 +53,7 @@
     }
 
     const next = replaceLocaleInUrl($page.url, locale);
+    setLocale(locale);
     window.location.href = next;
   }
 </script>
@@ -80,7 +82,7 @@
           {#if isLangMenuOpen}
             <div class="relative">
               <ul
-                class="absolute flex flex-col space-y-2 p-2 bg-yellow-200 rounded-lg h-[150px] w-[100px]"
+                class="absolute flex flex-col space-y-2 p-2 border-md border-bg-light-background-alt dark:border-bg-dark-background-alt bg-light-background dark:bg-dark-background rounded-lg h-[150px] w-[100px]"
               >
                 <li class="lang-opt">
                   <button
