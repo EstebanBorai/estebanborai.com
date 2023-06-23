@@ -8,6 +8,7 @@ const en = {
     },
     FOOTER: {
       COPYRGHT: `Made with 🧉 and ❤️ by Esteban Borai © {start:number} - {end:number}`,
+      SOURCE_CODE: 'Source Code',
     },
   },
   HOMEPAGE: {

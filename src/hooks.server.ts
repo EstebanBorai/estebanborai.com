@@ -28,8 +28,6 @@ export const handle: Handle = async ({ event, resolve }) => {
   event.locals.locale = locale;
   event.locals.LL = LL;
 
-  console.info(LL.log({ fileName: 'hooks.server.ts' }));
-
   // replace html lang attribute with correct language
   return resolve(event, {
     transformPageChunk: ({ html }) => html.replace('%lang%', locale),
