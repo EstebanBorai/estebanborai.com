@@ -4,6 +4,7 @@ description: "Here I describe a bit of my experience working on a side project w
 categories: [typescript, fastify, graphql, type-graphql, typeorm, architecture, class-validator]
 icon: typescript
 date: 2022-08-13
+lang: "en"
 preview_image_url: "https://images.unsplash.com/photo-1610547189313-1fbea2dcd059?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=1"
 ---
 

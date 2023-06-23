@@ -4,6 +4,7 @@ description: "A tutorial on installing the Rust Programming Language on Windows.
 categories: [rust, tutorial, windows, install]
 icon: rust
 date: 2021-09-13
+lang: "en"
 preview_image_url: "https://images.unsplash.com/photo-1609131926660-3bec9d472529?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
 ---
 
