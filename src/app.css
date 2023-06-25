@@ -2,82 +2,163 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ibm-plex-sans-regular - latin */
+/* wix-madefor-text-regular - latin_latin-ext */
 @font-face {
-  font-family: 'IBM Plex Sans';
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Text';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/ibm-plex-sans-v14-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local(''),
-    url('/fonts/ibm-plex-sans-v14-latin-regular.eot?#iefix')
-      format('embedded-opentype'),
-    /* IE6-IE8 */ url('/fonts/ibm-plex-sans-v14-latin-regular.woff2')
-      format('woff2'),
-    /* Super Modern Browsers */
-      url('/fonts/ibm-plex-sans-v14-latin-regular.woff') format('woff'),
-    /* Modern Browsers */ url('/fonts/ibm-plex-sans-v14-latin-regular.ttf')
-      format('truetype'),
-    /* Safari, Android, iOS */
-      url('/fonts/ibm-plex-sans-v14-latin-regular.svg#IBMPlexSans')
-      format('svg'); /* Legacy iOS */
+  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-regular.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* ibm-plex-sans-italic - latin */
+/* wix-madefor-text-italic - latin_latin-ext */
 @font-face {
-  font-family: 'IBM Plex Sans';
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Text';
   font-style: italic;
   font-weight: 400;
-  src: url('/fonts/ibm-plex-sans-v14-latin-italic.eot'); /* IE9 Compat Modes */
-  src: local(''),
-    url('/fonts/ibm-plex-sans-v14-latin-italic.eot?#iefix')
-      format('embedded-opentype'),
-    /* IE6-IE8 */ url('/fonts/ibm-plex-sans-v14-latin-italic.woff2')
-      format('woff2'),
-    /* Super Modern Browsers */
-      url('/fonts/ibm-plex-sans-v14-latin-italic.woff') format('woff'),
-    /* Modern Browsers */ url('/fonts/ibm-plex-sans-v14-latin-italic.ttf')
-      format('truetype'),
-    /* Safari, Android, iOS */
-      url('/fonts/ibm-plex-sans-v14-latin-italic.svg#IBMPlexSans') format('svg'); /* Legacy iOS */
+  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-italic.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* ibm-plex-sans-700 - latin */
+/* wix-madefor-text-500 - latin_latin-ext */
 @font-face {
-  font-family: 'IBM Plex Sans';
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Text';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-500.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* wix-madefor-text-500italic - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Text';
+  font-style: italic;
+  font-weight: 500;
+  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-500italic.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* wix-madefor-text-600 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Text';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-600.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* wix-madefor-text-600italic - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Text';
+  font-style: italic;
+  font-weight: 600;
+  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-600italic.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* wix-madefor-text-700 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Text';
   font-style: normal;
   font-weight: 700;
-  src: url('/fonts/ibm-plex-sans-v14-latin-700.eot'); /* IE9 Compat Modes */
-  src: local(''),
-    url('/fonts/ibm-plex-sans-v14-latin-700.eot?#iefix')
-      format('embedded-opentype'),
-    /* IE6-IE8 */ url('/fonts/ibm-plex-sans-v14-latin-700.woff2')
-      format('woff2'),
-    /* Super Modern Browsers */ url('/fonts/ibm-plex-sans-v14-latin-700.woff')
-      format('woff'),
-    /* Modern Browsers */ url('/fonts/ibm-plex-sans-v14-latin-700.ttf')
-      format('truetype'),
-    /* Safari, Android, iOS */
-      url('/fonts/ibm-plex-sans-v14-latin-700.svg#IBMPlexSans') format('svg'); /* Legacy iOS */
+  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-700.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* ibm-plex-mono-regular - latin */
+/* wix-madefor-text-700italic - latin_latin-ext */
 @font-face {
-  font-family: 'IBM Plex Mono';
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Text';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-700italic.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* wix-madefor-text-800 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Text';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-800.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* wix-madefor-text-800italic - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Text';
+  font-style: italic;
+  font-weight: 800;
+  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-800italic.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* wix-madefor-display-regular - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Display';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/ibm-plex-mono-v12-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local(''),
-    url('/fonts/ibm-plex-mono-v12-latin-regular.eot?#iefix')
-      format('embedded-opentype'),
-    /* IE6-IE8 */ url('/fonts/ibm-plex-mono-v12-latin-regular.woff2')
-      format('woff2'),
-    /* Super Modern Browsers */
-      url('/fonts/ibm-plex-mono-v12-latin-regular.woff') format('woff'),
-    /* Modern Browsers */ url('/fonts/ibm-plex-mono-v12-latin-regular.ttf')
-      format('truetype'),
-    /* Safari, Android, iOS */
-      url('/fonts/ibm-plex-mono-v12-latin-regular.svg#IBMPlexMono')
-      format('svg'); /* Legacy iOS */
+  src: url('/fonts/wix-madefor-display-v9-latin_latin-ext-regular.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* wix-madefor-display-500 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Display';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/wix-madefor-display-v9-latin_latin-ext-500.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* wix-madefor-display-600 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Display';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/wix-madefor-display-v9-latin_latin-ext-600.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* wix-madefor-display-700 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Display';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/wix-madefor-display-v9-latin_latin-ext-700.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* wix-madefor-display-800 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Wix Madefor Display';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/fonts/wix-madefor-display-v9-latin_latin-ext-800.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* fira-code-regular - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/fira-code-v21-latin_latin-ext-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 body {

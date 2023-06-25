@@ -18,8 +18,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        body: ['IBM Plex Sans', 'serif'],
-        mono: ['IBM Plex Mono', 'monospace'],
+        head: ['Wix Madefor Display', 'sans'],
+        body: ['Wix Madefor Text', 'sans'],
+        mono: ['Fira Code', 'monospace'],
       },
     },
   },
