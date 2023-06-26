@@ -15,14 +15,14 @@
   };
 </script>
 
-<h2 {id} class="relative group" bind:this={data}>
+<h3 {id} class="text-xl font-display relative group py-2" bind:this={data}>
   <a class="no-underline" {href} on:click={focusElement}>
     <span
-      class="invisible group-hover:visible absolute left-[-2.5rem] flex items-center justify-center bg-gray-200 font-bold rounded h-8 w-8 dark:bg-gray-600 dark:text-gray-200"
+      class="invisible top-[10px] group-hover:visible absolute left-[-2rem] flex items-center justify-center bg-gray-200 font-semibold rounded h-6 w-6 dark:bg-gray-600 dark:text-gray-200"
       >#</span
     >
-    <span class="text-md">
+    <span>
       <slot />
     </span></a
   >
-</h2>
+</h3>

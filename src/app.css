@@ -138,12 +138,7 @@ code {
 }
 
 h1,
-h2 {
-  @apply font-body;
-
-  font-weight: 800;
-}
-
+h2,
 h3 {
   @apply font-body;
 
