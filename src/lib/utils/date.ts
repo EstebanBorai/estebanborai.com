@@ -24,5 +24,23 @@ export function humanDate(date: Date): string {
     day = '0' + day;
   }
 
+  switch (day) {
+    case 1:
+      day = '1st';
+      break;
+
+    case 2:
+      day = '2nd';
+      break;
+
+    case 3:
+      day = '3rd';
+      break;
+
+    default:
+      day = day + 'th';
+      break;
+  }
+
   return month + ' ' + day + ', ' + year;
 }

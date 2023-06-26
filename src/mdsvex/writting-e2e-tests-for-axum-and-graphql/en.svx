@@ -1,0 +1,18 @@
+---
+title: "Writting E2E Tests for Axum & GraphQL"
+description: "A tutorial on how to write E2E Tests for your Axum/GraphQL server"
+categories: [rust, axum, graphql, testing]
+icon: rust
+langs: [rust]
+date: 2023-06-25
+preview_image_url: "https://images.unsplash.com/photo-1596496181848-3091d4878b24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+---
+
+<script>
+  import Quote from '../../lib/components/notes/components/Quote.svelte';
+</script>
+
+<Quote>
+  "How easy it would be to write this in X using Y, but here in Z is
+  more difficult because I have to consider..."
+</Quote>

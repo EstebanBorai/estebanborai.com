@@ -58,7 +58,8 @@
     </figure>
   </div>
   <article class="flex flex-col py-4 md:w-3/6 w-4/6">
-    <strong class="font-head text-3xl md:text-4xl py-4 text-center md:text-left"
+    <strong
+      class="font-display text-3xl md:text-4xl py-4 text-center md:text-left"
       >{$LL.HOMEPAGE.HI({ name: 'Esteban Borai' })}</strong
     >
     <p class="text-center md:text-left">
@@ -115,7 +116,7 @@
 </section>
 <section class="my-4">
   <div class="max-w-1/2">
-    <h2 class="font-head text-xl mb-4">{$LL.HOMEPAGE.LATEST_NOTES()}</h2>
+    <h2 class="font-display text-xl mb-4">{$LL.HOMEPAGE.LATEST_NOTES()}</h2>
     <ul>
       {#each data.notes as note}
         <li>

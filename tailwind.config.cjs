@@ -18,7 +18,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        head: ['Wix Madefor Display', 'sans'],
+        display: ['DM Serif Text', 'serif'],
         body: ['Wix Madefor Text', 'sans'],
         mono: ['Fira Code', 'monospace'],
       },
