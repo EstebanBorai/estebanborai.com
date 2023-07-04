@@ -12,7 +12,7 @@ const hu = {
     },
   },
   HOMEPAGE: {
-    HI: 'Jó napot kívánok {name:string} vagyok,',
+    HI: 'Jó napot kívánok {surname:string} {name:string} vagyok,',
     ABOUT: `Egy szoftverfejlesztő vagyok, aki a Rust, Svelte és a TypeScript iránt érdeklődik. Szenvedélyesen érdeklődöm a webfejlesztés és a rendszerprogramozás iránt.`,
     LATEST_NOTES: 'Legújabb jegyzetek',
   },

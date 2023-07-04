@@ -12,7 +12,7 @@ const es = {
     },
   },
   HOMEPAGE: {
-    HI: `Hola soy {name:string},`,
+    HI: `Hola soy {name:string} {surname:string},`,
     ABOUT: `Soy Desarrollador de Software enfocado en Rust, Svelte y TypeScript. Me apasiona el desarrollo web y la programación de sistemas.`,
     LATEST_NOTES: 'Últimas notas',
   },

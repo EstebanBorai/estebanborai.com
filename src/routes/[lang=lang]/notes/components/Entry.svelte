@@ -1,6 +1,15 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { locale } from '$i18n/i18n-svelte';
   import { humanDate } from '$lib/utils/date';
+  import Calendar from '$lib/components/icons/Calendar.svelte';
+
+  export let title: string;
+  export let description: string;
+  export let publishDate: Date;
+  export let tags: string[];
+  export let slug: string;
+  export let previewImageUrl: string;
 
   const LANGUAGE_COLOR: {
     [lang: string]: string;
@@ -10,15 +19,10 @@
     svelte: '#ff3e00',
     typescript: '#2b7489',
   };
+  const langTags = Object.keys(LANGUAGE_COLOR);
 
-  export let title: string;
-  export let description: string;
-  export let publishDate: Date;
-  export let tags: string[];
-  export let slug: string;
-  export let previewImageUrl: string;
-
-  let formattedDate = humanDate(publishDate);
+  let formattedDate = humanDate($locale, publishDate);
+  let displayTags = tags.sort((a, b) => (langTags.includes(a) ? 1 : 0));
 </script>
 
 <li class="mb-4 md:mb-0 last-of-type:mb-0">
@@ -43,7 +47,7 @@
     <div class="flex mb-2">
       <span class="flex items-center mr-2">
         <figure class="mr-2">
-          <!-- <Calendar size={16} /> -->
+          <Calendar class="text-gray-800 dark:text-white h-4 w-4" />
         </figure>
         <time class="text-sm mr-2" datetime={publishDate.toString()}
           >{formattedDate}</time
@@ -51,7 +55,7 @@
       </span>
     </div>
     <ul class="flex flex-wrap">
-      {#each tags as tag}
+      {#each displayTags as tag}
         <li
           class="text-sm mr-2 mb-2 bg-light-background dark:bg-dark-background rounded py-1 px-2"
         >

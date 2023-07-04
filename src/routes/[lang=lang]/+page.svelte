@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
   import { humanDate } from '$lib/utils/date';
 
-  import LL from '$i18n/i18n-svelte';
+  import LL, { locale } from '$i18n/i18n-svelte';
   import GitHub from '$lib/components/icons/GitHub.svelte';
   import Itchio from '$lib/components/icons/Itchio.svelte';
   import LinkedIn from '$lib/components/icons/LinkedIn.svelte';
@@ -58,9 +57,8 @@
     </figure>
   </div>
   <article class="flex flex-col py-4 md:w-3/6 w-4/6">
-    <strong
-      class="font-display text-3xl md:text-4xl py-4 text-center md:text-left"
-      >{$LL.HOMEPAGE.HI({ name: 'Esteban Borai' })}</strong
+    <strong class="font-body text-3xl md:text-4xl py-4 text-center md:text-left"
+      >{$LL.HOMEPAGE.HI({ name: 'Esteban', surname: 'Borai' })}</strong
     >
     <p class="text-center md:text-left">
       {$LL.HOMEPAGE.ABOUT()}
@@ -116,7 +114,7 @@
 </section>
 <section class="my-4">
   <div class="max-w-1/2">
-    <h2 class="font-display text-xl mb-4">{$LL.HOMEPAGE.LATEST_NOTES()}</h2>
+    <h2 class="font-body text-xl mb-4">{$LL.HOMEPAGE.LATEST_NOTES()}</h2>
     <ul>
       {#each data.notes as note}
         <li>
@@ -139,7 +137,7 @@
               <time
                 class="text-sm mr-2"
                 datetime={new Date(note.date).toString()}
-                >{humanDate(new Date(note.date))}</time
+                >{humanDate($locale, new Date(note.date))}</time
               >
             </span>
           </a>

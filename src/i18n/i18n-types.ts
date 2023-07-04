@@ -42,10 +42,11 @@ type RootTranslation = {
   };
   HOMEPAGE: {
     /**
-     * H​i​ ​I​'​m​ ​{​n​a​m​e​}​,
+     * H​i​ ​I​'​m​ ​{​n​a​m​e​}​ ​{​s​u​r​n​a​m​e​}​,
      * @param {string} name
+     * @param {string} surname
      */
-    HI: RequiredParams<'name'>;
+    HI: RequiredParams<'name' | 'surname'>;
     /**
      * I​'​m​ ​a​ ​S​o​f​t​w​a​r​e​ ​D​e​v​e​l​o​p​e​r​ ​f​o​c​u​s​e​d​ ​o​n​ ​R​u​s​t​,​ ​S​v​e​l​t​e​ ​a​n​d​ ​T​y​p​e​S​c​r​i​p​t​.​ ​I​'​m​ ​p​a​s​s​i​o​n​a​t​e​ ​a​b​o​u​t​ ​W​e​b​ ​D​e​v​e​l​o​p​m​e​n​t​ ​a​n​d​ ​S​y​s​t​e​m​s​ ​P​r​o​g​r​a​m​m​i​n​g​.
      */
@@ -82,9 +83,9 @@ export type TranslationFunctions = {
   };
   HOMEPAGE: {
     /**
-     * Hi I'm {name},
+     * Hi I'm {name} {surname},
      */
-    HI: (arg: { name: string }) => LocalizedString;
+    HI: (arg: { name: string; surname: string }) => LocalizedString;
     /**
      * I'm a Software Developer focused on Rust, Svelte and TypeScript. I'm passionate about Web Development and Systems Programming.
      */

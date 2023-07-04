@@ -9,6 +9,7 @@
 </script>
 
 <script lang="ts">
+  import { locale } from '$i18n/i18n-svelte';
   import { humanDate } from '$lib/utils/date';
 
   import './styles/note.css';
@@ -20,7 +21,7 @@
   export let preview_image_url;
 
   const publishedTime = new Date(date);
-  const formattedDate = humanDate(publishedTime);
+  const formattedDate = humanDate($locale, publishedTime);
 </script>
 
 <svelte:head>
@@ -55,10 +56,12 @@
     <img class="w-full" src={preview_image_url} alt={title} />
   </figure>
   <header class="py-4">
-    <h1 class="font-display text-3xl py-4">{title}</h1>
+    <h1 class="font-body text-3xl py-4">{title}</h1>
     <div class="flex mb-2">
       <span class="flex items-center mr-2">
-        <time class="text-sm mr-2" datetime={date.toString()}
+        <time
+          class="text-sm mr-2"
+          datetime={Intl.DateTimeFormat($locale).format(publishedTime)}
           >{formattedDate}</time
         >
       </span>

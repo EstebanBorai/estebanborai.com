@@ -18,7 +18,6 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ['DM Serif Text', 'serif'],
         body: ['Wix Madefor Text', 'sans'],
         mono: ['Fira Code', 'monospace'],
       },

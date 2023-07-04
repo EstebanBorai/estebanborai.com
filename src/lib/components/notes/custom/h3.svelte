@@ -15,7 +15,7 @@
   };
 </script>
 
-<h3 {id} class="text-xl font-display relative group py-2" bind:this={data}>
+<h3 {id} class="text-xl font-body relative group py-2" bind:this={data}>
   <a class="no-underline" {href} on:click={focusElement}>
     <span
       class="invisible top-[10px] group-hover:visible absolute left-[-2rem] flex items-center justify-center bg-gray-200 font-semibold rounded h-6 w-6 dark:bg-gray-600 dark:text-gray-200"
