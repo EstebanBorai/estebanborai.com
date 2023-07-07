@@ -39,7 +39,7 @@ layer in the following order:
 
 <Quote>
   Gabble stills in a very early development, but you can join us and help
-  building it! Visit our Discord server <a class="text-blue-600" href="https://discord.gg/yde6mcgs2C" target="_blank">Whizzes</a>,
+  building it! Visit our Discord server <a href="https://discord.gg/yde6mcgs2C" target="_blank">Whizzes</a>,
   a place to learn Rust and Svelte with English/Spanish speakers by building in
   the Open Source.
 </Quote>
@@ -70,7 +70,6 @@ crates and split respossibilities, the crates are the following:
 <Quote>
   You can
   <a
-    class="text-blue-600"
     target="_blank"
     href="https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html"
   >

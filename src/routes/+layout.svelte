@@ -27,6 +27,11 @@
   });
 </script>
 
+<svelte:head>
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+</svelte:head>
+
 <div class="bg-light-background-alt dark:bg-dark-background-alt">
   <Header />
   <main class="container safe-zone m-auto py-4">

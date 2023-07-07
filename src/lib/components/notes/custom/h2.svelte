@@ -15,14 +15,15 @@
   };
 </script>
 
-<h2 {id} class="font-body relative group" bind:this={data}>
+<h2 {id} class="font-body relative group py-4" bind:this={data}>
   <a class="no-underline" {href} on:click={focusElement}>
-    <span
-      class="invisible top-[1rem] group-hover:visible absolute left-[-2.5rem] flex items-center justify-center bg-gray-200 font-bold rounded h-8 w-8 dark:bg-gray-600 dark:text-gray-200"
-      >#</span
-    >
     <span>
       <slot />
-    </span></a
-  >
+    </span>
+    <span
+      class="invisible inline p-1 group-hover:visible bg-gray-200 font-bold rounded h-8 w-8 dark:bg-gray-600 dark:text-gray-200"
+    >
+      🪴
+    </span>
+  </a>
 </h2>

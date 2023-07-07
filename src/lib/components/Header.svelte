@@ -82,7 +82,7 @@
           {#if isLangMenuOpen}
             <div class="relative">
               <ul
-                class="absolute flex flex-col space-y-2 p-2 border-md border-bg-light-background-alt dark:border-bg-dark-background-alt bg-light-background dark:bg-dark-background rounded-lg h-[150px] w-[100px]"
+                class="absolute right-0 flex flex-col space-y-2 p-2 shadow-xl border-md border-bg-light-background-alt dark:border-bg-dark-background-alt bg-light-background dark:bg-dark-background rounded-lg h-[150px]"
               >
                 <li class="lang-opt">
                   <button

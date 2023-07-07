@@ -4,7 +4,7 @@
   const currentYear = new Date().getFullYear();
 </script>
 
-<footer class="w-full px-4 flex items-center justify-center">
+<footer class="w-full p-4 flex items-center justify-center">
   <div class="safe-zone h-[70px] flex flex-col items-center justify-center">
     <small
       >{$LL.LAYOUT.FOOTER.COPYRGHT({

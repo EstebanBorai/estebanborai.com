@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { locale } from '$i18n/i18n-svelte';
   import Entry from './components/Entry.svelte';
 
   export let data: {
@@ -9,6 +10,26 @@
   let description =
     'Notes taken while reading about computer science and software development.';
   let avatarUrl = 'https://avatars.githubusercontent.com/u/34756077?v=4';
+
+  $: {
+    switch ($locale) {
+      case 'en':
+        title = 'Esteban Borai | Notes';
+        description =
+          'Notes taken while reading about computer science and software development.';
+        break;
+      case 'es':
+        title = 'Esteban Borai | Notas';
+        description =
+          'Notas tomadas mientras leo sobre ciencias de la computación y desarrollo de software.';
+        break;
+      case 'hu':
+        title = 'Borai Esteban | Jegyzetek';
+        description =
+          'Jegyzetek, amelyeket olvasás közben vettem fel a számítástechnikáról és a szoftverfejlesztésről.';
+        break;
+    }
+  }
 </script>
 
 <svelte:head>
@@ -34,7 +55,7 @@
   <meta name="twitter:image:src" content={avatarUrl} />
 </svelte:head>
 
-<ul class="flex flex-col md:grid md:grid-cols-3 md:gap-6">
+<ul class="flex flex-col md:grid md:grid-cols-3 md:gap-6 px-4 md:px-0">
   {#each data.notes as note}
     <Entry
       title={note.title}

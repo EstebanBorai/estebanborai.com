@@ -7,6 +7,7 @@
   import LinkedIn from '$lib/components/icons/LinkedIn.svelte';
   import StackOverflow from '$lib/components/icons/StackOverflow.svelte';
   import Twitter from '$lib/components/icons/Twitter.svelte';
+  import Calendar from '$lib/components/icons/Calendar.svelte';
   import { page } from '$app/stores';
 
   export let data: {
@@ -17,6 +18,26 @@
   let description =
     'A Software Developer interested in Systems Programming and Web Development.';
   let avatarUrl = 'https://avatars.githubusercontent.com/u/34756077?v=4';
+
+  $: {
+    switch ($locale) {
+      case 'en':
+        title = 'Esteban Borai | Software Developer';
+        description =
+          'A Software Developer interested in Systems Programming and Web Development.';
+        break;
+      case 'es':
+        title = 'Esteban Borai | Desarrollador de Software';
+        description =
+          'Un Desarrollador de Software interesado en Programación de Sistemas y Desarrollo Web.';
+        break;
+      case 'hu':
+        title = 'Borai Esteban | Szoftverfejlesztő';
+        description =
+          'Egy Szoftverfejlesztő, aki érdeklődik a Rendszerprogramozás és a Webfejlesztés iránt.';
+        break;
+    }
+  }
 </script>
 
 <svelte:head>
@@ -112,7 +133,7 @@
     </ul>
   </article>
 </section>
-<section class="my-4">
+<section class="my-4 px-4">
   <div class="max-w-1/2">
     <h2 class="font-body text-xl mb-4">{$LL.HOMEPAGE.LATEST_NOTES()}</h2>
     <ul>
@@ -120,19 +141,21 @@
         <li>
           <a
             href="/{$page.params.lang}/notes/{note.slug}"
-            class="py-2 px-4 flex items-center justify-between rounded hover:bg-light-background dark:hover:bg-dark-background cursor-pointer flex items-center mb-4 last-of-type:mb-0"
+            class="py-2 flex items-center justify-between rounded hover:bg-light-background dark:hover:bg-dark-background cursor-pointer flex items-center mb-4 last-of-type:mb-0"
           >
-            <div class="flex items-center">
-              <figure class="mr-4 w-4 h-4">
-                <img src={`/images/icons/${note.icon}.png`} alt={note.icon} />
+            <div class="pl-2 flex items-center">
+              <figure class="w-[18px] h-[18px] self-center">
+                <img src="/images/icons/{note.icon}.png" alt={note.icon} />
               </figure>
-              <span>
+              <span class="px-4">
                 {note.title}
               </span>
             </div>
-            <span class="flex items-center mr-2">
-              <figure class="mr-2">
-                <!-- <Calendar size={16} /> -->
+            <span class="hidden md:flex items-center md:w-[220px] text-left">
+              <figure class="pr-2">
+                <Calendar
+                  class="text-gray-800 dark:text-white w-[18px] h-[18px]"
+                />
               </figure>
               <time
                 class="text-sm mr-2"
