@@ -1,9 +1,18 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { execSync } from 'child_process';
+import { FileSystemIconLoader } from 'unplugin-icons/loaders';
+import Icons from 'unplugin-icons/vite';
 
 const COMMIT_SHA =
   process.env.VITE_COMMIT_SHA ||
   execSync('git describe --always').toString().trim();
+
+export const UnpluginIconsPlugin = Icons({
+  compiler: 'svelte',
+  customCollections: {
+    custom: FileSystemIconLoader('./static/icons'),
+  },
+});
 
 /** @type {import('vite').UserConfig} */
 const config = {
@@ -18,7 +27,7 @@ const config = {
   server: {
     port: 3000,
   },
-  plugins: [sveltekit()],
+  plugins: [sveltekit(), UnpluginIconsPlugin],
 };
 
 export default config;

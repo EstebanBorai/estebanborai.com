@@ -13,6 +13,25 @@
   },
   {
     "meta": {
+      "title": "Moving into OrbStack after a year using Rancher Desktop",
+      "description": "A primer on Git repositories, commits & branches",
+      "icon": "docker",
+      "date": "2023-08-29",
+      "preview_image_url": "https://images.unsplash.com/photo-1598056036946-3cfa8493bfdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=1",
+      "published": true,
+      "categories": [
+        "kubernetes",
+        "docker",
+        "rancher",
+        "orbstack",
+        "client",
+        "macos"
+      ]
+    },
+    "slug": "moving-into-orbstack"
+  },
+  {
+    "meta": {
       "title": "Rust and its General Purpose Nature",
       "description": "In this note I will share how Rust is suitable for more than Systems Programming by walking you through the Rust ecosystems and the different Software Development categories where Rust is supported.",
       "icon": "rust",
