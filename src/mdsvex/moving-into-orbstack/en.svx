@@ -81,3 +81,29 @@ find a directory and a `plist` file.
 Logs is another place to search as well.
 
 ![Logs](/images/notes/010-logs.png)
+
+## Enter OrbStack
+
+You can download OrbStack from the official website visiting [docs.orbstack.dev/quick-start][1],
+or using Homebrew!
+
+```bash
+brew install orbstack
+```
+
+And here is when the fun begins, OrbStack will allow you to spin up Linux
+Machines or Docker. But the great thing is that you can do both and you won't
+need a Linux machine to run containers!
+
+![OrbStack Linux](/images/notes/010-orbstack-linux.png)
+
+> Back in Rancher Desktop, I had a [QEMU][2] instance running, eating 40%-60% of
+> my CPU, sometimes just to spin up a PostgreSQL instance.
+
+You can list running containers and manage Linux VMs just by clicking a couple
+buttons, its super fast and easy to use, that without mentioning the native macOS GUI.
+
+![OrbStack Home](/images/notes/010-orbstack-home.png)
+
+[1]: https://docs.orbstack.dev/quick-start
+[2]: https://www.qemu.org
