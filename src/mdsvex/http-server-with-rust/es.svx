@@ -1,0 +1,28 @@
+---
+title: "Desarrollando un servidor HTTP en Rust"
+description: "Introduccion a Axum para desarrollar un servidor HTTP en Rust"
+categories: [rust, axum, http, rest]
+icon: rust
+langs: [rust]
+date: 2023-09-12
+preview_image_url: "https://images.unsplash.com/photo-1615834751896-b15e2330b289?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1734&q=1"
+---
+
+## Por qué Rust?
+
+En la mayoria de los lenguajes de programación nos vemos en la obligación de
+hacer un intergambio entre eficiencia, ergonomía o seguridad.
+
+Lenguajes como JavaScript/TypeScript, nos brindan ergonomía, tenemos el foco en
+la lógica de negocio, las reglas que se deben de implementar, pero no tenemos
+garantias en la fidelidad. Existen problemas de tipos, donde no se asegura que
+un valor sera un `number` hasta el final de la función, tenemos casos similares
+al `NullPointerException`, donde se asume que un objeto está presente e
+intentamos acceder a un campo, el que termina en `Cannot read property 'X' of null`,
+esto sin considerar el costo en recursos del runtime V8; Gecko; etc y el
+[Garbage Collector][1].
+
+Lenguajes como C y C++, son bastante eficientes en el contexto de ejecución, no
+tienen un [Garbage Collector][1]
+
+[1]: https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals
