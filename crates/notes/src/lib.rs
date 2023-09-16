@@ -36,6 +36,7 @@ pub struct NoteMetadata {
     pub date: NaiveDate,
     pub preview_image_url: String,
     pub published: bool,
+    pub categories: Vec<String>,
 }
 
 impl FromStr for NoteMetadata {

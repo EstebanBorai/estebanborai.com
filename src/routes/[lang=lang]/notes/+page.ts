@@ -2,17 +2,17 @@ export const ssr = false;
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ fetch }) {
-  const res = await fetch('/api/notes');
+  const res = await fetch('/db/notes_index.json');
 
   if (res.ok) {
-    const notes = await res.json();
+    const notesIndex = await res.json();
 
     return {
-      notes,
+      notesIndex: notesIndex.slice(0, 6),
     };
   }
 
   return {
-    notes: [],
+    notesIndex: [],
   };
 }

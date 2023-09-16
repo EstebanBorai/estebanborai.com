@@ -3,7 +3,7 @@
   import Entry from './components/Entry.svelte';
 
   export let data: {
-    notes: Domain.BlogNote[];
+    notesIndex: Domain.BlogNote[];
   };
 
   let title = 'Esteban Borai | Notes';
@@ -56,14 +56,14 @@
 </svelte:head>
 
 <ul class="flex flex-col md:grid md:grid-cols-3 md:gap-6 px-4 md:px-0">
-  {#each data.notes as note}
+  {#each data.notesIndex as { meta, slug }}
     <Entry
-      title={note.title}
-      description={note.description}
-      publishDate={new Date(note.date)}
-      tags={note.categories}
-      slug={note.slug}
-      previewImageUrl={note.preview_image_url}
+      title={meta.title}
+      description={meta.description}
+      publishDate={new Date(meta.date)}
+      tags={meta.categories}
+      {slug}
+      previewImageUrl={meta.preview_image_url}
     />
   {/each}
 </ul>

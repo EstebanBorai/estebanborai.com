@@ -6,7 +6,8 @@
       "icon": "rust",
       "date": "2023-08-27",
       "preview_image_url": "https://images.unsplash.com/photo-1675654567731-6202cd552e3b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&dl=ava-sol-zc6GiHMiQTE-unsplash.jpg",
-      "published": true
+      "published": true,
+      "categories": ["rust", "http", "web", "ai"]
     },
     "slug": "rust-and-its-general-purpose-nature"
   },
@@ -17,7 +18,8 @@
       "icon": "rust",
       "date": "2023-07-22",
       "preview_image_url": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2272&q=1",
-      "published": true
+      "published": true,
+      "categories": ["id", "api", "graphql", "design", "software", "rust"]
     },
     "slug": "pxid-developer-friendly-ids"
   },
@@ -28,7 +30,8 @@
       "icon": "rust",
       "date": "2023-06-25",
       "preview_image_url": "https://images.unsplash.com/photo-1596496181848-3091d4878b24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      "published": true
+      "published": true,
+      "categories": ["rust", "axum", "graphql", "testing"]
     },
     "slug": "writing-e2e-tests-for-axum-and-graphql"
   },
@@ -39,7 +42,16 @@
       "icon": "typescript",
       "date": "2022-08-13",
       "preview_image_url": "https://images.unsplash.com/photo-1610547189313-1fbea2dcd059?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=1",
-      "published": true
+      "published": true,
+      "categories": [
+        "typescript",
+        "fastify",
+        "graphql",
+        "type-graphql",
+        "typeorm",
+        "architecture",
+        "class-validator"
+      ]
     },
     "slug": "one-way-to-build-your-graphql-server-with-typescript"
   },
@@ -50,7 +62,15 @@
       "icon": "python",
       "date": "2022-08-06",
       "preview_image_url": "https://images.unsplash.com/photo-1538439907460-1596cafd4eff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2912&q=10",
-      "published": true
+      "published": true,
+      "categories": [
+        "python",
+        "poetry",
+        "macos",
+        "setup",
+        "homebrew",
+        "development"
+      ]
     },
     "slug": "setup-poetry-development-environment-osx"
   },
@@ -61,7 +81,8 @@
       "icon": "svelte",
       "date": "2022-03-29",
       "preview_image_url": "https://images.unsplash.com/photo-1544396821-4dd40b938ad3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80",
-      "published": true
+      "published": true,
+      "categories": ["svelte", "urql", "graphql", "file", "upload"]
     },
     "slug": "uploading-files-to-graphql-server-with-urql"
   },
@@ -72,7 +93,16 @@
       "icon": "gcp",
       "date": "2022-02-07",
       "preview_image_url": "https://images.unsplash.com/photo-1597008641621-cefdcf718025?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1039&q=80",
-      "published": true
+      "published": true,
+      "categories": [
+        "homebrew",
+        "macos",
+        "gcloud",
+        "sql",
+        "proxy",
+        "setup",
+        "sdk"
+      ]
     },
     "slug": "setup-google-cloud-sql-proxy-on-macos"
   },
@@ -83,7 +113,16 @@
       "icon": "docker",
       "date": "2021-11-13",
       "preview_image_url": "https://images.unsplash.com/photo-1589532768434-a92c95dad7cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      "published": true
+      "published": true,
+      "categories": [
+        "pg_restore",
+        "dump",
+        "restore",
+        "docker",
+        "postgresql",
+        "psql",
+        "sql"
+      ]
     },
     "slug": "docker-postgresql-restore-database"
   },
@@ -94,7 +133,16 @@
       "icon": "git",
       "date": "2021-10-28",
       "preview_image_url": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-      "published": true
+      "published": true,
+      "categories": [
+        "git",
+        "github",
+        "unix",
+        "windows",
+        "repositories",
+        "commits",
+        "branches"
+      ]
     },
     "slug": "introduction-to-git"
   },
@@ -105,7 +153,8 @@
       "icon": "rust",
       "date": "2021-09-13",
       "preview_image_url": "https://images.unsplash.com/photo-1609131926660-3bec9d472529?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
-      "published": true
+      "published": true,
+      "categories": ["rust", "tutorial", "windows", "install"]
     },
     "slug": "installing-the-rust-programming-language-on-windows"
   }

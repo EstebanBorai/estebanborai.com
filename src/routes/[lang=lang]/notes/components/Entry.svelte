@@ -21,8 +21,9 @@
   };
   const langTags = Object.keys(LANGUAGE_COLOR);
 
+  console.log(tags);
   let formattedDate = humanDate($locale, publishDate);
-  let displayTags = tags.sort((a, b) => (langTags.includes(a) ? 1 : 0));
+  let displayTags = [];
 </script>
 
 <li class="mb-4 md:mb-0 last-of-type:mb-0">
