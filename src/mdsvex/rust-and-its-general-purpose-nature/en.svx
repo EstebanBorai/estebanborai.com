@@ -5,6 +5,7 @@ categories: [rust, http, web, ai]
 icon: rust
 date: 2023-08-27
 preview_image_url: "https://images.unsplash.com/photo-1675654567731-6202cd552e3b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&dl=ava-sol-zc6GiHMiQTE-unsplash.jpg"
+published: true
 ---
 
 Rust has been my programming language of choice since 2019. I moved into Rust because I wanted to dive deeply into Systems Programming, but quickly I learned that Rust is not only for Systems Programming and that it has even more to offer.

@@ -9,7 +9,10 @@ name = "notes"
 path = "src/lib.rs"
 
 [dependencies]
+thiserror = "1.0.48"
+yaml-front-matter = "0.1.0"
 
 # Workspace Dependencies
+chrono = { workspace = true, features = ["serde"] }
 serde = { workspace = true }
 serde_json = { workspace = true }
