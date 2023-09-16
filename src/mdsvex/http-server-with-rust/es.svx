@@ -6,6 +6,7 @@ icon: rust
 langs: [rust]
 date: 2023-09-12
 preview_image_url: "https://images.unsplash.com/photo-1615834751896-b15e2330b289?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1734&q=1"
+published: false
 ---
 
 ## Por qué Rust?

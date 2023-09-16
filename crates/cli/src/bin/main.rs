@@ -1,3 +1,5 @@
+use std::env::current_dir;
+
 use anyhow::Result;
 use clap::Parser;
 use dotenv::dotenv;
@@ -16,8 +18,10 @@ impl Cli {
     pub async fn exec(self) -> Result<()> {
         match self {
             Self::Index => {
+                let index_path = current_dir()?.join("static").join("db");
                 let index = NotesIndex::new()?;
-                println!("{:?}", index);
+
+                index.save_to_file(index_path)?;
             }
         }
 

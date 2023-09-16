@@ -5,6 +5,7 @@ categories: [python, poetry, macos, setup, homebrew, development]
 icon: python
 date: 2022-08-06
 preview_image_url: "https://images.unsplash.com/photo-1538439907460-1596cafd4eff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2912&q=10"
+published: true
 ---
 
 Recently I started to work with [Saleor][1]. Saleor is a headless e-commerce
