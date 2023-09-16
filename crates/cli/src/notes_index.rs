@@ -59,9 +59,9 @@ impl NotesIndex {
 
         index.sort_by(|a, b| {
             if a.meta.date > b.meta.date {
-                Ordering::Greater
-            } else {
                 Ordering::Less
+            } else {
+                Ordering::Greater
             }
         });
 

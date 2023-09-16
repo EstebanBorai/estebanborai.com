@@ -11,7 +11,7 @@
   import { page } from '$app/stores';
 
   export let data: {
-    notes: Domain.BlogNote[];
+    notesIndex: Domain.BlogNote[];
   };
 
   let title = 'Esteban Borai | Software Developer';
@@ -137,18 +137,18 @@
   <div class="max-w-1/2">
     <h2 class="font-body text-xl mb-4">{$LL.HOMEPAGE.LATEST_NOTES()}</h2>
     <ul>
-      {#each data.notes as note}
+      {#each data.notesIndex as { slug, meta }}
         <li>
           <a
-            href="/{$page.params.lang}/notes/{note.slug}"
+            href="/{$page.params.lang}/notes/{slug}"
             class="py-2 flex items-center justify-between rounded hover:bg-light-background dark:hover:bg-dark-background cursor-pointer flex items-center mb-4 last-of-type:mb-0"
           >
             <div class="pl-2 flex items-center">
               <figure class="w-[18px] h-[18px] self-center">
-                <img src="/images/icons/{note.icon}.png" alt={note.icon} />
+                <img src="/images/icons/{meta.icon}.png" alt={meta.icon} />
               </figure>
               <span class="px-4">
-                {note.title}
+                {meta.title}
               </span>
             </div>
             <span class="hidden md:flex items-center md:w-[220px] text-left">
@@ -159,8 +159,8 @@
               </figure>
               <time
                 class="text-sm mr-2"
-                datetime={new Date(note.date).toString()}
-                >{humanDate($locale, new Date(note.date))}</time
+                datetime={new Date(meta.date).toString()}
+                >{humanDate($locale, new Date(meta.date))}</time
               >
             </span>
           </a>
