@@ -58,82 +58,30 @@
   }
 </script>
 
-<header
-  class="flex justify-center px-4 h-[70px] bg-light-background dark:bg-dark-background"
->
-  <div class="safe-zone flex items-center justify-between">
-    <a href="/{$page.params.lang}">
-      <h1>Esteban Borai</h1>
-    </a>
-    <nav class="flex items-center">
-      <ul class="flex pr-4">
-        <li class="mx-2 font-semibold">
-          <a href="/{$page.params.lang}"> {$LL.LAYOUT.NAV.HOME()} </a>
-        </li>
-        <li class="mx-2 font-semibold">
-          <a href="/{$page.params.lang}/notes"> {$LL.LAYOUT.NAV.NOTES()} </a>
-        </li>
-      </ul>
-      <div class="flex justify-center items-center space-x-4">
-        <figure class="h-6 w-6">
-          <button class="h-6 w-6" on:click={toggleLanguageMenu}>
-            <Translate class="h-6 w-6" />
-          </button>
-          {#if isLangMenuOpen}
-            <div class="relative">
-              <ul
-                class="absolute right-0 flex flex-col space-y-2 p-2 shadow-xl border-md border-bg-light-background-alt dark:border-bg-dark-background-alt bg-light-background dark:bg-dark-background rounded-lg h-[150px]"
-              >
-                <li class="lang-opt">
-                  <button
-                    class:lang-active={$page.params.lang === 'en'}
-                    on:click={() => changeLanguage('en')}
-                  >
-                    🇺🇸&nbsp;English
-                  </button>
-                </li>
-                <li class="lang-opt">
-                  <button
-                    class:lang-active={$page.params.lang === 'es'}
-                    on:click={() => changeLanguage('es')}
-                  >
-                    🇪🇸&nbsp;Español
-                  </button>
-                </li>
-                <li class="lang-opt border-none">
-                  <button
-                    class:lang-active={$page.params.lang === 'hu'}
-                    on:click={() => changeLanguage('hu')}
-                  >
-                    🇭🇺&nbsp;Magyar
-                  </button>
-                </li>
-              </ul>
-            </div>
-          {/if}
-        </figure>
-        <button class="h-5 w-5" on:click={toggleDarkMode}>
-          {#if useDarkMode}
-            <span>
-              <Sun class="h-5 w-5" />
-            </span>
-          {:else}
-            <span>
-              <Moon class="h-5 w-5" />
-            </span>
-          {/if}
-        </button>
-      </div>
-    </nav>
+<header class="flex justify-center items-center">
+  <div class="w-full p-4 md:px-2 md:w-11/12">
+    <div class="flex items-center justify-between">
+      <a href="/">
+        <img
+          alt="Esteban Borai Memoji"
+          loading="lazy"
+          decoding="async"
+          height="36"
+          width="36"
+          src="/images/png/memoji_dev.png"
+          style="color: transparent;"
+        />
+      </a>
+      <nav>
+        <ul class="flex items-center space-x-4">
+          <li>
+            <a href="/{$page.params.lang}"> {$LL.LAYOUT.NAV.HOME()} </a>
+          </li>
+          <li>
+            <a href="/{$page.params.lang}/notes"> {$LL.LAYOUT.NAV.NOTES()} </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>
-
-<style>
-  .lang-opt {
-    @apply py-2 border-b border-gray-400 cursor-pointer;
-  }
-
-  .lang-active {
-    @apply font-bold;
-  }
-</style>

@@ -2,106 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* wix-madefor-text-regular - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Wix Madefor Text';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-regular.woff2')
-    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* wix-madefor-text-italic - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Wix Madefor Text';
-  font-style: italic;
-  font-weight: 400;
-  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-italic.woff2')
-    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* wix-madefor-text-500 - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Wix Madefor Text';
-  font-style: normal;
-  font-weight: 500;
-  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-500.woff2')
-    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* wix-madefor-text-500italic - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Wix Madefor Text';
-  font-style: italic;
-  font-weight: 500;
-  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-500italic.woff2')
-    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* wix-madefor-text-600 - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Wix Madefor Text';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-600.woff2')
-    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* wix-madefor-text-600italic - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Wix Madefor Text';
-  font-style: italic;
-  font-weight: 600;
-  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-600italic.woff2')
-    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* wix-madefor-text-700 - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Wix Madefor Text';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-700.woff2')
-    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* wix-madefor-text-700italic - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Wix Madefor Text';
-  font-style: italic;
-  font-weight: 700;
-  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-700italic.woff2')
-    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* wix-madefor-text-800 - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Wix Madefor Text';
-  font-style: normal;
-  font-weight: 800;
-  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-800.woff2')
-    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* wix-madefor-text-800italic - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Wix Madefor Text';
-  font-style: italic;
-  font-weight: 800;
-  src: url('/fonts/wix-madefor-text-v12-latin_latin-ext-800italic.woff2')
-    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
 /* fira-code-regular - latin_latin-ext */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -136,4 +36,9 @@ h3 {
   .safe-zone {
     width: 100%;
   }
+}
+
+.hero-emphasis {
+  @apply text-transparent bg-clip-text bg-gradient-to-br;
+  @apply from-blue-400 to-blue-800 font-semibold;
 }

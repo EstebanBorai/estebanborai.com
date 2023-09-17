@@ -5,18 +5,14 @@
 </script>
 
 <footer class="w-full p-4 flex items-center justify-center">
-  <div class="safe-zone h-[70px] flex flex-col items-center justify-center">
+  <div
+    class="text-gray-400 safe-zone h-[70px] text-center flex flex-col items-center justify-center"
+  >
     <small
       >{$LL.LAYOUT.FOOTER.COPYRGHT({
         start: 2020,
         end: currentYear,
       })}
-      &nbsp;-&nbsp;
-      <a
-        class="underline hover:dark:text-gray-400"
-        href="https://github.com/EstebanBorai/estebanborai.com"
-        target="_blank">{$LL.LAYOUT.FOOTER.SOURCE_CODE()}</a
-      >
     </small>
     <small class="pt-2 space-x-2">
       <code class="detail">
@@ -28,6 +24,13 @@
       <code class="detail">
         {__BUILD_DATE__}
       </code>
+    </small>
+    <small class="py-4">
+      <a
+        class="underline hover:dark:text-gray-400"
+        href="https://github.com/EstebanBorai/estebanborai.com"
+        target="_blank">{$LL.LAYOUT.FOOTER.SOURCE_CODE()}</a
+      >
     </small>
   </div>
 </footer>

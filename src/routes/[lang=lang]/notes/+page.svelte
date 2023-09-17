@@ -55,15 +55,19 @@
   <meta name="twitter:image:src" content={avatarUrl} />
 </svelte:head>
 
-<ul class="flex flex-col md:grid md:grid-cols-3 md:gap-6 px-4 md:px-0">
-  {#each data.notesIndex as { meta, slug }}
-    <Entry
-      title={meta.title}
-      description={meta.description}
-      publishDate={new Date(meta.date)}
-      tags={meta.categories}
-      {slug}
-      previewImageUrl={meta.preview_image_url}
-    />
-  {/each}
-</ul>
+<section class="mx-auto p-4 md:p-2 md:w-11/12">
+  <ul
+    class="flex flex-col md:grid md:grid-cols-3 md:gap-6 px-4 md:px-0 max-w-[1080px] mx-auto"
+  >
+    {#each data.notesIndex as { meta, slug }}
+      <Entry
+        title={meta.title}
+        description={meta.description}
+        publishDate={new Date(meta.date)}
+        tags={meta.categories}
+        {slug}
+        previewImageUrl={meta.preview_image_url}
+      />
+    {/each}
+  </ul>
+</section>

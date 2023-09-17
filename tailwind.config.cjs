@@ -1,5 +1,6 @@
 const forms = require('@tailwindcss/forms');
 const typography = require('@tailwindcss/typography');
+const lineClamp = require('@tailwindcss/line-clamp');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -18,10 +19,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        body: ['Wix Madefor Text', 'sans'],
+        body: ['Inter', 'sans'],
         mono: ['Fira Code', 'monospace'],
       },
     },
   },
-  plugins: [forms, typography],
+  plugins: [forms, typography, lineClamp],
 };

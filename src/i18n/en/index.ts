@@ -12,9 +12,10 @@ const en = {
     },
   },
   HOMEPAGE: {
-    HI: `Hi I'm {name:string} {surname:string},`,
-    ABOUT: `I'm a Software Developer focused on Rust, Svelte and TypeScript. I'm passionate about Web Development and Systems Programming.`,
-    LATEST_NOTES: 'Latest Notes',
+    HI: `Hey, I'm <span class="font-semibold">{name:string} {surname:string}</span>,`,
+    ABOUT: `I'm a Software Developer with experience on <span class="hero-emphasis">Systems Programming</span> and <span class="hero-emphasis">Web Development</span>.`,
+    SOCIAL_LINKS: 'Social Networks',
+    LATEST_NOTES: 'Latest Note',
   },
 } satisfies BaseTranslation;
 

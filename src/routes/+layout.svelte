@@ -1,4 +1,6 @@
 <script lang="ts">
+  import '@fontsource/inter';
+  import '@fontsource/inter/600.css';
   import { init } from '@sentry/browser';
   import { Integrations } from '@sentry/tracing';
   import { onMount } from 'svelte';
@@ -32,16 +34,10 @@
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
 </svelte:head>
 
-<div class="bg-light-background-alt dark:bg-dark-background-alt">
+<div class="bg-light-background-alt dark:bg-dark-background-alt min-h-screen">
   <Header />
-  <main class="container safe-zone m-auto py-4">
+  <main>
     <slot />
   </main>
   <Footer />
 </div>
-
-<style>
-  .container {
-    min-height: calc(100vh - 70px);
-  }
-</style>

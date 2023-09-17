@@ -42,17 +42,21 @@ type RootTranslation = {
   };
   HOMEPAGE: {
     /**
-     * H​i​ ​I​'​m​ ​{​n​a​m​e​}​ ​{​s​u​r​n​a​m​e​}​,
+     * H​e​y​,​ ​I​'​m​ ​<​s​p​a​n​ ​c​l​a​s​s​=​"​f​o​n​t​-​s​e​m​i​b​o​l​d​"​>​{​n​a​m​e​}​ ​{​s​u​r​n​a​m​e​}​<​/​s​p​a​n​>​,
      * @param {string} name
      * @param {string} surname
      */
     HI: RequiredParams<'name' | 'surname'>;
     /**
-     * I​'​m​ ​a​ ​S​o​f​t​w​a​r​e​ ​D​e​v​e​l​o​p​e​r​ ​f​o​c​u​s​e​d​ ​o​n​ ​R​u​s​t​,​ ​S​v​e​l​t​e​ ​a​n​d​ ​T​y​p​e​S​c​r​i​p​t​.​ ​I​'​m​ ​p​a​s​s​i​o​n​a​t​e​ ​a​b​o​u​t​ ​W​e​b​ ​D​e​v​e​l​o​p​m​e​n​t​ ​a​n​d​ ​S​y​s​t​e​m​s​ ​P​r​o​g​r​a​m​m​i​n​g​.
+     * I​'​m​ ​a​ ​S​o​f​t​w​a​r​e​ ​D​e​v​e​l​o​p​e​r​ ​w​i​t​h​ ​e​x​p​e​r​i​e​n​c​e​ ​o​n​ ​<​s​p​a​n​ ​c​l​a​s​s​=​"​h​e​r​o​-​e​m​p​h​a​s​i​s​"​>​S​y​s​t​e​m​s​ ​P​r​o​g​r​a​m​m​i​n​g​<​/​s​p​a​n​>​ ​a​n​d​ ​<​s​p​a​n​ ​c​l​a​s​s​=​"​h​e​r​o​-​e​m​p​h​a​s​i​s​"​>​W​e​b​ ​D​e​v​e​l​o​p​m​e​n​t​<​/​s​p​a​n​>​.
      */
     ABOUT: string;
     /**
-     * L​a​t​e​s​t​ ​N​o​t​e​s
+     * S​o​c​i​a​l​ ​N​e​t​w​o​r​k​s
+     */
+    SOCIAL_LINKS: string;
+    /**
+     * L​a​t​e​s​t​ ​N​o​t​e
      */
     LATEST_NOTES: string;
   };
@@ -83,15 +87,19 @@ export type TranslationFunctions = {
   };
   HOMEPAGE: {
     /**
-     * Hi I'm {name} {surname},
+     * Hey, I'm <span class="font-semibold">{name} {surname}</span>,
      */
     HI: (arg: { name: string; surname: string }) => LocalizedString;
     /**
-     * I'm a Software Developer focused on Rust, Svelte and TypeScript. I'm passionate about Web Development and Systems Programming.
+     * I'm a Software Developer with experience on <span class="hero-emphasis">Systems Programming</span> and <span class="hero-emphasis">Web Development</span>.
      */
     ABOUT: () => LocalizedString;
     /**
-     * Latest Notes
+     * Social Networks
+     */
+    SOCIAL_LINKS: () => LocalizedString;
+    /**
+     * Latest Note
      */
     LATEST_NOTES: () => LocalizedString;
   };

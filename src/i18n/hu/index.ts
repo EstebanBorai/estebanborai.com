@@ -13,8 +13,9 @@ const hu = {
   },
   HOMEPAGE: {
     HI: 'Jó napot kívánok {surname:string} {name:string} vagyok,',
-    ABOUT: `Egy szoftverfejlesztő vagyok, aki a Rust, Svelte és a TypeScript iránt érdeklődik. Szenvedélyesen érdeklődöm a webfejlesztés és a rendszerprogramozás iránt.`,
-    LATEST_NOTES: 'Legújabb jegyzetek',
+    ABOUT: `Egy szoftverfejlesztő vagyok aki tapasztalattal rendelkezik <span class="hero-emphasis">Rendszerprogramozás</span> és <span class="hero-emphasis">Webfejlesztés</span> területén.`,
+    SOCIAL_LINKS: 'Közösségi hálók',
+    LATEST_NOTES: 'Legújabb jegyzet',
   },
 } satisfies BaseTranslation;
 

@@ -13,8 +13,9 @@ const es = {
   },
   HOMEPAGE: {
     HI: `Hola soy {name:string} {surname:string},`,
-    ABOUT: `Soy Desarrollador de Software enfocado en Rust, Svelte y TypeScript. Me apasiona el desarrollo web y la programación de sistemas.`,
-    LATEST_NOTES: 'Últimas notas',
+    ABOUT: `Soy un desarrollador de software con experiencia en <span class="hero-emphasis">Programación de Sistemas</span> y <span class="hero-emphasis">Desarrollo Web</span>.`,
+    SOCIAL_LINKS: 'Redes Sociales',
+    LATEST_NOTES: 'Nota más reciente',
   },
 } satisfies BaseTranslation;
 

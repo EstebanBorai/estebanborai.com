@@ -2,7 +2,6 @@
   import { page } from '$app/stores';
   import { locale } from '$i18n/i18n-svelte';
   import { humanDate } from '$lib/utils/date';
-  import Calendar from '$lib/components/icons/Calendar.svelte';
 
   export let title: string;
   export let description: string;
@@ -21,54 +20,61 @@
   };
   const langTags = Object.keys(LANGUAGE_COLOR);
 
-  console.log(tags);
   let formattedDate = humanDate($locale, publishDate);
-  let displayTags = [];
+  let displayTags = tags
+    .sort((a, b) => (langTags.includes(a) ? 0 : 1))
+    .slice(0, 3);
 </script>
 
-<li class="mb-4 md:mb-0 last-of-type:mb-0">
+<li
+  class="mb-4 md:mb-0 last-of-type:mb-0 border-b border-gray-600 md:border-0 last-of-type:border-0 mb-8"
+>
   <figure
     class="rounded overflow-hidden pb-4 flex justify-center items-center overflow-hidden h-[150px]"
   >
-    <img alt={title} src={previewImageUrl} />
+    <img loading="lazy" decoding="async" alt={title} src={previewImageUrl} />
   </figure>
   <header>
     <h3
-      class="text-xl py-4 font-extrabold cursor-pointer hover:text-link hover:underline"
+      class="text-xl py-4 text-gray-200 font-extrabold cursor-pointer hover:text-link hover:underline"
     >
       <a href="/{$page.params.lang}/notes/{slug}">
         {title}
       </a>
     </h3>
   </header>
-  <main class="pb-4">
-    <p>{description}</p>
-  </main>
-  <footer class="flex flex-col">
-    <div class="flex mb-2">
-      <span class="flex items-center mr-2">
-        <figure class="mr-2">
-          <Calendar class="text-gray-800 dark:text-white h-4 w-4" />
-        </figure>
-        <time class="text-sm mr-2" datetime={publishDate.toString()}
-          >{formattedDate}</time
+  <main>
+    <p aria-label={description} class="line-clamp-3 text-gray-400">
+      {description}
+    </p>
+    <ul class="flex justify-start items-start flex-wrap gap-2 py-2">
+      {#each displayTags as category}
+        <span
+          class="border border-gray-400 text-xs text-gray-400 py-1 px-4 rounded-full text-center uppercase"
         >
-      </span>
-    </div>
-    <ul class="flex flex-wrap">
-      {#each displayTags as tag}
-        <li
-          class="text-sm mr-2 mb-2 bg-light-background dark:bg-dark-background rounded py-1 px-2"
-        >
-          {#if tag.toLowerCase() in LANGUAGE_COLOR}
+          {#if category.toLowerCase() in LANGUAGE_COLOR}
             <span
               class="inline-block mr-1 rounded-full h-2 w-2"
-              style="background-color: {LANGUAGE_COLOR[tag.toLowerCase()]};"
+              style="background-color: {LANGUAGE_COLOR[
+                category.toLowerCase()
+              ]};"
             />
           {/if}
-          {tag}
-        </li>
+          {category}
+        </span>
       {/each}
     </ul>
+  </main>
+  <footer class="flex flex-col">
+    <div class="flex">
+      <span class="flex items-center">
+        <time
+          class="py-2 text-gray-600 text-sm uppercase"
+          datetime={publishDate.toString()}
+        >
+          {formattedDate}
+        </time>
+      </span>
+    </div>
   </footer>
 </li>

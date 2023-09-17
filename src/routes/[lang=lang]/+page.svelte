@@ -3,12 +3,11 @@
 
   import LL, { locale } from '$i18n/i18n-svelte';
   import GitHub from '$lib/components/icons/GitHub.svelte';
-  import Itchio from '$lib/components/icons/Itchio.svelte';
   import LinkedIn from '$lib/components/icons/LinkedIn.svelte';
   import StackOverflow from '$lib/components/icons/StackOverflow.svelte';
-  import Twitter from '$lib/components/icons/Twitter.svelte';
-  import Calendar from '$lib/components/icons/Calendar.svelte';
   import { page } from '$app/stores';
+  import Mastodon from '$lib/components/icons/Mastodon.svelte';
+  import Reddit from '$lib/components/icons/Reddit.svelte';
 
   export let data: {
     notesIndex: Domain.BlogNote[];
@@ -63,109 +62,116 @@
   <meta name="twitter:image:src" content={avatarUrl} />
 </svelte:head>
 
-<section
-  class="flex flex-col justify-center items-center md:flex-row md:mx-auto md:justify-evenly md:items-center"
->
-  <div class="flex md:items-center md:justify-center w-1/2 py-4 w-[300px]">
-    <figure class="w-[300px]">
-      <img
-        class="rounded-full"
-        src={avatarUrl}
-        height="300"
-        width="300"
-        alt="A selfie"
-      />
-    </figure>
-  </div>
-  <article class="flex flex-col py-4 md:w-3/6 w-4/6">
-    <strong class="font-body text-3xl md:text-4xl py-4 text-center md:text-left"
-      >{$LL.HOMEPAGE.HI({ name: 'Esteban', surname: 'Borai' })}</strong
-    >
-    <p class="text-center md:text-left">
-      {$LL.HOMEPAGE.ABOUT()}
-    </p>
-    <ul class="flex py-4 mx-auto md:mx-0">
-      <li class="mr-4">
-        <a
-          rel="noopener noreferrer"
-          href="https://stackoverflow.com/users/9888500/esteban-borai"
-          target="_blank"
-        >
-          <StackOverflow class="w-6 h-6" />
-        </a>
-      </li>
-      <li class="mr-4">
-        <a
-          rel="noopener noreferrer"
-          href="https://github.com/EstebanBorai"
-          target="_blank"
-        >
-          <GitHub class="w-6 h-6 fill-current" />
-        </a>
-      </li>
-      <li class="mr-4">
-        <a
-          rel="noopener noreferrer"
-          href="https://www.linkedin.com/in/esteban-b-241ba0135/"
-          target="_blank"
-        >
-          <LinkedIn class="w-6 h-6" />
-        </a>
-      </li>
-      <li class="mr-4">
-        <a
-          rel="noopener noreferrer"
-          href="https://twitter.com/EstebanBorai"
-          target="_blank"
-        >
-          <Twitter class="w-6 h-6" />
-        </a>
-      </li>
-      <li class="mr-4">
-        <a
-          rel="noopener noreferrer"
-          href="https://estebanborai.itch.io"
-          target="_blank"
-        >
-          <Itchio class="w-6 h-6" />
-        </a>
-      </li>
-    </ul>
-  </article>
-</section>
-<section class="my-4 px-4">
-  <div class="max-w-1/2">
-    <h2 class="font-body text-xl mb-4">{$LL.HOMEPAGE.LATEST_NOTES()}</h2>
-    <ul>
-      {#each data.notesIndex as { slug, meta }}
-        <li>
-          <a
-            href="/{$page.params.lang}/notes/{slug}"
-            class="py-2 flex items-center justify-between rounded hover:bg-light-background dark:hover:bg-dark-background cursor-pointer flex items-center mb-4 last-of-type:mb-0"
-          >
-            <div class="pl-2 flex items-center">
-              <figure class="w-[18px] h-[18px] self-center">
-                <img src="/images/icons/{meta.icon}.png" alt={meta.icon} />
-              </figure>
-              <span class="px-4">
-                {meta.title}
-              </span>
+<section class="flex flex-col items-center h-screen">
+  <div class="w-full p-4 md:p-2 md:w-11/12 max-w-[1080px] mx-auto">
+    <div>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-4">
+        <div class="min-h-fit col-span-1 md:col-span-2">
+          <p class="text-xl py-2">
+            {@html $LL.HOMEPAGE.HI({ name: 'Esteban', surname: 'Borai' })}
+          </p>
+          <p class="text-4xl">
+            {@html $LL.HOMEPAGE.ABOUT()}
+          </p>
+        </div>
+        <div class="col-span-1 md:col-span-2">
+          <article class="flex flex-col">
+            <div>
+              <h3 class="text-xl font-semibold pb-2">
+                {@html $LL.HOMEPAGE.LATEST_NOTES()}
+              </h3>
+              <hr class="text-gray-600 pb-2" />
+              <div class="flex flex-col pb-6 md:flex-row">
+                <div class="flex flex-col justify-center">
+                  <a
+                    href="/{$page.params.lang}/notes/{data.notesIndex[0].slug}"
+                    class="text-xl font-bold py-2 text-gray-400 hover:text-gray-200"
+                  >
+                    {data.notesIndex[0].meta.title}
+                  </a>
+                  <p class="text-gray-400">
+                    {data.notesIndex[0].meta.description}
+                  </p>
+                  <time
+                    class="py-2 text-gray-600 text-sm uppercase"
+                    datetime={data.notesIndex[0].meta.date}
+                  >
+                    {humanDate($locale, new Date(data.notesIndex[0].meta.date))}
+                  </time>
+                  <ul class="space-x-2 py-2">
+                    {#each data.notesIndex[0].meta.categories as category}
+                      <span
+                        class="border border-gray-400 text-xs text-gray-400 py-1 px-4 rounded-full text-center uppercase"
+                      >
+                        {category}
+                      </span>
+                    {/each}
+                  </ul>
+                </div>
+              </div>
+              <h3 class="text-xl font-semibold pb-2">
+                {@html $LL.HOMEPAGE.SOCIAL_LINKS()}
+              </h3>
+              <hr class="pb-2 text-gray-600" />
+              <ul class="flex py-4 mx-auto md:mx-0">
+                <li class="mr-4">
+                  <a
+                    rel="noopener noreferrer"
+                    href="https://github.com/EstebanBorai"
+                    target="_blank"
+                  >
+                    <GitHub
+                      class="hover:text-gray-200 text-gray-400 w-6 h-6 fill-current"
+                    />
+                  </a>
+                </li>
+                <li class="mr-4">
+                  <a
+                    rel="noopener noreferrer"
+                    href="https://stackoverflow.com/users/9888500/esteban-borai"
+                    target="_blank"
+                  >
+                    <StackOverflow
+                      class="hover:text-gray-200 text-gray-400 w-6 h-6"
+                    />
+                  </a>
+                </li>
+                <li class="mr-4">
+                  <a
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/esteban-b-241ba0135/"
+                    target="_blank"
+                  >
+                    <LinkedIn
+                      class="hover:text-gray-200 text-gray-400 w-6 h-6"
+                    />
+                  </a>
+                </li>
+                <li class="mr-4">
+                  <a
+                    rel="noopener noreferrer"
+                    href="https://hachyderm.io/@EstebanBorai"
+                    target="_blank"
+                  >
+                    <Mastodon
+                      class="hover:text-gray-200 text-gray-400 w-6 h-6"
+                    />
+                  </a>
+                </li>
+                <li class="mr-4">
+                  <a
+                    rel="noopener noreferrer"
+                    href="https://www.reddit.com/user/estebanborai"
+                    target="_blank"
+                  >
+                    <Reddit class="hover:text-gray-200 text-gray-400 w-6 h-6" />
+                  </a>
+                </li>
+              </ul>
             </div>
-            <span class="hidden md:flex items-center md:w-[220px] text-left">
-              <figure class="pr-2">
-                <Calendar
-                  class="text-gray-800 dark:text-white w-[18px] h-[18px]"
-                />
-              </figure>
-              <time
-                class="text-sm mr-2"
-                datetime={new Date(meta.date).toString()}
-                >{humanDate($locale, new Date(meta.date))}</time
-              >
-            </span>
-          </a>
-        </li>
-      {/each}
-    </ul>
+          </article>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
