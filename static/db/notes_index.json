@@ -1,6 +1,18 @@
 [
   {
     "meta": {
+      "title": "Desarrollando un servidor HTTP en Rust",
+      "description": "Introduccion a Axum para desarrollar un servidor HTTP en Rust",
+      "icon": "rust",
+      "date": "2023-09-12",
+      "preview_image_url": "https://images.unsplash.com/photo-1615834751896-b15e2330b289?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1734&q=1",
+      "published": true,
+      "categories": ["rust", "axum", "http", "rest"]
+    },
+    "slug": "http-server-with-rust"
+  },
+  {
+    "meta": {
       "title": "Rust and its General Purpose Nature",
       "description": "In this note I will share how Rust is suitable for more than Systems Programming by walking you through the Rust ecosystems and the different Software Development categories where Rust is supported.",
       "icon": "rust",
