@@ -14,8 +14,8 @@ module.exports = {
           'background-alt': '#FDF1E2',
         },
         dark: {
-          background: '#0D0A12',
-          'background-alt': '#16101D',
+          background: '#1C1C1C',
+          'background-alt': '#1A1A1A',
         },
       },
       fontFamily: {

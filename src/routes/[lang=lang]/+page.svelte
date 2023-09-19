@@ -8,6 +8,7 @@
   import { page } from '$app/stores';
   import Mastodon from '$lib/components/icons/Mastodon.svelte';
   import Reddit from '$lib/components/icons/Reddit.svelte';
+  import Tag from '$lib/components/Tag.svelte';
 
   export let data: {
     notesIndex: Domain.BlogNote[];
@@ -92,21 +93,17 @@
                   <p class="text-gray-400">
                     {data.notesIndex[0].meta.description}
                   </p>
+                  <ul class="space-x-2 py-2">
+                    {#each data.notesIndex[0].meta.categories as category}
+                      <Tag title={category} />
+                    {/each}
+                  </ul>
                   <time
                     class="py-2 text-gray-600 text-sm uppercase"
                     datetime={data.notesIndex[0].meta.date}
                   >
                     {humanDate($locale, new Date(data.notesIndex[0].meta.date))}
                   </time>
-                  <ul class="space-x-2 py-2">
-                    {#each data.notesIndex[0].meta.categories as category}
-                      <span
-                        class="border border-gray-400 text-xs text-gray-400 py-1 px-4 rounded-full text-center uppercase"
-                      >
-                        {category}
-                      </span>
-                    {/each}
-                  </ul>
                 </div>
               </div>
               <h3 class="text-xl font-semibold pb-2">

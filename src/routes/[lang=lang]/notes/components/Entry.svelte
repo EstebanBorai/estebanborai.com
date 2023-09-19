@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { locale } from '$i18n/i18n-svelte';
+  import Tag from '$lib/components/Tag.svelte';
   import { humanDate } from '$lib/utils/date';
 
   export let title: string;
@@ -10,15 +11,7 @@
   export let slug: string;
   export let previewImageUrl: string;
 
-  const LANGUAGE_COLOR: {
-    [lang: string]: string;
-  } = {
-    python: '#3572A5',
-    rust: '#dea584',
-    svelte: '#ff3e00',
-    typescript: '#2b7489',
-  };
-  const langTags = Object.keys(LANGUAGE_COLOR);
+  const langTags = ['python', 'rust', 'svelte', 'typescript'];
 
   let formattedDate = humanDate($locale, publishDate);
   let displayTags = tags
@@ -27,7 +20,7 @@
 </script>
 
 <li
-  class="mb-4 md:mb-0 last-of-type:mb-0 border-b border-gray-600 md:border-0 last-of-type:border-0 mb-8"
+  class="mb-4 md:mb-0 last-of-type:mb-0 border-b border-gray-600 md:border-0 last-of-type:border-0 mb-8 h-[400px]"
 >
   <figure
     class="rounded overflow-hidden pb-4 flex justify-center items-center overflow-hidden h-[150px]"
@@ -49,19 +42,7 @@
     </p>
     <ul class="flex justify-start items-start flex-wrap gap-2 py-2">
       {#each displayTags as category}
-        <span
-          class="border border-gray-400 text-xs text-gray-400 py-1 px-4 rounded-full text-center uppercase"
-        >
-          {#if category.toLowerCase() in LANGUAGE_COLOR}
-            <span
-              class="inline-block mr-1 rounded-full h-2 w-2"
-              style="background-color: {LANGUAGE_COLOR[
-                category.toLowerCase()
-              ]};"
-            />
-          {/if}
-          {category}
-        </span>
+        <Tag title={category} />
       {/each}
     </ul>
   </main>
@@ -69,7 +50,7 @@
     <div class="flex">
       <span class="flex items-center">
         <time
-          class="py-2 text-gray-600 text-sm uppercase"
+          class="py-2 text-gray-600 text-xs uppercase"
           datetime={publishDate.toString()}
         >
           {formattedDate}

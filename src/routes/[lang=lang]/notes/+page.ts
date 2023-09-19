@@ -6,7 +6,7 @@ export async function load({ fetch }) {
     const notesIndex = await res.json();
 
     return {
-      notesIndex: notesIndex.slice(0, 6),
+      notesIndex,
     };
   }
 

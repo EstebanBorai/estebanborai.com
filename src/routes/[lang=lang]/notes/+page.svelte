@@ -1,15 +1,43 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+
   import { locale } from '$i18n/i18n-svelte';
   import Entry from './components/Entry.svelte';
+  import Button from '$lib/components/Button.svelte';
 
-  export let data: {
-    notesIndex: Domain.BlogNote[];
-  };
+  export let data: { notesIndex: Domain.BlogNote[] };
 
+  let currentPage = 1;
+  let hasNextPage = true;
   let title = 'Esteban Borai | Notes';
   let description =
     'Notes taken while reading about computer science and software development.';
   let avatarUrl = 'https://avatars.githubusercontent.com/u/34756077?v=4';
+  let notesIndex = [];
+
+  function nextPage(page: number): any {
+    const pageSize = 6;
+
+    return {
+      notes: data.notesIndex.slice((page - 1) * pageSize, page * pageSize),
+      hasNext: data.notesIndex.length > page * pageSize,
+    };
+  }
+
+  function handleShowMore(): void {
+    const { notes, hasNext } = nextPage(currentPage + 1);
+
+    currentPage += 1;
+    hasNextPage = hasNext;
+    notesIndex = [...notesIndex, notes];
+  }
+
+  onMount(() => {
+    const { notes, hasNext } = nextPage(currentPage);
+
+    hasNextPage = hasNext;
+    notesIndex = [notes];
+  });
 
   $: {
     switch ($locale) {
@@ -56,18 +84,31 @@
 </svelte:head>
 
 <section class="mx-auto p-4 md:p-2 md:w-11/12">
-  <ul
-    class="flex flex-col md:grid md:grid-cols-3 md:gap-6 px-4 md:px-0 max-w-[1080px] mx-auto"
-  >
-    {#each data.notesIndex as { meta, slug }}
-      <Entry
-        title={meta.title}
-        description={meta.description}
-        publishDate={new Date(meta.date)}
-        tags={meta.categories}
-        {slug}
-        previewImageUrl={meta.preview_image_url}
-      />
+  <ul>
+    {#each notesIndex as page, index}
+      <ul
+        class="flex flex-col md:grid md:grid-cols-3 md:gap-6 px-4 md:px-0 max-w-[1080px] mx-auto"
+      >
+        {#each page as { meta, slug }}
+          <Entry
+            title={meta.title}
+            description={meta.description}
+            publishDate={new Date(meta.date)}
+            tags={meta.categories}
+            previewImageUrl={meta.preview_image_url}
+            {slug}
+          />
+        {/each}
+      </ul>
     {/each}
   </ul>
+  {#if hasNextPage}
+    <div class="flex justify-center items-center py-6">
+      <Button
+        title="Show more"
+        disabled={!hasNextPage}
+        on:click={handleShowMore}
+      />
+    </div>
+  {/if}
 </section>
