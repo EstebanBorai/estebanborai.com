@@ -1,6 +1,6 @@
 {
   "name": "estebanborai.com",
-  "version": "0.3.23",
+  "version": "0.3.24",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
