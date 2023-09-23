@@ -146,7 +146,7 @@
                 </li>
                 <li class="mr-4">
                   <a
-                    rel="noopener noreferrer"
+                    rel="me noopener noreferrer"
                     href="https://hachyderm.io/@EstebanBorai"
                     target="_blank"
                   >
