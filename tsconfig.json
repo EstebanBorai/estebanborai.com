@@ -24,6 +24,8 @@
     "allowJs": true,
     "checkJs": true,
     "paths": {
+      "unplugin-icons/loaders": ["./node_modules/unplugin-icons/dist/loaders"],
+      "unplugin-icons/vite": ["./node_modules/unplugin-icons/dist/vite"],
       "$lib": ["src/lib"],
       "$lib/*": ["src/lib/*"],
       "$i18n": ["src/i18n"],

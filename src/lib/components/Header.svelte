@@ -2,13 +2,46 @@
   import { onMount } from 'svelte';
 
   import LL, { setLocale } from '$i18n/i18n-svelte';
-  import Translate from '$lib/components/icons/Translate.svelte';
-  import Moon from '$lib/components/icons/Moon.svelte';
-  import Sun from '$lib/components/icons/Sun.svelte';
+  import Globe from '~icons/custom/globe';
+  import Home from '~icons/custom/home';
+  import Moon from '~icons/custom/moon';
+  import Repo from '~icons/custom/repo';
+  import Sun from '~icons/custom/sun';
   import { page } from '$app/stores';
   import { replaceLocaleInUrl } from '$lib/utils/locale';
 
   import type { Locales } from '$i18n/i18n-types';
+
+  const LINKS = [
+    {
+      icon: Home,
+      text: $LL.LAYOUT.NAV.HOME(),
+      href: `/${$page.params.lang}`,
+    },
+    {
+      icon: Repo,
+      href: `/${$page.params.lang}/notes`,
+      text: $LL.LAYOUT.NAV.NOTES(),
+    },
+  ];
+
+  const LANGS: {
+    text: string;
+    locale: Locales;
+  }[] = [
+    {
+      text: 'Español',
+      locale: 'es',
+    },
+    {
+      text: 'English',
+      locale: 'en',
+    },
+    {
+      text: 'Magyar',
+      locale: 'hu',
+    },
+  ];
 
   let useDarkMode = false;
   let isLangMenuOpen = false;
@@ -40,8 +73,12 @@
     }
   }
 
-  function toggleLanguageMenu(): void {
-    isLangMenuOpen = !isLangMenuOpen;
+  function openLanguageMenu(): void {
+    isLangMenuOpen = true;
+  }
+
+  function closeLanguageMenu(): void {
+    isLangMenuOpen = false;
   }
 
   function changeLanguage(locale: Locales): void {
@@ -54,6 +91,7 @@
 
     const next = replaceLocaleInUrl($page.url, locale);
     setLocale(locale);
+    closeLanguageMenu();
     window.location.href = next;
   }
 </script>
@@ -72,16 +110,69 @@
           style="color: transparent;"
         />
       </a>
-      <nav>
-        <ul class="flex items-center space-x-4">
+      <div class="flex items-center space-x-4">
+        <nav>
+          <ul class="flex items-center space-x-4">
+            {#each LINKS as { href, text, icon }}
+              <li>
+                <a class="flex items-center justify-center" {href}>
+                  <figure class="mr-2">
+                    <svelte:component this={icon} class="w-4 h-4" />
+                  </figure>
+                  {text}
+                </a>
+              </li>
+            {/each}
+          </ul>
+        </nav>
+        <ul class="flex items-center space-x-2">
           <li>
-            <a href="/{$page.params.lang}"> {$LL.LAYOUT.NAV.HOME()} </a>
+            <button
+              class="p-2 rounded-md"
+              type="button"
+              on:click={toggleDarkMode}
+            >
+              {#if useDarkMode}
+                <Sun class="w-5 h-5" />
+              {:else}
+                <Moon class="w-5 h-5" />
+              {/if}
+            </button>
           </li>
           <li>
-            <a href="/{$page.params.lang}/notes"> {$LL.LAYOUT.NAV.NOTES()} </a>
+            <button
+              class="p-2 rounded-md"
+              type="button"
+              on:click={openLanguageMenu}
+            >
+              <Globe class="w-5 h-5" />
+            </button>
           </li>
         </ul>
-      </nav>
+      </div>
     </div>
   </div>
 </header>
+
+{#if isLangMenuOpen}
+  <div
+    class="bg-gray-600/80 flex justify-center items-center h-screen w-screen fixed top-0 left-0"
+  >
+    <div class="text-white bg-gray-800 rounded-md p-4 w-[300px] space-y-4">
+      <span class="block text-center text-lg">Choose language</span>
+      <ul class="space-y-4">
+        {#each LANGS as { locale, text }}
+          <li>
+            <button
+              class="p-4 hover:bg-gray-400 bg-gray-600 w-full rounded-md"
+              type="button"
+              on:click={() => changeLanguage(locale)}
+            >
+              {text}
+            </button>
+          </li>
+        {/each}
+      </ul>
+    </div>
+  </div>
+{/if}
