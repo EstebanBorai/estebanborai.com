@@ -10,8 +10,8 @@ module.exports = {
     extend: {
       colors: {
         light: {
-          background: '#EBDFD1',
-          'background-alt': '#FDF1E2',
+          background: '#FFFFFF',
+          'background-alt': '#F6F8FA',
         },
         dark: {
           background: '#1C1C1C',
