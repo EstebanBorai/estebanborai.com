@@ -38,7 +38,17 @@ h3 {
   }
 }
 
-.hero-emphasis {
+.hero-emphasis-orange {
+  @apply text-transparent bg-clip-text bg-gradient-to-br;
+  @apply from-orange-400 to-orange-800 font-semibold;
+}
+
+.hero-emphasis-blue {
   @apply text-transparent bg-clip-text bg-gradient-to-br;
   @apply from-blue-400 to-blue-800 font-semibold;
+}
+
+.hero-emphasis-red {
+  @apply text-transparent bg-clip-text bg-gradient-to-br;
+  @apply from-red-400 to-red-800 font-semibold;
 }

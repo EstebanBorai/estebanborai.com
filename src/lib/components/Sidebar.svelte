@@ -1,10 +1,9 @@
 <script lang="ts">
-  import LL, { setLocale } from '$i18n/i18n-svelte';
-  // import Globe from '~icons/custom/globe';
+  import { onMount } from 'svelte';
+
+  import LL, { setLocale, locale } from '$i18n/i18n-svelte';
   import Home from '~icons/custom/home';
-  // import Moon from '~icons/custom/moon';
   import Repo from '~icons/custom/repo';
-  // import Sun from '~icons/custom/sun';
   import { page } from '$app/stores';
   import GitHub from '$lib/components/icons/GitHub.svelte';
   import LinkedIn from '$lib/components/icons/LinkedIn.svelte';
@@ -14,7 +13,6 @@
   import { replaceLocaleInUrl } from '$lib/utils/locale';
 
   import type { Locales } from '$i18n/i18n-types';
-  import { onMount } from 'svelte';
 
   const LINKS = [
     {
@@ -47,16 +45,15 @@
     },
   ];
 
-  let useDarkMode = false;
-  let isLangMenuOpen = false;
+  let currentTheme: 'dark' | 'light' = 'light';
 
   onMount(() => {
-    useDarkMode =
+    currentTheme =
       localStorage.theme === 'dark' ||
       (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches);
+        window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
 
-    if (useDarkMode) {
+    if (currentTheme === 'dark') {
       document.documentElement.classList.add('dark');
       localStorage.theme = 'dark';
     } else {
@@ -65,38 +62,34 @@
     }
   });
 
-  function toggleDarkMode(): void {
-    if (useDarkMode) {
-      document.documentElement.classList.remove('dark');
-      localStorage.theme = 'light';
-      useDarkMode = false;
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.theme = 'dark';
-      useDarkMode = true;
-    }
-  }
+  function changeTheme(theme: 'light' | 'dark'): void {
+      const removeClass = theme === 'light' ? 'dark' : 'light';
 
-  function openLanguageMenu(): void {
-    isLangMenuOpen = true;
-  }
-
-  function closeLanguageMenu(): void {
-    isLangMenuOpen = false;
+      document.documentElement.classList.remove(removeClass);
+      document.documentElement.classList.add(theme);
+      localStorage.theme = theme;
   }
 
   function changeLanguage(locale: Locales): void {
     const lang = $page.params.lang;
 
     if (lang === locale) {
-      isLangMenuOpen = false;
       return;
     }
 
     const next = replaceLocaleInUrl($page.url, locale);
     setLocale(locale);
-    closeLanguageMenu();
     window.location.href = next;
+  }
+
+  const handleLanguageChange = (ev: Event) => {
+    const lang = (ev.target as unknown as { value: string; }).value as Locales;
+    changeLanguage(lang);
+  }
+
+  const handleThemeChange = (ev: Event) => {
+    const theme = (ev.target as unknown as { value: string; }).value as 'dark' | 'light';
+    changeTheme(theme);
   }
 </script>
 
@@ -123,7 +116,7 @@
     <nav>
       <ul class="flex flex-col space-y-2">
         {#each LINKS as { href, text, icon }}
-          <li class="py-2 px-4 bg-red-200 rounded-md">
+          <li class="py-2 px-4 bg-zinc-800 rounded-md">
             <a class="flex items-center justify-start" {href}>
               <figure class="mr-2">
                 <svelte:component this={icon} class="w-4 h-4" />
@@ -187,14 +180,20 @@
         </li>
       </ul>
     </footer>
-    <select name="" id="">
+    <select class="selector" value={$locale} on:change={handleLanguageChange}>
       {#each LANGS as { text, locale }}
         <option value={locale}>{text}</option>
       {/each}
     </select>
-    <select name="" id="">
-      <option value="">Dark</option>
-      <option value="">Light</option>
+    <select class="selector" value={currentTheme} on:change={handleThemeChange}>
+      <option value="dark">Dark</option>
+      <option value="light">Light</option>
     </select>
   </div>
 </aside>
+
+<style lang="postcss">
+    .selector {
+        @apply bg-light-background-alt dark:bg-dark-background-alt;
+    }
+</style>

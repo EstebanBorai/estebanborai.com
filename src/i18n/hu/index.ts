@@ -13,7 +13,7 @@ const hu = {
   },
   HOMEPAGE: {
     HI: 'Jó napot kívánok {surname:string} {name:string} vagyok,',
-    ABOUT: `Egy szoftverfejlesztő vagyok aki tapasztalattal rendelkezik <span class="hero-emphasis">Rendszerprogramozás</span> és <span class="hero-emphasis">Webfejlesztés</span> területén.`,
+    ABOUT: `Szoftvermérnök webes és rendszertapasztalattal. A kedvenc nyelv a ', <span class="hero-emphasis-orange">Rust</span> Rust, de én is <span class="hero-emphasis-blue">TypeScript</span> és <span class="hero-emphasis-red">Svelte</span>.`,
     SOCIAL_LINKS: 'Közösségi hálók',
     LATEST_NOTES: 'Legújabb jegyzet',
   },
