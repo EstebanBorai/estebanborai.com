@@ -16,11 +16,6 @@
 
   const LINKS = [
     {
-      icon: Home,
-      text: $LL.LAYOUT.NAV.HOME(),
-      href: `/${$page.params.lang}`,
-    },
-    {
       icon: Repo,
       href: `/${$page.params.lang}/notes`,
       text: $LL.LAYOUT.NAV.NOTES(),
@@ -51,7 +46,9 @@
     currentTheme =
       localStorage.theme === 'dark' ||
       (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ? 'dark'
+        : 'light';
 
     if (currentTheme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -63,11 +60,11 @@
   });
 
   function changeTheme(theme: 'light' | 'dark'): void {
-      const removeClass = theme === 'light' ? 'dark' : 'light';
+    const removeClass = theme === 'light' ? 'dark' : 'light';
 
-      document.documentElement.classList.remove(removeClass);
-      document.documentElement.classList.add(theme);
-      localStorage.theme = theme;
+    document.documentElement.classList.remove(removeClass);
+    document.documentElement.classList.add(theme);
+    localStorage.theme = theme;
   }
 
   function changeLanguage(locale: Locales): void {
@@ -83,14 +80,16 @@
   }
 
   const handleLanguageChange = (ev: Event) => {
-    const lang = (ev.target as unknown as { value: string; }).value as Locales;
+    const lang = (ev.target as unknown as { value: string }).value as Locales;
     changeLanguage(lang);
-  }
+  };
 
   const handleThemeChange = (ev: Event) => {
-    const theme = (ev.target as unknown as { value: string; }).value as 'dark' | 'light';
+    const theme = (ev.target as unknown as { value: string }).value as
+      | 'dark'
+      | 'light';
     changeTheme(theme);
-  }
+  };
 </script>
 
 <aside
@@ -193,7 +192,7 @@
 </aside>
 
 <style lang="postcss">
-    .selector {
-        @apply bg-light-background-alt dark:bg-dark-background-alt;
-    }
+  .selector {
+    @apply bg-light-background-alt dark:bg-dark-background-alt;
+  }
 </style>

@@ -1,12 +1,13 @@
 import { detectLocale, i18n, isLocale } from '$i18n/i18n-util';
 import { loadAllLocales } from '$i18n/i18n-util.sync';
 import type { Handle, RequestEvent } from '@sveltejs/kit';
+import { sequence } from '@sveltejs/kit/hooks';
 import { initAcceptLanguageHeaderDetector } from 'typesafe-i18n/detectors';
 
 loadAllLocales();
 const L = i18n();
 
-export const handle: Handle = async ({ event, resolve }) => {
+export const i18nHandle: Handle = async ({ event, resolve }) => {
   // read language slug
   const [, lang] = event.url.pathname.split('/');
 
@@ -41,3 +42,19 @@ const getPreferredLocale = ({ request }: RequestEvent) => {
 
   return detectLocale(acceptLanguageDetector);
 };
+
+export const metaHandle: Handle = async ({ event, resolve }) => {
+  const lang = 'es-419';
+  const defaultTheme = 'dark';
+
+  return await resolve(event, {
+    transformPageChunk({ done, html }) {
+      //Only do it at the very end of the rendering process
+      if (done) {
+        return html.replace('%lang%', lang).replace('%theme%', defaultTheme);
+      }
+    },
+  });
+};
+
+export const handle = sequence(metaHandle, i18nHandle);

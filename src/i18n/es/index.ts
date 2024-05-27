@@ -13,7 +13,7 @@ const es = {
   },
   HOMEPAGE: {
     HI: `Hola soy {name:string} {surname:string},`,
-    ABOUT: `Desarrollador de Software con experiencia en Web y Desarrollo de Sistemas. Mi lenguaje favorito es ', <span class="hero-emphasis-orange">Rust</span> Rust, pero también escribo <span class="hero-emphasis-blue">TypeScript</span> y <span class="hero-emphasis-red">Svelte</span>.`,
+    ABOUT: `Desarrollador de Software con experiencia en Web y Desarrollo de Sistemas`,
     SOCIAL_LINKS: 'Redes Sociales',
     LATEST_NOTES: 'Nota más reciente',
   },

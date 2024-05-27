@@ -13,7 +13,7 @@ const en = {
   },
   HOMEPAGE: {
     HI: `Hey, I'm <span class="font-semibold">{name:string} {surname:string}</span>,`,
-    ABOUT: `Software Developer with Web & Systems Experience. Favourite language is <span class="hero-emphasis-orange">Rust</span> but I also do <span class="hero-emphasis-blue">TypeScript</span> and <span class="hero-emphasis-red">Svelte</span>.`,
+    ABOUT: `Software Developer with Web & Systems Experience`,
     SOCIAL_LINKS: 'Social Networks',
     LATEST_NOTES: 'Latest Note',
   },

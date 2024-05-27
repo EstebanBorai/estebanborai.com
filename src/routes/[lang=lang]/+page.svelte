@@ -62,5 +62,3 @@
   <meta name="twitter:creator" content="@EstebanBorai" />
   <meta name="twitter:image:src" content={avatarUrl} />
 </svelte:head>
-
-<h1>Hello World!</h1>
