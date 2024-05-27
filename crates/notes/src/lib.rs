@@ -26,6 +26,7 @@ pub enum Icon {
     Svelte,
     Gcp,
     TypeScript,
+    Dev,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
