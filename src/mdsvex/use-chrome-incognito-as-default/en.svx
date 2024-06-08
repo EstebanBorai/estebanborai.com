@@ -4,7 +4,7 @@ description: "Walkthrough on how to set Google Chrome Incognito Mode as default 
 categories: [chrome, browser, development, macos, setup]
 date: 2024-05-27
 icon: dev
-preview_image_url: "https://unsplash.com/photos/kfuSP6TgnbQ/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MjF8fGNocm9tZSUyMGdvb2dsZXxlbnwwfHx8fDE3MTY4NTE0MTh8MA&force=true&w=640"
+preview_image_url: "/images/preview/use-chrome-incognito-as-default.png"
 published: true
 ---
 

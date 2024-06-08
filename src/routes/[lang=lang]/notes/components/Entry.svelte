@@ -23,7 +23,7 @@
   class="mb-4 md:mb-0 last-of-type:mb-0 border-b border-gray-600 md:border-0 last-of-type:border-0 mb-8 h-[400px]"
 >
   <figure
-    class="rounded overflow-hidden pb-4 flex justify-center items-center overflow-hidden h-[150px]"
+    class="rounded pb-4 flex justify-center items-start overflow-hidden h-[150px]"
   >
     <img loading="lazy" decoding="async" alt={title} src={previewImageUrl} />
   </figure>
