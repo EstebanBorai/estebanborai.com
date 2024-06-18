@@ -26,6 +26,10 @@ type RootTranslation = {
        * N​o​t​e​s
        */
       NOTES: string;
+      /**
+       * B​o​o​k​m​a​r​k​s
+       */
+      BOOKMARKS: string;
     };
     FOOTER: {
       /**
@@ -73,6 +77,10 @@ export type TranslationFunctions = {
        * Notes
        */
       NOTES: () => LocalizedString;
+      /**
+       * Bookmarks
+       */
+      BOOKMARKS: () => LocalizedString;
     };
     FOOTER: {
       /**

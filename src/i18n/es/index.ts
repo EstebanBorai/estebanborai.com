@@ -5,6 +5,7 @@ const es = {
     NAV: {
       HOME: 'Inicio',
       NOTES: 'Notas',
+      BOOKMARKS: 'Marcadores',
     },
     FOOTER: {
       COPYRGHT: `Hecho con 🧉 y ❤️ por Esteban Borai © {start:number} - {end:number}`,

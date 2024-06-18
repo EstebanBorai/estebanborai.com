@@ -20,6 +20,11 @@
       href: `/${$page.params.lang}/notes`,
       text: $LL.LAYOUT.NAV.NOTES(),
     },
+    {
+      icon: Repo,
+      href: `/${$page.params.lang}/bookmarks`,
+      text: $LL.LAYOUT.NAV.BOOKMARKS(),
+    },
   ];
 
   const LANGS: {

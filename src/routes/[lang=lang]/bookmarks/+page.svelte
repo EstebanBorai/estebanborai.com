@@ -2,59 +2,59 @@
   import { onMount } from 'svelte';
 
   import { locale } from '$i18n/i18n-svelte';
-  import Entry from './components/Entry.svelte';
+  import Bookmark from './components/Bookmark.svelte';
   import Button from '$lib/components/Button.svelte';
 
-  export let data: { notesIndex: Domain.BlogNote[] };
+  export let data: { bookmarks: object[] };
 
   let currentPage = 1;
   let hasNextPage = true;
-  let title = 'Esteban Borai | Notes';
+  let title = 'Esteban Borai | Bookmarks';
   let description =
-    'Notes taken while reading about computer science and software development.';
+    'Bookmarks from relevant articles, blog posts, and documentation.';
   let avatarUrl = 'https://avatars.githubusercontent.com/u/34756077?v=4';
-  let notesIndex = [];
+  let bookmarks = [];
 
   function nextPage(page: number): any {
     const pageSize = 6;
 
     return {
-      notes: data.notesIndex.slice((page - 1) * pageSize, page * pageSize),
-      hasNext: data.notesIndex.length > page * pageSize,
+      bookmarks: data.bookmarks.slice((page - 1) * pageSize, page * pageSize),
+      hasNext: data.bookmarks.length > page * pageSize,
     };
   }
 
   function handleShowMore(): void {
-    const { notes, hasNext } = nextPage(currentPage + 1);
+    const { bookmarks: bookmarksList, hasNext } = nextPage(currentPage + 1);
 
     currentPage += 1;
     hasNextPage = hasNext;
-    notesIndex = [...notesIndex, notes];
+    bookmarks = [...bookmarksList, bookmarks];
   }
 
   onMount(() => {
-    const { notes, hasNext } = nextPage(currentPage);
+    const { bookmarks: bookmarksList, hasNext } = nextPage(currentPage);
 
     hasNextPage = hasNext;
-    notesIndex = [notes];
+    bookmarks = [bookmarksList];
   });
 
   $: {
     switch ($locale) {
       case 'en':
-        title = 'Esteban Borai | Notes';
+        title = 'Esteban Borai | Bookmarks';
         description =
-          'Notes taken while reading about computer science and software development.';
+          'Bookmarks from relevant articles, blog posts, and documentation.';
         break;
       case 'es':
-        title = 'Esteban Borai | Notas';
+        title = 'Esteban Borai | Marcadores';
         description =
-          'Notas tomadas mientras leo sobre ciencias de la computación y desarrollo de software.';
+          'Marcadores de artículos, publicaciones de blog y documentación relevantes.';
         break;
       case 'hu':
-        title = 'Borai Esteban | Jegyzetek';
+        title = 'Borai Esteban | Könyvjelzők';
         description =
-          'Jegyzetek, amelyeket olvasás közben vettem fel a számítástechnikáról és a szoftverfejlesztésről.';
+          'Könyvjelzők a releváns cikkekből, blogbejegyzésekből és dokumentációból.';
         break;
     }
   }
@@ -85,18 +85,18 @@
 
 <section class="mx-auto p-4 md:p-2 md:w-11/12">
   <ul>
-    {#each notesIndex as page}
+    {#each bookmarks as page}
       <ul
         class="flex flex-col md:grid md:grid-cols-3 md:gap-6 px-4 md:px-0 max-w-[1080px] mx-auto"
       >
-        {#each page as { meta, slug }}
-          <Entry
-            title={meta.title}
-            description={meta.description}
-            publishDate={new Date(meta.date)}
-            tags={meta.categories}
-            previewImageUrl={meta.preview_image_url}
-            {slug}
+        {#each page as { title, description, url, tags, previewImageUrl, createdAt }}
+          <Bookmark
+            {title}
+            {url}
+            {description}
+            {tags}
+            {previewImageUrl}
+            createdAt={new Date(createdAt)}
           />
         {/each}
       </ul>

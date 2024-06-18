@@ -5,6 +5,7 @@ const hu = {
     NAV: {
       HOME: 'Főoldal',
       NOTES: 'Jegyzet',
+      BOOKMARKS: 'Könyvjelző',
     },
     FOOTER: {
       COPYRGHT: `Készült 🧉 és ❤️ írta Esteban Borai © {start:number} - {end:number}`,
