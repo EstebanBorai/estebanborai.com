@@ -22,7 +22,10 @@ pub struct BookmarkEntry {
 }
 
 impl Hash for BookmarkEntry {
-    fn hash<H>(&self, state: &mut H) where H: Hasher {
+    fn hash<H>(&self, state: &mut H)
+    where
+        H: Hasher,
+    {
         let _ = &self.url.hash(state);
     }
 }
@@ -39,7 +42,10 @@ pub struct BookmarksIndex(HashSet<BookmarkEntry>);
 impl BookmarksIndex {
     /// Opens the BookmarksIndex from the `bookmarks.json` file.
     pub fn new() -> Result<Self> {
-        let path = current_dir()?.join("static").join("db").join(BOOKMARKS_INDEX_FILE);
+        let path = current_dir()?
+            .join("static")
+            .join("db")
+            .join(BOOKMARKS_INDEX_FILE);
         let index = read_to_string(path)?;
 
         Ok(serde_json::from_str(&index)?)
@@ -53,10 +59,20 @@ impl BookmarksIndex {
     }
 
     fn save(&self) -> Result<()> {
-        let path = current_dir()?.join("static").join("db").join(BOOKMARKS_INDEX_FILE);
-        let index = serde_json::to_string_pretty(&self)?;
+        let path = current_dir()?
+            .join("static")
+            .join("db")
+            .join(BOOKMARKS_INDEX_FILE);
+        let mut items = self.0
+            .iter()
+            .cloned()
+            .collect::<Vec<_>>();
 
-        std::fs::write(&path, index)?;
+        items.sort_by(|a, b| b.created_at.cmp(&a.created_at));
+
+        let index = serde_json::to_string_pretty(&items)?;
+
+        std::fs::write(path, index)?;
 
         Ok(())
     }

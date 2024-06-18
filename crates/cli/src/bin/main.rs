@@ -28,9 +28,7 @@ impl Cli {
 
                 index.save_to_file(index_path)?;
             }
-            Self::Bookmarks {
-                url,
-            } => {
+            Self::Bookmarks { url } => {
                 let bookmarks = bookmarks::BookmarksIndex::new()?;
 
                 if let Some(url) = url {

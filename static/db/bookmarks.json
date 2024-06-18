@@ -1,19 +1,19 @@
 [
   {
-    "title": "Why Turborepo is migrating from Go to Rust – Vercel",
-    "url": "https://vercel.com/blog/turborepo-migration-go-rust",
+    "title": "Why I retired from the tech crusades",
+    "url": "https://world.hey.com/dhh/why-i-retired-from-the-tech-crusades-107a51ea",
     "tags": [],
-    "description": "How we're migrating from Go to Rust for better alignment with our tools and work",
-    "previewImageUrl": "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/2SPgq1lG92UICEIIX73ayg/97a66b1df0938e42dd6d74137cc1b7fd/OG_Image_____Template.png",
-    "createdAt": "2024-06-18T00:03:11.319663Z"
+    "description": "When Ruby on Rails was launched over twenty years ago, I was a twenty-some young programmer convinced that anyone who gave my stack a try would accept its universal superiority for solving The Web Problem. So I pursued the path of the crusade, attempting to convert the unenlightened masses by the edge of a pointed argument. And for a l...",
+    "previewImageUrl": "https://world.hey.com/dhh/avatar-fb368b1ee9b185dc2a09b03eabdb61678dd55244",
+    "createdAt": "2024-06-18T23:26:22.557526Z"
   },
   {
-    "title": "DDD Concepts and Patterns - Introduction and Overview | Opus Software AG",
-    "url": "https://opus.ch/en/ddd-concepts-and-patterns-introduction-and-overview/",
+    "title": "Master hexagonal architecture in Rust",
+    "url": "https://www.howtocodeit.com/articles/master-hexagonal-architecture-rust",
     "tags": [],
-    "description": "Welcome to this blog post series about concepts and patterns of domain driven design (DDD). Although the original book about DDD was written almost 15 years",
-    "previewImageUrl": "https://opus.ch/wp-content/uploads/2018/11/blogddd.png",
-    "createdAt": "2024-06-18T00:00:29.742081Z"
+    "description": "Everything you need to write flexible, future-proof Rust applications using hexagonal architecture.",
+    "previewImageUrl": "https://res.cloudinary.com/dkh7xdo6x/image/upload/v1717697346/hexagonal_architecture_og_f851b96907.jpg",
+    "createdAt": "2024-06-18T23:26:09.889734Z"
   },
   {
     "title": "Rust: Memory, Ownership and Borrowing",
@@ -32,22 +32,6 @@
     "createdAt": "2024-06-18T00:05:45.478752Z"
   },
   {
-    "title": "Why I retired from the tech crusades",
-    "url": "https://world.hey.com/dhh/why-i-retired-from-the-tech-crusades-107a51ea",
-    "tags": [],
-    "description": "When Ruby on Rails was launched over twenty years ago, I was a twenty-some young programmer convinced that anyone who gave my stack a try would accept its universal superiority for solving The Web Problem. So I pursued the path of the crusade, attempting to convert the unenlightened masses by the edge of a pointed argument. And for a l...",
-    "previewImageUrl": "https://world.hey.com/dhh/avatar-fb368b1ee9b185dc2a09b03eabdb61678dd55244",
-    "createdAt": "2024-06-18T23:26:22.557526Z"
-  },
-  {
-    "title": "Master hexagonal architecture in Rust",
-    "url": "https://www.howtocodeit.com/articles/master-hexagonal-architecture-rust",
-    "tags": [],
-    "description": "Everything you need to write flexible, future-proof Rust applications using hexagonal architecture.",
-    "previewImageUrl": "https://res.cloudinary.com/dkh7xdo6x/image/upload/v1717697346/hexagonal_architecture_og_f851b96907.jpg",
-    "createdAt": "2024-06-18T23:26:09.889734Z"
-  },
-  {
     "title": "The technology behind GitHub’s new code search",
     "url": "https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search/",
     "tags": [],
@@ -56,11 +40,27 @@
     "createdAt": "2024-06-18T00:04:45.624411Z"
   },
   {
+    "title": "Why Turborepo is migrating from Go to Rust – Vercel",
+    "url": "https://vercel.com/blog/turborepo-migration-go-rust",
+    "tags": [],
+    "description": "How we're migrating from Go to Rust for better alignment with our tools and work",
+    "previewImageUrl": "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/2SPgq1lG92UICEIIX73ayg/97a66b1df0938e42dd6d74137cc1b7fd/OG_Image_____Template.png",
+    "createdAt": "2024-06-18T00:03:11.319663Z"
+  },
+  {
     "title": "bliki: CQRS",
     "url": "https://www.martinfowler.com/bliki/CQRS.html",
     "tags": [],
     "description": "CQRS (Command Query Responsibility Segregation) is the notion that you can use a different model to update information than the model you use to read information",
     "previewImageUrl": "https://martinfowler.com/bliki/images/cqrs/cqrs.png",
     "createdAt": "2024-06-18T00:01:44.245098Z"
+  },
+  {
+    "title": "DDD Concepts and Patterns - Introduction and Overview | Opus Software AG",
+    "url": "https://opus.ch/en/ddd-concepts-and-patterns-introduction-and-overview/",
+    "tags": [],
+    "description": "Welcome to this blog post series about concepts and patterns of domain driven design (DDD). Although the original book about DDD was written almost 15 years",
+    "previewImageUrl": "https://opus.ch/wp-content/uploads/2018/11/blogddd.png",
+    "createdAt": "2024-06-18T00:00:29.742081Z"
   }
 ]
