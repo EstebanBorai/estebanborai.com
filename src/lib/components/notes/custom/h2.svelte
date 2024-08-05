@@ -15,7 +15,7 @@
   };
 </script>
 
-<h2 {id} class="text-2xl font-body relative group py-4" bind:this={data}>
+<h2 {id} class="text-2xl font-display relative group py-4" bind:this={data}>
   <a class="no-underline" {href} on:click={focusElement}>
     <span>
       <slot />

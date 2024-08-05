@@ -111,7 +111,7 @@
         />
       </figure>
       <article class="flex flex-col justify-center items-center py-6">
-        <h1 class="text-lg">Esteban Borai</h1>
+        <h1 class="text-3xl font-semibold">Esteban Borai</h1>
         <p class="text-gray-800 dark:text-gray-400 text-center py-2">
           {@html $LL.HOMEPAGE.ABOUT()}
         </p>

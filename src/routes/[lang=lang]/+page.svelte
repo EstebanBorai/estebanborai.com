@@ -1,43 +1,8 @@
 <script lang="ts">
-  import { humanDate } from '$lib/utils/date';
-
-  import LL, { locale } from '$i18n/i18n-svelte';
-  import GitHub from '$lib/components/icons/GitHub.svelte';
-  import LinkedIn from '$lib/components/icons/LinkedIn.svelte';
-  import StackOverflow from '$lib/components/icons/StackOverflow.svelte';
-  import { page } from '$app/stores';
-  import Mastodon from '$lib/components/icons/Mastodon.svelte';
-  import Reddit from '$lib/components/icons/Reddit.svelte';
-  import Tag from '$lib/components/Tag.svelte';
-
-  export let data: {
-    notesIndex: Domain.BlogNote[];
-  };
-
   let title = 'Esteban Borai | Software Developer';
   let description =
     'A Software Developer interested in Systems Programming and Web Development.';
   let avatarUrl = 'https://avatars.githubusercontent.com/u/34756077?v=4';
-
-  $: {
-    switch ($locale) {
-      case 'en':
-        title = 'Esteban Borai | Software Developer';
-        description =
-          'A Software Developer interested in Systems Programming and Web Development.';
-        break;
-      case 'es':
-        title = 'Esteban Borai | Desarrollador de Software';
-        description =
-          'Un Desarrollador de Software interesado en Programación de Sistemas y Desarrollo Web.';
-        break;
-      case 'hu':
-        title = 'Borai Esteban | Szoftverfejlesztő';
-        description =
-          'Egy Szoftverfejlesztő, aki érdeklődik a Rendszerprogramozás és a Webfejlesztés iránt.';
-        break;
-    }
-  }
 </script>
 
 <svelte:head>

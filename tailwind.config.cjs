@@ -19,7 +19,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        body: ['Inter', 'sans'],
+        body: ['Nunito Sans', 'sans'],
+        display: ['Playfair', 'serif'],
         mono: ['Fira Code', 'monospace'],
       },
     },

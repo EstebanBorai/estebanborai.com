@@ -59,7 +59,7 @@
     <img class="w-full" src={preview_image_url} alt={title} />
   </figure>
   <header class="py-4">
-    <h1 class="font-body text-3xl py-4">{title}</h1>
+    <h1 class="text-3xl py-4 font-semibold">{title}</h1>
     <div class="flex mb-2">
       <span class="flex items-center mr-2">
         <time

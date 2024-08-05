@@ -15,13 +15,13 @@
   };
 </script>
 
-<h3 {id} class="text-xl font-body relative group py-4" bind:this={data}>
+<h3 {id} class="text-xl font-display relative group py-4" bind:this={data}>
   <a class="no-underline" {href} on:click={focusElement}>
     <span>
       <slot />
     </span>
     <span
-      class="invisible inline p-1 group-hover:visible bg-gray-200 font-bold rounded h-8 w-8 dark:bg-gray-600 dark:text-gray-200"
+      class="font-display invisible inline p-1 group-hover:visible bg-gray-200 font-bold rounded h-8 w-8 dark:bg-gray-600 dark:text-gray-200"
     >
       🪴
     </span>

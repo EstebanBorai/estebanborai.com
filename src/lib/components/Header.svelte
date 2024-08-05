@@ -10,5 +10,5 @@
       width="50"
     />
   </a>
-  <h1>Esteban Borai</h1>
+  <h1 class="text-xl">Esteban Borai</h1>
 </header>
