@@ -83,13 +83,11 @@
   <meta name="twitter:image:src" content={avatarUrl} />
 </svelte:head>
 
-<section class="mx-auto p-4 md:p-2 md:w-11/12">
+<section>
   <ul>
     {#each notesIndex as page}
-      <ul
-        class="flex flex-col md:grid md:grid-cols-3 md:gap-6 px-4 md:px-0 max-w-[1080px] mx-auto"
-      >
-        {#each page as { meta, slug }}
+      <ul class="flex flex-col gap-4 p-4">
+        {#each page as { meta, slug }, idx}
           <Entry
             title={meta.title}
             description={meta.description}

@@ -20,24 +20,26 @@
 </script>
 
 <li
-  class="mb-4 md:mb-0 last-of-type:mb-0 border-b border-gray-600 md:border-0 last-of-type:border-0 mb-8 h-[400px]"
+  class="grid gap-4 grid-cols-[100px,auto] md:grid-cols-[200px,auto] md:w-[720px] w-full"
 >
   <figure
-    class="rounded pb-4 flex justify-center items-start overflow-hidden h-[150px]"
+    class="rounded flex justify-center items-center overflow-hidden w-[100px] h-[100px] md:h-[200px] md:w-[200px]"
   >
-    <img loading="lazy" decoding="async" alt={title} src={previewImageUrl} />
+    <img
+      class="w-full h-full object-cover"
+      loading="lazy"
+      decoding="async"
+      alt={title}
+      src={previewImageUrl}
+    />
   </figure>
-  <header>
-    <h3
-      class="text-xl py-4 text-gray-200 font-extrabold cursor-pointer hover:text-link hover:underline"
-    >
+  <article>
+    <h3 class="text-lg md:text-xl hover:underline">
       <a href="/{$page.params.lang}/notes/{slug}">
         {title}
       </a>
     </h3>
-  </header>
-  <main>
-    <p aria-label={description} class="line-clamp-3 text-gray-400">
+    <p aria-label={description} class="py-2 text-sm line-clamp-3 text-gray-400">
       {description}
     </p>
     <ul class="flex justify-start items-start flex-wrap gap-2 py-2">
@@ -45,8 +47,6 @@
         <Tag title={category} />
       {/each}
     </ul>
-  </main>
-  <footer class="flex flex-col">
     <div class="flex">
       <span class="flex items-center">
         <time
@@ -57,5 +57,5 @@
         </time>
       </span>
     </div>
-  </footer>
+  </article>
 </li>

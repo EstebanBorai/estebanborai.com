@@ -19,9 +19,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        body: ['Nunito Sans', 'sans'],
-        display: ['Playfair', 'serif'],
-        mono: ['Fira Code', 'monospace'],
+        body: ['DM Sans', 'sans'],
+        display: ['Abril Fatface', 'serif'],
+        mono: ['IBM Plex Mono', 'monospace'],
       },
     },
   },
