@@ -19,8 +19,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        body: ['DM Sans', 'sans'],
-        display: ['Abril Fatface', 'serif'],
+        body: ['Inter', 'sans'],
         mono: ['IBM Plex Mono', 'monospace'],
       },
     },

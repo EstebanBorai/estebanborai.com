@@ -9,8 +9,8 @@
 
   import type { LayoutData } from './$types';
 
-  import Sidebar from '$lib/components/Sidebar.svelte';
   import Header from '$lib/components/Header.svelte';
+  import Footer from '$lib/components/Footer.svelte';
 
   import '../app.css';
 
@@ -34,16 +34,10 @@
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
 </svelte:head>
 
-<div
-  class="bg-light-background dark:bg-dark-background h-screen grid grid-cols-[100%] grid-rows-[70px,auto] md:grid-cols-[260px,auto] md:grid-rows-[100%]"
->
-  <Header />
-  <Sidebar />
-  <main
-    class="md:col-start-2 md:col-end-2 h-full overflow-x-hidden overflow-y-auto"
-  >
-    <slot />
-  </main>
-</div>
-
 <a hidden rel="me" href="https://hachyderm.io/@estebanborai">Mastodon</a>
+
+<Header />
+<main class="min-h-screen">
+  <slot />
+</main>
+<Footer />
