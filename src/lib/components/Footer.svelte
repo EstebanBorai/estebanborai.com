@@ -97,39 +97,60 @@
   };
 </script>
 
-<aside
-  class="hidden md:flex bg-light-background-alt dark:bg-dark-background-alt px-4 pt-8 flex-col justify-between"
->
-  <div>
-    <header class="flex flex-col justify-center items-center">
-      <figure class="overflow-hidden h-[190px] w-[190px] rounded-full">
-        <img
-          src="https://avatars.githubusercontent.com/u/34756077?v=4"
-          alt="Esteban Borai Profile"
-          height="190"
-          width="190"
-        />
-      </figure>
-      <article class="flex flex-col justify-center items-center py-6">
-        <h1 class="text-3xl font-semibold">Esteban Borai</h1>
-        <p class="text-gray-800 dark:text-gray-400 text-center py-2">
-          {@html $LL.HOMEPAGE.ABOUT()}
-        </p>
-      </article>
-    </header>
-    <nav>
-      <ul class="flex flex-col space-y-2">
-        {#each LINKS as { href, text, icon }}
-          <li class="py-2 px-4 bg-zinc-800 rounded-md">
-            <a class="flex items-center justify-start" {href}>
-              <figure class="mr-2">
-                <svelte:component this={icon} class="w-4 h-4" />
-              </figure>
-              {text}
-            </a>
-          </li>
-        {/each}
+<footer class="text-sm flex flex-col border-t py-2 px-4">
+  <div class="flex flex-col md:grid md:grid-cols-12">
+    <article class="md:col-start-2 md:col-span-3">
+      <h4>{$LL.HOMEPAGE.SOCIAL_LINKS()}</h4>
+      <ul class="flex flex-col justify-evenly py-4 space-y-2 text-xs">
+        <li class="hover:text-zinc-900 text-zinc-600">
+          <a
+            class="flex items-center"
+            rel="noopener noreferrer"
+            href="https://www.github.com/estebanborai"
+            target="_blank"
+          >
+            <GitHub class="w-6 h-6" />
+            <span class="pl-2"> GitHub </span>
+          </a>
+        </li>
+        <li class="hover:text-zinc-900 text-zinc-600">
+          <a
+            class="flex items-center"
+            rel="noopener noreferrer"
+            href="https://www.reddit.com/user/estebanborai"
+            target="_blank"
+          >
+            <Reddit class="w-6 h-6" />
+            <span class="pl-2"> Reddit </span>
+          </a>
+        </li>
       </ul>
-    </nav>
+    </article>
+    <article class="md:col-start-6 md:col-span-3">
+      <h4>SiteMap</h4>
+      <ul class="flex flex-col justify-evenly py-4 text-xs">
+        <li class="mr-4">
+          <a href="/{$page.params.lang}/notes">
+            {$LL.LAYOUT.NAV.NOTES()}
+          </a>
+        </li>
+        <li class="mr-4">
+          <a href="/{$page.params.lang}/bookmarks">
+            {$LL.LAYOUT.NAV.BOOKMARKS()}
+          </a>
+        </li>
+      </ul>
+    </article>
   </div>
-</aside>
+  <small class="block text-center text-xs"
+    >{$LL.LAYOUT.FOOTER.COPYRGHT({
+      start: 2017,
+      end: new Date().getFullYear(),
+    })}</small
+  >
+  <a
+    class="block text-center text-xs pt-2"
+    href="https://github.com/EstebanBorai/estebanborai.com"
+    target="_blank">{$LL.LAYOUT.FOOTER.SOURCE_CODE()}</a
+  >
+</footer>
