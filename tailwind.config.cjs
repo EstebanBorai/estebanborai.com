@@ -9,13 +9,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        light: {
-          background: '#FFFFFF',
-          'background-alt': '#F6F8FA',
+        lt: {
+          base: '#f9f9f9',
+          alte: '#f1f1f1',
+          text: '#353535',
+          title: '#13192d',
         },
-        dark: {
-          background: '#1C1C1C',
-          'background-alt': '#1A1A1A',
+        dk: {
+          base: '#0c0c0f',
+          alte: '#17171b',
+          text: '#9aa0b0',
+          title: '#e0e1eb',
         },
       },
       fontFamily: {

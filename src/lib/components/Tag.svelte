@@ -3,7 +3,7 @@
 </script>
 
 <span
-  class="font-mono inline-block dark:bg-zinc-800 bg-zinc-100 rounded-md px-2 py-0.25 text-center dark:text-white"
+  class="uppercase inline-block bg-lt-alte dark:bg-dk-alte rounded-md px-2 py-0.25 text-center"
 >
-  <span class="lowercase text-xs">{title}</span>
+  <span class="text-xs">{title}</span>
 </span>

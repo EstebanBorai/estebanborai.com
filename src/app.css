@@ -109,16 +109,9 @@ h3 code {
 h1,
 h2,
 h3 {
-  @apply font-body font-semibold;
+  @apply font-body font-semibold text-lt-title dark:text-dk-title;
 }
 
-.safe-zone {
-  max-width: 920px;
-  width: 100%;
-}
-
-@media only screen and (max-width: 920px) {
-  .safe-zone {
-    width: 100%;
-  }
+.max-width {
+  @apply w-full md:max-w-[1200px];
 }

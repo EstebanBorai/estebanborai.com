@@ -36,7 +36,7 @@
       <img src={avatarUrl} alt="Esteban Borai Profile" />
     </figure>
     <div class="col-start-2 col-end-2">
-      <span class="inline-block text-lg font-semibold pb-2">I'm Esteban,</span>
+      <h2 class="inline-block font-semibold pb-2">I'm Esteban,</h2>
       <p class="inline-block pb-2">
         A Software Developer focused in Systems Programming &amp; Web
         Development with {2024 - 2017} years of experience.

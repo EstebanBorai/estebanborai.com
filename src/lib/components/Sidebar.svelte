@@ -98,7 +98,7 @@
 </script>
 
 <aside
-  class="hidden md:flex bg-light-background-alt dark:bg-dark-background-alt px-4 pt-8 flex-col justify-between"
+  class="hidden md:flex bg-lt-base-alt dark:bg-dk-base-alt px-4 pt-8 flex-col justify-between"
 >
   <div>
     <header class="flex flex-col justify-center items-center">

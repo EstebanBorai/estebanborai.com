@@ -15,8 +15,10 @@
   let avatarUrl = 'https://avatars.githubusercontent.com/u/34756077?v=4';
   let notesIndex = [];
 
+  const PAGE_SIZE = 9;
+
   function nextPage(page: number): any {
-    const pageSize = 6;
+    const pageSize = PAGE_SIZE;
 
     return {
       notes: data.notesIndex.slice((page - 1) * pageSize, page * pageSize),
@@ -83,30 +85,25 @@
   <meta name="twitter:image:src" content={avatarUrl} />
 </svelte:head>
 
-<section>
-  <ul>
-    {#each notesIndex as page}
-      <ul class="flex flex-col gap-4 p-4">
-        {#each page as { meta, slug }, idx}
-          <Entry
-            title={meta.title}
-            description={meta.description}
-            publishDate={new Date(meta.date)}
-            tags={meta.categories}
-            previewImageUrl={meta.preview_image_url}
-            {slug}
-          />
-        {/each}
-      </ul>
-    {/each}
-  </ul>
-  {#if hasNextPage}
-    <div class="flex justify-center items-center py-6">
-      <Button
-        title="Show more"
-        disabled={!hasNextPage}
-        on:click={handleShowMore}
+<section class="grid gap-y-8 gap-x-6 grid-cols-4 md:grid-cols-12">
+  {#each notesIndex as page}
+    {#each page as { meta, slug }, idx}
+      <Entry
+        title={meta.title}
+        description={meta.description}
+        publishDate={new Date(meta.date)}
+        tags={meta.categories}
+        {slug}
       />
-    </div>
-  {/if}
+    {/each}
+  {/each}
 </section>
+{#if hasNextPage}
+  <div class="flex justify-center items-center py-6 w-full">
+    <Button
+      title="Show more"
+      disabled={!hasNextPage}
+      on:click={handleShowMore}
+    />
+  </div>
+{/if}

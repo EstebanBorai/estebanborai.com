@@ -37,7 +37,7 @@
 <a hidden rel="me" href="https://hachyderm.io/@estebanborai">Mastodon</a>
 
 <Header />
-<main class="min-h-screen">
+<main class="min-h-screen max-width p-4 mx-auto">
   <slot />
 </main>
 <Footer />

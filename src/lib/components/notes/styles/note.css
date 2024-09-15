@@ -1,13 +1,13 @@
 .note-container p code,
 .note-container ul li code {
-  @apply bg-light-background dark:bg-dark-background rounded;
+  @apply bg-lt-base dark:bg-dk-base rounded;
 
   color: #f04f4f !important;
   padding: 0.2rem;
 }
 
 .note-container h2 code {
-  @apply bg-light-background dark:bg-dark-background rounded;
+  @apply bg-lt-base dark:bg-dk-base rounded;
 
   color: #f04f4f !important;
   padding: 0.2rem;

@@ -97,10 +97,12 @@
   };
 </script>
 
-<footer class="text-sm flex flex-col border-t py-2 px-4">
+<footer
+  class="text-sm flex flex-col border-t py-6 px-4 border-lt-alte dark:border-dk-alte"
+>
   <div class="flex flex-col md:grid md:grid-cols-12">
     <article class="md:col-start-2 md:col-span-3">
-      <h4>{$LL.HOMEPAGE.SOCIAL_LINKS()}</h4>
+      <h4 class="uppercase text-xs">{$LL.HOMEPAGE.SOCIAL_LINKS()}</h4>
       <ul class="flex flex-col justify-evenly py-4 space-y-2 text-xs">
         <li class="hover:text-zinc-900 text-zinc-600">
           <a
@@ -127,7 +129,7 @@
       </ul>
     </article>
     <article class="md:col-start-6 md:col-span-3">
-      <h4>SiteMap</h4>
+      <h4 class="uppercase text-xs">SiteMap</h4>
       <ul class="flex flex-col justify-evenly py-4 text-xs">
         <li class="mr-4">
           <a href="/{$page.params.lang}/notes">

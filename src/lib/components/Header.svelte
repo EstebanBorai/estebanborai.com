@@ -77,30 +77,38 @@
   };
 </script>
 
-<header class="text-sm flex justify-between items-center py-2 px-4 border-b">
-  <div class="flex justify-between items-center">
-    <a href="/{$page.params.lang}">
-      <h1 class="m-0 p-0">Esteban Borai</h1>
-    </a>
-    <nav class="hidden md:flex justify-center items-center px-4 md:space-x-2">
-      <a href="/{$page.params.lang}/notes">
-        {$LL.LAYOUT.NAV.NOTES()}
+<header class="border-b border-lt-alte dark:border-dk-alte">
+  <div
+    class="mx-auto text-sm flex justify-between items-center py-2 px-4 max-width"
+  >
+    <div class="flex justify-between items-center">
+      <a href="/{$page.params.lang}">
+        <h1 class="m-0 p-0">Esteban Borai</h1>
       </a>
-      <a href="/{$page.params.lang}/bookmarks">
-        {$LL.LAYOUT.NAV.BOOKMARKS()}
-      </a>
-    </nav>
+      <nav class="hidden md:flex justify-center items-center px-4 md:space-x-2">
+        <a href="/{$page.params.lang}/notes">
+          {$LL.LAYOUT.NAV.NOTES()}
+        </a>
+        <a href="/{$page.params.lang}/bookmarks">
+          {$LL.LAYOUT.NAV.BOOKMARKS()}
+        </a>
+      </nav>
+    </div>
+    <div class="hidden md:flex items-center justify-center">
+      <select class="text-sm" value={$locale} on:change={handleLanguageChange}>
+        {#each LANGS as { text, locale }}
+          <option value={locale}>{text}</option>
+        {/each}
+      </select>
+      <select
+        class="text-sm"
+        value={currentTheme}
+        on:change={handleThemeChange}
+      >
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+    <button class="flex md:hidden"> M </button>
   </div>
-  <div class="hidden md:flex items-center justify-center">
-    <select class="text-sm" value={$locale} on:change={handleLanguageChange}>
-      {#each LANGS as { text, locale }}
-        <option value={locale}>{text}</option>
-      {/each}
-    </select>
-    <select class="text-sm" value={currentTheme} on:change={handleThemeChange}>
-      <option value="dark">Dark</option>
-      <option value="light">Light</option>
-    </select>
-  </div>
-  <button class="flex md:hidden"> M </button>
 </header>

@@ -52,7 +52,7 @@
   <meta name="twitter:image:src" content={preview_image_url} />
 </svelte:head>
 
-<div class="safe-zone note-container">
+<div class="w-full md:max-w-[1000px] mx-auto pb-6">
   <figure
     class="flex justify-center items-center overflow-hidden rounded h-[300px]"
   >
@@ -70,13 +70,7 @@
       </span>
     </div>
   </header>
-  <slot />
+  <article>
+    <slot />
+  </article>
 </div>
-
-<style>
-  @media only screen and (max-width: 920px) {
-    .note-container {
-      padding: 0 1rem;
-    }
-  }
-</style>
