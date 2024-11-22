@@ -23,7 +23,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        body: ['Inter', 'sans'],
+        body: ['Literata', 'serif'],
         mono: ['IBM Plex Mono', 'monospace'],
       },
     },

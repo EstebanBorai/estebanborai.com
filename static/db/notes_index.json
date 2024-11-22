@@ -7,12 +7,7 @@
       "date": "2024-11-19",
       "preview_image_url": "https://images.unsplash.com/photo-1506322526487-d8a94af63688?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=640",
       "published": true,
-      "categories": [
-        "rust",
-        "postgresql",
-        "dns",
-        "flyio"
-      ]
+      "categories": ["rust", "postgresql", "dns", "flyio"]
     },
     "slug": "deploy-rust-to-fly-io"
   },
@@ -42,13 +37,7 @@
       "date": "2024-05-27",
       "preview_image_url": "/images/preview/use-chrome-incognito-as-default.png",
       "published": true,
-      "categories": [
-        "chrome",
-        "browser",
-        "development",
-        "macos",
-        "setup"
-      ]
+      "categories": ["chrome", "browser", "development", "macos", "setup"]
     },
     "slug": "use-chrome-incognito-as-default"
   },
@@ -60,13 +49,7 @@
       "date": "2023-11-04",
       "preview_image_url": "https://unsplash.com/photos/8gr6bObQLOI/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NjB8fGF1dG9tYXRpb258ZW58MHx8fHwxNjk5MTI3MTI3fDA&force=true&w=640",
       "published": true,
-      "categories": [
-        "rust",
-        "github",
-        "cd",
-        "ci",
-        "automation"
-      ]
+      "categories": ["rust", "github", "cd", "ci", "automation"]
     },
     "slug": "rust-github-actions-release-workflow"
   },
@@ -78,12 +61,7 @@
       "date": "2023-09-12",
       "preview_image_url": "https://images.unsplash.com/photo-1615834751896-b15e2330b289?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1734&q=1",
       "published": true,
-      "categories": [
-        "rust",
-        "axum",
-        "http",
-        "rest"
-      ]
+      "categories": ["rust", "axum", "http", "rest"]
     },
     "slug": "http-server-with-rust"
   },
@@ -114,12 +92,7 @@
       "date": "2023-08-27",
       "preview_image_url": "https://images.unsplash.com/photo-1675654567731-6202cd552e3b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&dl=ava-sol-zc6GiHMiQTE-unsplash.jpg",
       "published": true,
-      "categories": [
-        "rust",
-        "http",
-        "web",
-        "ai"
-      ]
+      "categories": ["rust", "http", "web", "ai"]
     },
     "slug": "rust-and-its-general-purpose-nature"
   },
@@ -131,14 +104,7 @@
       "date": "2023-07-22",
       "preview_image_url": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2272&q=1",
       "published": true,
-      "categories": [
-        "id",
-        "api",
-        "graphql",
-        "design",
-        "software",
-        "rust"
-      ]
+      "categories": ["id", "api", "graphql", "design", "software", "rust"]
     },
     "slug": "pxid-developer-friendly-ids"
   },
@@ -150,12 +116,7 @@
       "date": "2023-06-25",
       "preview_image_url": "https://images.unsplash.com/photo-1596496181848-3091d4878b24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       "published": true,
-      "categories": [
-        "rust",
-        "axum",
-        "graphql",
-        "testing"
-      ]
+      "categories": ["rust", "axum", "graphql", "testing"]
     },
     "slug": "writing-e2e-tests-for-axum-and-graphql"
   },
@@ -206,13 +167,7 @@
       "date": "2022-03-29",
       "preview_image_url": "https://images.unsplash.com/photo-1544396821-4dd40b938ad3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80",
       "published": true,
-      "categories": [
-        "svelte",
-        "urql",
-        "graphql",
-        "file",
-        "upload"
-      ]
+      "categories": ["svelte", "urql", "graphql", "file", "upload"]
     },
     "slug": "uploading-files-to-graphql-server-with-urql"
   },
@@ -284,12 +239,7 @@
       "date": "2021-09-13",
       "preview_image_url": "https://images.unsplash.com/photo-1609131926660-3bec9d472529?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
       "published": true,
-      "categories": [
-        "rust",
-        "tutorial",
-        "windows",
-        "install"
-      ]
+      "categories": ["rust", "tutorial", "windows", "install"]
     },
     "slug": "installing-the-rust-programming-language-on-windows"
   }
