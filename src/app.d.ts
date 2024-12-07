@@ -1,16 +1,13 @@
-/// <reference types="@sveltejs/kit" />
+// See https://svelte.dev/docs/kit/types#app.d.ts
+// for information about these interfaces
+declare global {
+	namespace App {
+		// interface Error {}
+		// interface Locals {}
+		// interface PageData {}
+		// interface PageState {}
+		// interface Platform {}
+	}
+}
 
-/**
- * Timestamp Generated during building date
- */
-declare const __BUILD_DATE__: string;
-
-/**
- * Current Commit SHA
- */
-declare const __COMMIT_SHA__: string;
-
-/**
- * Current Git Tag Version
- */
-declare const __VERSION__: string;
+export {};

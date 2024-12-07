@@ -1,24 +1,21 @@
-import adapter from '@sveltejs/adapter-cloudflare';
 import { mdsvex } from 'mdsvex';
-import preprocess from 'svelte-preprocess';
+import adapter from '@sveltejs/adapter-auto';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
-export default {
-  extensions: ['.svelte', '.svx'],
-  preprocess: [
-    preprocess({
-      sourceMap: true,
-      postcss: true,
-    }),
-    mdsvex({
-      layout: './src/lib/components/notes/Layout.svelte',
-      extensions: ['.svx'],
-    }),
-  ],
-  kit: {
-    adapter: adapter(),
-    alias: {
-      $i18n: 'src/i18n',
-    },
-  },
+const config = {
+	// Consult https://svelte.dev/docs/kit/integrations
+	// for more information about preprocessors
+	preprocess: [vitePreprocess(), mdsvex()],
+
+	kit: {
+		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
+		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
+		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
+		adapter: adapter()
+	},
+
+	extensions: ['.svelte', '.svx']
 };
+
+export default config;
