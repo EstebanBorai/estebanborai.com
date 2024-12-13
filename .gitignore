@@ -1,11 +1,8 @@
-.DS_Store
-node_modules
-/build
-/.svelte-kit
-/package
-.env
-.env.*
-!.env.sample
-.pnpm-debug.log
+# Directories
+build
 dist
+node_modules
 target
+
+# Files
+.DS_Store
