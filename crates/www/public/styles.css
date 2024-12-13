@@ -95,10 +95,6 @@ h3 {
   @apply font-body;
 }
 
-#note-container {
-    @apply w-11/12 md:w-[1100px] mx-auto;
-}
-
 #note-content h1,
 #note-content h2,
 #note-content h3 {

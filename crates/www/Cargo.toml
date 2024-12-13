@@ -18,12 +18,15 @@ leptos = { workspace = true, features = ["csr"] }
 leptos_meta = { workspace = true, features = ["csr"] }
 leptos_router = { workspace = true, features = ["csr"] }
 markdown = { workspace = true }
-reqwest = { workspace = true }
+reqwest = { workspace = true, features = ["json"] }
 serde = { workspace = true }
 serde_json = { workspace = true }
 yaml-front-matter = { workspace = true }
 wasm-bindgen = { workspace = true }
 web-sys = { workspace = true, features = ["Window"] }
+
+# Local
+proto = { path = "../proto" }
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3"

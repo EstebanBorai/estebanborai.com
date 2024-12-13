@@ -111,9 +111,9 @@ pub fn Note() -> impl IntoView {
                             "Hi there! I'm a "<u>"Rust Software Engineer"</u>" with 8 years of experience in Systems and Web Programming using Rust & TypeScript."
                         </p>
                         <p>
-                            "I'm passionate about Open-Source and enjoy reading books, working out &amp; playing videogames."
+                            "I'm passionate about Open-Source and enjoy reading books, working out & playing videogames."
                         </p>
-                        <p>"I've had the opportunity to work with companies like InfinyOn, GOintegro &amp; Teleperformance."</p>
+                        <p>"I've had the opportunity to work with companies like InfinyOn, GOintegro & Teleperformance."</p>
                     </div>
                 </article>
             </div>
