@@ -1,4 +1,5 @@
 name: Deploy Staging
+
 on:
   push:
     branches:
@@ -6,35 +7,37 @@ on:
 
 jobs:
   publish:
+    name: Publish
     runs-on: ubuntu-latest
     permissions:
       contents: read
       deployments: write
-    name: Publish
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3.0.2
-        with:
-          ref: 'main'
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
 
-      - name: Install Dependencies
-        run: bun i
+      - name: Setup Rust Cache
+        uses: Swatinem/rust-cache@v2
 
-      - name: Build Check
-        env:
-          NODE_ENV: production
-        run: bun run build
+      - name: Setup Cargo Binstall
+        uses: cargo-bins/cargo-binstall@main
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@1.0.0
+      - name: Install Rust Binaries
+        run: |
+          cargo binstall -y --force trunk
+
+      - name: Build
+        working-directory: ./crates/www
+        run: trunk build --release
+
+      - name: Deploy Client
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: 'estebanborai-staging-dotcom'
-          directory: ./.svelte-kit/cloudflare
+          command: pages deploy ./dist --project-name=${{ secrets.CLOUDFLARE_PAGES_STAGING_PROJECT_NAME }}
+          workingDirectory: ./crates/www
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

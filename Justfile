@@ -1,7 +1,9 @@
 default:
-  just --list
+    just --list
 
-# Updates notes index
-index:
-  cargo run -- index
+dev:
+    cd ./crates/www && trunk serve --config ./Trunk.toml
 
+fmt:
+  cargo clippy --workspace --fix --allow-dirty --allow-staged && cargo fmt
+  leptosfmt crates/www/**/*.rs

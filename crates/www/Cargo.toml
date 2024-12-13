@@ -1,0 +1,29 @@
+[package]
+name = "estebanborai-dotcom"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "app"
+path = "src/lib.rs"
+
+[[bin]]
+name = "www"
+path = "src/bin/main.rs"
+
+[dependencies]
+anyhow = { workspace = true }
+leptos = { workspace = true, features = ["csr"] }
+leptos_meta = { workspace = true, features = ["csr"] }
+leptos_router = { workspace = true, features = ["csr"] }
+markdown = { workspace = true }
+reqwest = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+yaml-front-matter = { workspace = true }
+wasm-bindgen = { workspace = true }
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"
+web-sys = "0.3"
