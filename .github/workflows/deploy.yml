@@ -36,6 +36,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: 'estebanborai-dotcom'
+          projectName: ${{ secrets.CLOUDFLARE_PAGES_PROJECT_NAME }}
           directory: ./.svelte-kit/cloudflare
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
