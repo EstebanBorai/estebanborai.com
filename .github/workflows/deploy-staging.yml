@@ -18,6 +18,9 @@ jobs:
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+          components: rustfmt, clippy
 
       - name: Setup Rust Cache
         uses: Swatinem/rust-cache@v2
