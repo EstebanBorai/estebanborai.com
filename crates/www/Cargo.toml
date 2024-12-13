@@ -23,7 +23,7 @@ serde = { workspace = true }
 serde_json = { workspace = true }
 yaml-front-matter = { workspace = true }
 wasm-bindgen = { workspace = true }
+web-sys = { workspace = true, features = ["Window"] }
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3"
-web-sys = "0.3"

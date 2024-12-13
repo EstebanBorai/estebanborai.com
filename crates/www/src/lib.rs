@@ -1,4 +1,5 @@
 mod routes;
+mod utils;
 
 use leptos::{component, view, IntoView};
 use leptos_meta::provide_meta_context;

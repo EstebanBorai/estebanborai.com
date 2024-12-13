@@ -10,6 +10,8 @@ use serde::Deserialize;
 use wasm_bindgen::prelude::wasm_bindgen;
 use yaml_front_matter::YamlFrontMatter;
 
+use crate::utils::hostname;
+
 #[derive(Clone, Deserialize)]
 struct Metadata {
     title: String,
@@ -39,7 +41,12 @@ pub fn Note() -> impl IntoView {
                     return;
                 }
 
-                let url = format!("http://127.0.0.1:8080/assets/notes/{slug}.md");
+                let Ok(mut url) = hostname() else {
+                    note_md.set(Some("Error: Failed to retrieve hostname".to_string()));
+                    return;
+                };
+
+                url.set_path(&format!("/assets/notes/{slug}.md"));
 
                 match get(url).await {
                     Ok(response) => {
