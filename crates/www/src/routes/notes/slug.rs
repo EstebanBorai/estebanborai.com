@@ -65,24 +65,6 @@ pub fn Note() -> impl IntoView {
 
                                 highlight_all();
                             }
-
-                            // if let Ok(md) = markdown::to_html_with_options(
-                            //     &text,
-                            //     &Options {
-                            //         parse: ParseOptions {
-                            //             constructs: Constructs {
-                            //                 frontmatter: true,
-                            //                 gfm_table: true,
-                            //                 ..Default::default()
-                            //             },
-                            //             ..Default::default()
-                            //         },
-                            //         ..Default::default()
-                            //     },
-                            // ) {
-                            //     note_md.set(Some(md));
-                            // }
-                            //
                         } else {
                             note_md.set(None);
                         }
@@ -101,31 +83,33 @@ pub fn Note() -> impl IntoView {
             formatter=|text| format!("{text} — Esteban Borai")
         />
         <section id="note-container" class="pb-10">
-            <article id="note-header">
+            <article id="note-header" class="pb-8">
                 <figure class="relative py-4 h-[200px] overflow-hidden rounded-md">
                     <img class="absolute h-full w-full" src={move || metadata.get().map(|meta| meta.preview_image_url).unwrap_or_default()} />
                 </figure>
-                <h1 class="text-3xl font-semibold pb-2">{move || metadata.get().map(|meta| meta.title).unwrap_or_default()}</h1>
+                <h1 class="text-3xl font-semibold py-2">{move || metadata.get().map(|meta| meta.title).unwrap_or_default()}</h1>
                 <p>{{move || metadata.get().map(|meta| meta.description).unwrap_or_default()}}</p>
                 <time>{move || metadata.get().map(|meta| meta.date).unwrap_or_default()}</time>
             </article>
-            <div id="note-content" inner_html={move || note_md.get().unwrap_or_default()}></div>
-            <aside id="note-toc" class="hidden md:block">
-                <h2 class="text-lg font-semibold">Table of Contents</h2>
-                <ul class="space-y-2">
-                    <For
-                        each=move || headings.get()
-                        key=|heading| heading.clone()
-                        children=move |heading: String| {
-                            view! {
-                                <li>
-                                    <a href={format!("#{}", heading)}>{heading}</a>
-                                </li>
+            <div class="md:relative md:grid md:gap-4 md:grid-cols-[200px,900px]">
+                <aside id="note-toc" class="md:col-start-1 md:w-full">
+                    <strong class="text-lg font-semibold">"Table of Contents"</strong>
+                    <ul class="space-y-2">
+                        <For
+                            each=move || headings.get()
+                            key=|heading| heading.clone()
+                            children=move |heading: String| {
+                                view! {
+                                    <li class="text-sm">
+                                        <a href={format!("#{}", heading)}>{heading}</a>
+                                    </li>
+                                }
                             }
-                        }
-                    />
-                </ul>
-            </aside>
+                        />
+                    </ul>
+                </aside>
+                <div id="note-content" class="md:col-start-2 md:w-fill" inner_html={move || note_md.get().unwrap_or_default()}></div>
+            </div>
             <div class="group grid grid-cols-[100px,auto] gap-4 border-t border-gray-400 pt-4">
                 <figure class="grayscale group-hover:grayscale-0 rounded-full overflow-hidden flex justify-center items-center h-[100px] w-[100px]">
                     <img src="/assets/images/whoami.jpg" alt="whoami" height="100" width="100" />
@@ -160,9 +144,9 @@ fn parse_md_into_html(md: &str) -> Markdown {
         match event {
             Event::Start(tag) => {
                 match tag {
-                    Tag::Paragraph => text.push(r#"<p>"#.to_string()),
+                    Tag::Paragraph => state.push_str(r#"<p class="my-2 py-2">"#),
                     Tag::Heading { level, .. } => {
-                        state.push_str(&format!("<{}>", level.to_string().to_ascii_lowercase()));
+                        state.push_str(&format!(r#"<{}>"#, level.to_string().to_ascii_lowercase()));
                         is_heading = true;
                     }
                     Tag::CodeBlock(_) => {
@@ -170,11 +154,17 @@ fn parse_md_into_html(md: &str) -> Markdown {
                         is_codeblock = true;
                     }
                     Tag::BlockQuote(_) => {
-                        text.push(r#"<blockquote class="bg-yellow-100 p-2">"#.to_string());
+                        state.push_str(r#"<blockquote class="bg-yellow-100 p-1 my-2">"#);
                     }
+                    Tag::List(mb_items) => {
+                        if mb_items.is_some() {
+                            state.push_str(r#"<ol class="list-decimal space-y-2">"#)
+                        } else {
+                            state.push_str(r#"<ul class="list-disc space-y-2">"#)
+                        }
+                    }
+                    Tag::Item => state.push_str("<li>"),
                     _ => {} // Tag::HtmlBlock => todo!(),
-                            // Tag::List(_) => todo!(),
-                            // Tag::Item => todo!(),
                             // Tag::FootnoteDefinition(cow_str) => todo!(),
                             // Tag::DefinitionList => todo!(),
                             // Tag::DefinitionListTitle => todo!(),
@@ -193,7 +183,7 @@ fn parse_md_into_html(md: &str) -> Markdown {
             }
             Event::End(tag_end) => {
                 match tag_end {
-                    pulldown_cmark::TagEnd::Paragraph => text.push("</p>".to_string()),
+                    pulldown_cmark::TagEnd::Paragraph => state.push_str("</p>"),
                     pulldown_cmark::TagEnd::CodeBlock => {
                         state.push_str("</code></pre>");
                         is_codeblock = false;
@@ -203,11 +193,18 @@ fn parse_md_into_html(md: &str) -> Markdown {
                         is_heading = false;
                     }
                     pulldown_cmark::TagEnd::BlockQuote(_) => {
-                        text.push("</blockquote>".to_string());
+                        state.push_str("</blockquote>");
                     }
+                    pulldown_cmark::TagEnd::List(is_ordered) => {
+                        leptos::logging::log!("{:?}", is_ordered);
+                        if is_ordered {
+                            state.push_str("</ol>")
+                        } else {
+                            state.push_str("</ul>")
+                        }
+                    }
+                    pulldown_cmark::TagEnd::Item => state.push_str("</li>"),
                     _ => {} // pulldown_cmark::TagEnd::HtmlBlock => todo!(),
-                            // pulldown_cmark::TagEnd::List(_) => todo!(),
-                            // pulldown_cmark::TagEnd::Item => todo!(),
                             // pulldown_cmark::TagEnd::FootnoteDefinition => todo!(),
                             // pulldown_cmark::TagEnd::DefinitionList => todo!(),
                             // pulldown_cmark::TagEnd::DefinitionListTitle => todo!(),
@@ -249,7 +246,7 @@ fn parse_md_into_html(md: &str) -> Markdown {
                 }
             }
             Event::Code(cow_str) => {
-                state.push_str(&format!("<code>{}</code>", cow_str));
+                state.push_str(&format!(r#"<code class="bg-gray-50 font-semibold text-sm p-0.5 rounded-md text-rose-600 border border-rose-600">{}</code>"#, cow_str));
             }
             _ => {} // Event::InlineMath(cow_str) => todo!(),
                     // Event::DisplayMath(cow_str) => todo!(),
@@ -262,6 +259,8 @@ fn parse_md_into_html(md: &str) -> Markdown {
                     // Event::TaskListMarker(_) => todo!(),
         }
     }
+
+    leptos::logging::log!("{:#?}", text);
 
     Markdown {
         html: text.join(""),

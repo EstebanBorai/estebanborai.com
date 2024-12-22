@@ -10,7 +10,7 @@ published: true
 
 ## Creating the App and Deploying it
 
-1. Install Flyctl CLI
+### Install Flyctl CLI
 
 ```bash
 # macOS
@@ -31,7 +31,7 @@ flyctl v0.3.38 linux/arm64 Commit: cafc23d0ce030323d9ca886790e47224493bebf6 Buil
 
 > An alias for `flyctl` will also be created as `fly`.
 
-2. Authenticate on Fly.io
+### Authenticate on Fly.io
 
 You can either use the `flyctl auth login` command to authenticate using the browser,
 use the `FLY_API_TOKEN` environment variable or pass the token as a top-level option
@@ -43,7 +43,7 @@ fly -t <TOKEN>
 
 > Further steps uses the environment variable approach, so token is omitted from the examples.
 
-3. Create a new Fly App
+### Create a new Fly App
 
 To create a new Fly app, you can use the `flyctl apps create` command.
 
@@ -53,7 +53,7 @@ fly apps create <UNIQUE_APP_NAME>
 
 > The name provided in this step should be unique for the Fly.io platform.
 
-4. Deploy your App
+### Deploy your App
 
 Once your app is created in Fly.io, you are ready to deploy your Rust application.
 
@@ -225,14 +225,14 @@ https://fly.io/apps/<APP_NAME>/certificates
 Click on the `Add Certificate` button and fill the domain prompt with your desired domain.
 Then you will be prompted for DNS configuration.
 
-1. Domain ownership verification
+### Domain ownership verification
 
 You will need to visit your DNS provider and fill up a `CNAME` record with the value
 provided in Fly.io's UI.
 
 > If you are using Cloudflare, make sure you set the `DNS Only` option instead of `Proxied`.
 
-2. DNS Records for `A` and `AAAA`
+### DNS Records for `A` and `AAAA`
 
 You will be provided with two IP addresses, one for `A` and one for `AAAA`, you will need to
 create two `A` records in your DNS provider with these values.

@@ -89,37 +89,16 @@ h3 code {
   @apply font-mono font-normal;
 }
 
-h1,
-h2,
-h3 {
-  @apply font-body;
-}
-
-#note-content h1,
-#note-content h2,
-#note-content h3 {
-    @apply font-semibold py-4;
-}
-
 #note-content h1 {
-    @apply text-3xl;
+    @apply text-4xl font-semibold;
 }
 
 #note-content h2 {
-    @apply text-2xl;
+    @apply text-3xl font-semibold;
 }
 
 #note-content h3 {
-    @apply text-xl;
-}
-
-#note-content code {
-    @apply my-2 p-1 text-sm bg-slate-800 text-white;
-    @apply border rounded-md text-sm;
-}
-
-#note-content p, span {
-    @apply py-2;
+    @apply text-2xl font-semibold;
 }
 
 #note-content .hljs {
