@@ -172,24 +172,23 @@ fn parse_md_into_html(md: &str) -> Markdown {
                     Tag::BlockQuote(_) => {
                         text.push(r#"<blockquote class="bg-yellow-100 p-2">"#.to_string());
                     }
-                    _ => {}
-                    // Tag::HtmlBlock => todo!(),
-                    // Tag::List(_) => todo!(),
-                    // Tag::Item => todo!(),
-                    // Tag::FootnoteDefinition(cow_str) => todo!(),
-                    // Tag::DefinitionList => todo!(),
-                    // Tag::DefinitionListTitle => todo!(),
-                    // Tag::DefinitionListDefinition => todo!(),
-                    // Tag::Table(vec) => todo!(),
-                    // Tag::TableHead => todo!(),
-                    // Tag::TableRow => todo!(),
-                    // Tag::TableCell => todo!(),
-                    // Tag::Emphasis => todo!(),
-                    // Tag::Strong => todo!(),
-                    // Tag::Strikethrough => todo!(),
-                    // Tag::Link { link_type, dest_url, title, id } => todo!(),
-                    // Tag::Image { link_type, dest_url, title, id } => todo!(),
-                    // Tag::MetadataBlock(metadata_block_kind) => todo!(),
+                    _ => {} // Tag::HtmlBlock => todo!(),
+                            // Tag::List(_) => todo!(),
+                            // Tag::Item => todo!(),
+                            // Tag::FootnoteDefinition(cow_str) => todo!(),
+                            // Tag::DefinitionList => todo!(),
+                            // Tag::DefinitionListTitle => todo!(),
+                            // Tag::DefinitionListDefinition => todo!(),
+                            // Tag::Table(vec) => todo!(),
+                            // Tag::TableHead => todo!(),
+                            // Tag::TableRow => todo!(),
+                            // Tag::TableCell => todo!(),
+                            // Tag::Emphasis => todo!(),
+                            // Tag::Strong => todo!(),
+                            // Tag::Strikethrough => todo!(),
+                            // Tag::Link { link_type, dest_url, title, id } => todo!(),
+                            // Tag::Image { link_type, dest_url, title, id } => todo!(),
+                            // Tag::MetadataBlock(metadata_block_kind) => todo!(),
                 }
             }
             Event::End(tag_end) => {
@@ -206,24 +205,23 @@ fn parse_md_into_html(md: &str) -> Markdown {
                     pulldown_cmark::TagEnd::BlockQuote(_) => {
                         text.push("</blockquote>".to_string());
                     }
-                    _ => {}
-                    // pulldown_cmark::TagEnd::HtmlBlock => todo!(),
-                    // pulldown_cmark::TagEnd::List(_) => todo!(),
-                    // pulldown_cmark::TagEnd::Item => todo!(),
-                    // pulldown_cmark::TagEnd::FootnoteDefinition => todo!(),
-                    // pulldown_cmark::TagEnd::DefinitionList => todo!(),
-                    // pulldown_cmark::TagEnd::DefinitionListTitle => todo!(),
-                    // pulldown_cmark::TagEnd::DefinitionListDefinition => todo!(),
-                    // pulldown_cmark::TagEnd::Table => todo!(),
-                    // pulldown_cmark::TagEnd::TableHead => todo!(),
-                    // pulldown_cmark::TagEnd::TableRow => todo!(),
-                    // pulldown_cmark::TagEnd::TableCell => todo!(),
-                    // pulldown_cmark::TagEnd::Emphasis => todo!(),
-                    // pulldown_cmark::TagEnd::Strong => todo!(),
-                    // pulldown_cmark::TagEnd::Strikethrough => todo!(),
-                    // pulldown_cmark::TagEnd::Link => todo!(),
-                    // pulldown_cmark::TagEnd::Image => todo!(),
-                    // pulldown_cmark::TagEnd::MetadataBlock(metadata_block_kind) => todo!(),
+                    _ => {} // pulldown_cmark::TagEnd::HtmlBlock => todo!(),
+                            // pulldown_cmark::TagEnd::List(_) => todo!(),
+                            // pulldown_cmark::TagEnd::Item => todo!(),
+                            // pulldown_cmark::TagEnd::FootnoteDefinition => todo!(),
+                            // pulldown_cmark::TagEnd::DefinitionList => todo!(),
+                            // pulldown_cmark::TagEnd::DefinitionListTitle => todo!(),
+                            // pulldown_cmark::TagEnd::DefinitionListDefinition => todo!(),
+                            // pulldown_cmark::TagEnd::Table => todo!(),
+                            // pulldown_cmark::TagEnd::TableHead => todo!(),
+                            // pulldown_cmark::TagEnd::TableRow => todo!(),
+                            // pulldown_cmark::TagEnd::TableCell => todo!(),
+                            // pulldown_cmark::TagEnd::Emphasis => todo!(),
+                            // pulldown_cmark::TagEnd::Strong => todo!(),
+                            // pulldown_cmark::TagEnd::Strikethrough => todo!(),
+                            // pulldown_cmark::TagEnd::Link => todo!(),
+                            // pulldown_cmark::TagEnd::Image => todo!(),
+                            // pulldown_cmark::TagEnd::MetadataBlock(metadata_block_kind) => todo!(),
                 }
 
                 text.push(state.clone());
