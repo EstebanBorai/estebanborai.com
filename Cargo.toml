@@ -16,6 +16,7 @@ leptos_meta = { version = "0.6", features = ["csr"] }
 leptos_router = { version = "0.6", features = ["csr"] }
 link-preview = "0.1.1"
 markdown = "=1.0.0-alpha.21"
+pulldown-cmark = "0.12.2"
 reqwest = "0.12.9"
 serde = "1.0"
 serde_json = "1.0"

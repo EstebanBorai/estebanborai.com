@@ -84,9 +84,8 @@ modifying the HKEY_CURRENT_USER/Environment/PATH registry key.
 You can uninstall at any time with rustup self uninstall and
 these changes will be reverted.
 
-```powershell
+```
 Current installation options:
-
 
    default host triple: x86_64-pc-windows-msvc
      default toolchain: stable (default)
