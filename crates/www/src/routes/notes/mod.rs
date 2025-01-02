@@ -41,8 +41,8 @@ pub fn Notes() -> impl IntoView {
             formatter=|text| format!("{text} — Esteban Borai")
         />
         <div>
-            <h1>Notes</h1>
-            <ul>
+            <h2 class="text-lg py-2">Notes</h2>
+            <ul class="py-2">
                 <For
                   each=move || notes_index.get()
                   key=|note| note.slug.clone()
@@ -51,8 +51,8 @@ pub fn Notes() -> impl IntoView {
                       slug,
                   }| {
                     view! {
-                        <article class="self-start flex flex-col justify-start w-full col-span-4">
-                            <h3 class="text-lg md:text-xl hover:underline">
+                        <article class="self-start flex flex-col justify-start w-full col-span-4 border-b mb-4">
+                            <h3 class="font-semibold hover:underline">
                                 <a href={format!("/notes/{slug}")}>
                                     {meta.title}
                                 </a>
@@ -66,8 +66,8 @@ pub fn Notes() -> impl IntoView {
                                     key=|cat| cat.clone()
                                     children=move |cat: String| {
                                         view! {
-                                            <span class="uppercase inline-block bg-lt-alte dark:bg-dk-alte rounded-md px-2 py-0.25 text-center">
-                                                <span class="text-xs">{cat}</span>
+                                            <span class="uppercase inline-block bg-lt-alte dark:bg-dk-alte rounded-md text-center">
+                                                <span class="text-xs bg-gray-100 px-2 py-0.25 rounded-md">{cat}</span>
                                             </span>
                                         }
                                     }

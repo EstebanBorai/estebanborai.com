@@ -16,11 +16,11 @@ pub fn App() -> impl IntoView {
     provide_meta_context();
 
     view! {
-        <header class="flex items-center justify-between px-4 py-2">
-            <h1 class="font-semibold">
+        <header class="flex items-center justify-between py-2 w-11/12 md:w-[1100px] mx-auto">
+            <h1 class="font-semibold text-xl">
                 <a href="/">Esteban Borai</a>
             </h1>
-            <nav>
+            <nav class="text-sm">
                 <ul class="flex items-center space-x-4">
                     <li>
                         <a href="/">Home</a>

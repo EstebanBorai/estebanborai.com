@@ -84,15 +84,12 @@ pub fn Note() -> impl IntoView {
         />
         <section id="note-container" class="pb-10">
             <article id="note-header" class="pb-8">
-                <figure class="relative py-4 h-[200px] overflow-hidden rounded-md">
-                    <img class="absolute h-full w-full" src={move || metadata.get().map(|meta| meta.preview_image_url).unwrap_or_default()} />
-                </figure>
                 <h1 class="text-3xl font-semibold py-2">{move || metadata.get().map(|meta| meta.title).unwrap_or_default()}</h1>
                 <p>{{move || metadata.get().map(|meta| meta.description).unwrap_or_default()}}</p>
                 <time>{move || metadata.get().map(|meta| meta.date).unwrap_or_default()}</time>
             </article>
-            <div class="md:relative md:grid md:gap-4 md:grid-cols-[200px,900px]">
-                <aside id="note-toc" class="md:col-start-1 md:w-full">
+            <div class="md:relative md:grid md:gap-4 md:grid-cols-[900px,200px]">
+                <aside id="note-toc" class="md:row-start-1 md:col-start-2 md:col-span-1 md:w-full">
                     <strong class="text-lg font-semibold">"Table of Contents"</strong>
                     <ul class="space-y-2">
                         <For
@@ -108,7 +105,7 @@ pub fn Note() -> impl IntoView {
                         />
                     </ul>
                 </aside>
-                <div id="note-content" class="md:col-start-2 md:w-fill" inner_html={move || note_md.get().unwrap_or_default()}></div>
+                <div id="note-content" class="md:row-start-1 md:col-start-1 md:col-span-1 md:w-fill" inner_html={move || note_md.get().unwrap_or_default()}></div>
             </div>
             <div class="group grid grid-cols-[100px,auto] gap-4 border-t border-gray-400 pt-4">
                 <figure class="grayscale group-hover:grayscale-0 rounded-full overflow-hidden flex justify-center items-center h-[100px] w-[100px]">
