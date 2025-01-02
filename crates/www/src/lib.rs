@@ -42,7 +42,7 @@ pub fn App() -> impl IntoView {
             </Routes>
         </main>
         <footer class="flex items-center justify-center p-4">
-            <small>"Made with 🧉 and ❤️ by Esteban Borai © 2017 - 2024"</small>
+            <small>"Made with 🧉 and ❤️ by Esteban Borai © 2017 - 2025"</small>
         </footer>
     }
 }
