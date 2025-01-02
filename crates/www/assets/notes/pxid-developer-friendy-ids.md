@@ -217,7 +217,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-## Cosclusion
+## Conclusion
 
 Theres no golden bullet for this field as stated earlier, but of course you have
 many options out there! Feel free to contribute to Xid or Pxid anytime on GitHub!

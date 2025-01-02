@@ -105,3 +105,7 @@ h3 code {
     @apply p-4;
     @apply border rounded-md;
 }
+
+a[aria-current="page"] {
+    @apply underline;
+}

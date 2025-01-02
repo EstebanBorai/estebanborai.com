@@ -5,6 +5,7 @@ use leptos::{
     SignalSet,
 };
 use leptos_meta::Title;
+use leptos_router::A;
 use proto::{NotesIndex, RichNoteMetadata};
 use reqwest::get;
 
@@ -53,9 +54,9 @@ pub fn Notes() -> impl IntoView {
                     view! {
                         <article class="self-start flex flex-col justify-start w-full col-span-4 border-b mb-4">
                             <h3 class="font-semibold hover:underline">
-                                <a href={format!("/notes/{slug}")}>
+                                <A exact={true} href={format!("/notes/{slug}")}>
                                     {meta.title}
-                                </a>
+                                </A>
                             </h3>
                             <p aria-label="Walkthrough on how to deploy a Rust application to Fly.io" class="py-2 text-sm truncate">
                             {meta.description}

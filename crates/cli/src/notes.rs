@@ -72,7 +72,16 @@ impl NotesIndexExt for NotesIndex {
 fn list_entries() -> Result<Vec<PathBuf>> {
     let dir = read_dir(NOTES_DIR)?;
 
-    Ok(dir.into_iter().map(|entry| entry.unwrap().path()).collect())
+    Ok(dir
+        .into_iter()
+        .filter_map(|entry| {
+            if let Ok(entry) = entry {
+                Some(entry.path())
+            } else {
+                None
+            }
+        })
+        .collect())
 }
 
 fn find_note(entry: &PathBuf) -> Result<Option<NoteMetadata>> {

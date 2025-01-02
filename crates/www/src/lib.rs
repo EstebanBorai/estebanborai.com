@@ -3,7 +3,7 @@ mod utils;
 
 use leptos::{component, view, IntoView};
 use leptos_meta::provide_meta_context;
-use leptos_router::{Route, Router, Routes};
+use leptos_router::{Route, Routes, A};
 
 use self::routes::home::Home;
 use self::routes::notes::slug::Note;
@@ -23,22 +23,23 @@ pub fn App() -> impl IntoView {
             <nav class="text-sm">
                 <ul class="flex items-center space-x-4">
                     <li>
-                        <a href="/">Home</a>
+                        <A href="/">"Home"</A>
                     </li>
                     <li>
-                        <a href="/notes">Notes</a>
+                        <A href="/notes">"Notes"</A>
+                    </li>
+                    <li>
+                        <A href="/bookshelf">"Bookshelf"</A>
                     </li>
                 </ul>
             </nav>
         </header>
         <main class="min-h-screen w-11/12 md:w-[1100px] mx-auto">
-            <Router>
-                <Routes>
-                    <Route path="/" view=Home />
-                    <Route path="/notes" view=Notes />
-                    <Route path="/notes/:slug" view=Note />
-                </Routes>
-            </Router>
+            <Routes>
+                <Route path="/" view=Home />
+                <Route path="/notes" view=Notes />
+                <Route path="/notes/:slug" view=Note />
+            </Routes>
         </main>
         <footer class="flex items-center justify-center p-4">
             <small>"Made with 🧉 and ❤️ by Esteban Borai © 2017 - 2024"</small>
