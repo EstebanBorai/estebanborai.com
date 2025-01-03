@@ -42,8 +42,9 @@ pub fn Notes() -> impl IntoView {
             formatter=|text| format!("{text} — Esteban Borai")
         />
         <div>
-            <h2 class="text-lg py-2">Notes</h2>
-            <ul class="py-2">
+            <h2 class="text-lg">"Notes"</h2>
+            <p class="text-sm text-gray-600">"Notes on Software Development journeys. Here I keep notes that others might find useful, and for my future self to serve as reference."</p>
+            <ul class="py-4">
                 <For
                   each=move || notes_index.get()
                   key=|note| note.slug.clone()
@@ -58,8 +59,8 @@ pub fn Notes() -> impl IntoView {
                                     {meta.title}
                                 </A>
                             </h3>
-                            <p aria-label="Walkthrough on how to deploy a Rust application to Fly.io" class="py-2 text-sm truncate">
-                            {meta.description}
+                            <p class="py-2 text-sm truncate">
+                                {meta.description}
                             </p>
                             <ul class="flex justify-start items-start flex-wrap gap-2 py-2">
                                 <For

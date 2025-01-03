@@ -1,0 +1,50 @@
+[
+  {
+    "title": "JavaScript & jQuery: Interactive Front-End Web Development",
+    "author": "Jon Duckett",
+    "isbn_10": "9781118531648",
+    "isbn_13": "978-1118531648",
+    "publisher": "John Wiley & Sons",
+    "read_on": 2014,
+    "review": "This was part of the same experience as when reading \"HTML and CSS: Design and Build Websites\"",
+    "shopping": {
+      "amazon": "https://www.amazon.com/JavaScript-JQuery-Interactive-Front-End-Development/dp/1118531647"
+    }
+  },
+  {
+    "title": "HTML and CSS: Design and Build Websites",
+    "author": "Jon Duckett",
+    "isbn_10": "1118008189",
+    "isbn_13": "978-1118008188",
+    "publisher": "John Wiley & Sons",
+    "read_on": 2014,
+    "review": "After doing HTML & CSS for while I also learned JavaScript on the way. I got more and more into JavaScript but while looking for learning matereals I stepped upon Jon Duckett's Web Development Book Series and I felt in love with their approach on beatiful visual design and clear explanations. These books explains the anatomy on HTML, CSS, JavaScript and JQuery syntax using beautiful visual examples which make really easy to understand the purpose of each token. After founding these books I always recommend them for new developers who want to explore the Web Development world.",
+    "shopping": {
+      "amazon": "https://www.amazon.com/HTML-CSS-Design-Build-Websites/dp/1118008189"
+    }
+  },
+  {
+    "title": "Head First HTML and CSS",
+    "author": "Elisabeth Robson, Eric Freeman",
+    "isbn_10": "0596159900",
+    "isbn_13": "978-0596159900",
+    "publisher": "O'Reilly Media",
+    "read_on": 2013,
+    "review": "While reading Head First Python, I was also getting into Web Development by going through w3Schools tutorials. Head First Python helped me a lot understanding the \"why\" on certain statements, while w3Schools was good I wanted to go a step beyond in a more practical approach and started to read Head First HTML & CSS, I learned fundamentals on HTML & CSS from this book that helped my starting to write my own websites.",
+    "shopping": {
+      "amazon": "https://www.amazon.com/Head-First-HTML-CSS-Standards-Based/dp/0596159900"
+    }
+  },
+  {
+    "title": "Head First Python",
+    "author": "Paul Barry",
+    "isbn_10": "1449382673",
+    "isbn_13": "978-1449382674",
+    "publisher": "O'Reilly Media",
+    "read_on": 2013,
+    "review": "This was my very first introduction to programming, and I couldn't have asked for a better book to start with. Python is a simple language, it makes it easy to jump into the field and Head First Python also brings a great introduction not only to Python but also to programming in general. The book is full of exercises and examples that make it easy to understand the concepts and the language. I highly recommend this book to anyone who is looking to start programming.",
+    "shopping": {
+      "amazon": "https://www.amazon.com/Head-First-Python-Brain-Friendly-Guide/dp/1449382673"
+    }
+  }
+]

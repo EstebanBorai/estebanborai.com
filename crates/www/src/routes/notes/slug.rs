@@ -3,7 +3,7 @@ use leptos::{
     SignalGetUntracked, SignalSet,
 };
 use leptos_meta::Title;
-use leptos_router::use_route;
+use leptos_router::{use_route, A};
 use reqwest::get;
 use serde::Deserialize;
 use wasm_bindgen::prelude::wasm_bindgen;
@@ -21,7 +21,6 @@ struct Metadata {
     title: String,
     description: String,
     date: String,
-    preview_image_url: String,
 }
 
 #[wasm_bindgen]
@@ -85,8 +84,8 @@ pub fn Note() -> impl IntoView {
         <section id="note-container" class="pb-10">
             <article id="note-header" class="pb-8">
                 <h1 class="text-3xl font-semibold py-2">{move || metadata.get().map(|meta| meta.title).unwrap_or_default()}</h1>
-                <p>{{move || metadata.get().map(|meta| meta.description).unwrap_or_default()}}</p>
-                <time>{move || metadata.get().map(|meta| meta.date).unwrap_or_default()}</time>
+                <p class="text-gray-600">{{move || metadata.get().map(|meta| meta.description).unwrap_or_default()}}</p>
+                <time class="text-sm text-gray-600">{move || metadata.get().map(|meta| meta.date).unwrap_or_default()}</time>
             </article>
             <div class="md:relative md:grid md:gap-4 md:grid-cols-[900px,200px]">
                 <aside id="note-toc" class="md:row-start-1 md:col-start-2 md:col-span-1 md:w-full">
@@ -97,8 +96,8 @@ pub fn Note() -> impl IntoView {
                             key=|heading| heading.clone()
                             children=move |heading: String| {
                                 view! {
-                                    <li class="text-sm">
-                                        <a href={format!("#{}", heading)}>{heading}</a>
+                                    <li class="text-sm text-gray-400 hover:text-gray-600">
+                                        <A exact={true} href={format!("#{}", heading)}>{heading}</A>
                                     </li>
                                 }
                             }

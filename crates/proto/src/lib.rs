@@ -59,3 +59,20 @@ pub struct RichNoteMetadata {
     pub meta: NoteMetadata,
     pub slug: String,
 }
+
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
+pub struct BookshelfBookShopping {
+    pub amazon: String,
+}
+
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
+pub struct BookshelfBook {
+    pub title: String,
+    pub author: String,
+    pub isbn_10: String,
+    pub isbn_13: String,
+    pub publisher: String,
+    pub read_on: i32,
+    pub review: String,
+    pub shopping: BookshelfBookShopping,
+}
