@@ -1,41 +1,46 @@
 name: Deploy Production
+
 on:
   push:
-    tags:
-      - 'v*'
-  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
   publish:
+    name: Publish
     runs-on: ubuntu-latest
     permissions:
       contents: read
       deployments: write
-    name: Publish
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3.0.2
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
         with:
-          ref: 'main'
+          targets: wasm32-unknown-unknown
+          components: rustfmt, clippy
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
+      - name: Setup Rust Cache
+        uses: Swatinem/rust-cache@v2
 
-      - name: Install Dependencies
-        run: bun i
+      - name: Setup Cargo Binstall
+        uses: cargo-bins/cargo-binstall@main
 
-      - name: Build Check
-        env:
-          NODE_ENV: production
-        run: bun run build
+      - name: Install Rust Binaries
+        run: |
+          cargo binstall -y --force trunk
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@1.0.0
+      - name: Build
+        working-directory: ./crates/www
+        run: trunk build --release
+
+      - name: Deploy Client
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: ${{ secrets.CLOUDFLARE_PAGES_PROJECT_NAME }}
-          directory: ./.svelte-kit/cloudflare
+          command: pages deploy ./dist --project-name=${{ secrets.CLOUDFLARE_PAGES_PROJECT_NAME }}
+          workingDirectory: ./crates/www
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
