@@ -1,6 +1,5 @@
 use leptos::{
-    component, create_render_effect, create_rw_signal, spawn_local, view, For, IntoView, SignalGet,
-    SignalSet,
+    component, create_render_effect, create_rw_signal, spawn_local, view, For, IntoView, Show, SignalGet, SignalSet
 };
 use leptos_meta::Title;
 use reqwest::get;
@@ -56,6 +55,9 @@ pub fn Bookshelf() -> impl IntoView {
                       review,
                       shopping,
                   }| {
+                    let is_online = shopping.online.is_some();
+                    let online = shopping.online.clone().unwrap_or_default();
+
                     view! {
                         <article class="self-start flex flex-col justify-start w-full col-span-4 border-b mb-4">
                             <h3 class="font-semibold">
@@ -75,9 +77,13 @@ pub fn Bookshelf() -> impl IntoView {
                                 <dd class="row-start-2 col-start-4 col-span-1">{publisher}</dd>
                                 <dt class="font-semibold col-start-5 col-span-1">"Read On"</dt>
                                 <dd class="row-start-2 col-start-5 col-span-1">{read_on}</dd>
-                                <dt class="font-semibold col-start-6 col-span-1">"Purchase"</dt>
+                                <dt class="font-semibold col-start-6 col-span-1">"Get it"</dt>
                                 <dd>
                                     <a class="text-blue-400 hover:text-blue-600 underline" href={shopping.amazon} target="_blank">"Amazon"</a>
+                                    <br />
+                                    <Show when=move || is_online>
+                                        <a class="text-blue-400 hover:text-blue-600 underline" href={online.clone()} target="_blank">"Online"</a>
+                                    </Show>
                                 </dd>
                             </dl>
                         </article>

@@ -1,5 +1,90 @@
 [
   {
+    "title": "Street Coder: The rules to break and how to break them",
+    "author": "Sedat Kapanoglu",
+    "isbn_10": "1617298379",
+    "isbn_13": "978-1617298370",
+    "publisher": "Manning",
+    "read_on": 2023,
+    "review": "",
+    "shopping": {
+      "amazon": "https://www.amazon.com/Street-Coder-rules-break-them/dp/1617298379/"
+    }
+  },
+  {
+    "title": "Rust in Action",
+    "author": "Tim McNamara",
+    "isbn_10": "1617294551",
+    "isbn_13": "978-1617294556",
+    "publisher": "Manning",
+    "read_on": 2021,
+    "review": "Rust in Action its a great introduction into System's Programming. This book not only made me improve my way of thinking around Rust, but also to play around with whats available in a Computer System.  Tim McNamara does a great job explaining the fundamentals on System's Programming and also applies Rust on top of it. If you didn't know he is also doing Rust courses on LinkedIn Learning!",
+    "shopping": {
+      "amazon": "https://www.amazon.com/Rust-Action-TS-McNamara/dp/1617294551"
+    }
+  },
+  {
+    "title": "The Rust Programming Language",
+    "author": "Steve Klabnik & Carol Nichols",
+    "isbn_10": "1593278284",
+    "isbn_13": "978-1593278281",
+    "publisher": "No Starch Press",
+    "read_on": 2019,
+    "review": "I started to learn Rust back in 2018 writing simple programs. I was looking into understanding better the key concepts of the language and how to \"Think in Rust\". It doesnt matter which language you come from, at the beginning with Rust you will feel like you are fighting the compiler, if you come from dynamic programming languages like JavaScript or Python, lower level concepts like memory management and pointers might sound \"alien\" to you. Well this book not only goes through these concepts, but also walks you through Systems Programming using a practical approach. You can also read the book for free online on it's mdBook version.",
+    "shopping": {
+      "amazon": "https://www.amazon.com/Rust-Programming-Language-Steve-Klabnik/dp/1593278284",
+      "online": "https://doc.rust-lang.org/book/ch00-00-introduction.html"
+    }
+  },
+  {
+    "title": "The Go Programming Language",
+    "author": "Alan Donovan & Brian Kernighan",
+    "isbn_10": "9780134190440",
+    "isbn_13": "978-0134190440",
+    "publisher": "Addison-Wesley Professional",
+    "read_on": 2018,
+    "review": "Golang was a thing back in 2018, dont't get me wrong, it is still very popular. But by 2018/19 it was a thing on the internet, everyone was getting a taste of Golang, either in DevOps land or WebDev for Servers. Well I got interest into it too, and as it was really different to my background languages I decided to grab a book and get into it. I learned Golang and used it  for a little while, it called my attention the First-Class Citizen Support for imaginary numbers!",
+    "shopping": {
+      "amazon": "https://www.amazon.com/Programming-Language-Addison-Wesley-Professional-Computing/dp/0134190440"
+    }
+  },
+  {
+    "title": "Fullstack React: The Complete Guide to ReactJS and Friends",
+    "author": "Anthony Accomazzo, Nathaniel Murray & Ari Lerner",
+    "isbn_10": "B07YL7J1C6",
+    "isbn_13": "N/A",
+    "publisher": "N/A",
+    "read_on": 2017,
+    "review": "Book I used to learn by doing ReactJS, back in the day I used to go through tutorials and ReactJS Documentation. It was thanks to this book that I found Semantic UI. I wasn't keen to use Relay/GraphQL back in the day but its also covered!",
+    "shopping": {
+      "amazon": "https://www.amazon.com/Fullstack-React-Complete-ReactJS-Friends-ebook/dp/B07YL7J1C6"
+    }
+  },
+  {
+    "title": "Java: How to Program, 9th Edition (Deitel)",
+    "author": "Paul Deitel & Harvey Deitel",
+    "isbn_10": "9780132575669",
+    "isbn_13": "978-0132575669",
+    "publisher": "Pearson College Div",
+    "read_on": 2017,
+    "review": "While doing my course on Java SE 7 in ITMaster I was using this book as reference, it brings a great introduction to Java Programming.",
+    "shopping": {
+      "amazon": "https://www.amazon.com/Java-How-Program-9th-Deitel/dp/0132575663"
+    }
+  },
+  {
+    "title": "Java: How to Program, 9th Edition (Deitel)",
+    "author": "Paul Deitel & Harvey Deitel",
+    "isbn_10": "9780132575669",
+    "isbn_13": "978-0132575669",
+    "publisher": "Pearson College Div",
+    "read_on": 2017,
+    "review": "While doing my course on Java SE 7 in ITMaster I was using this book as reference, it brings a great introduction to Java Programming.",
+    "shopping": {
+      "amazon": "https://www.amazon.com/Java-How-Program-9th-Deitel/dp/0132575663"
+    }
+  },
+  {
     "title": "JavaScript & jQuery: Interactive Front-End Web Development",
     "author": "Jon Duckett",
     "isbn_10": "9781118531648",

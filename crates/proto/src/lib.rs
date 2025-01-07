@@ -63,6 +63,7 @@ pub struct RichNoteMetadata {
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
 pub struct BookshelfBookShopping {
     pub amazon: String,
+    pub online: Option<String>,
 }
 
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
