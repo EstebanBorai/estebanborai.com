@@ -2,81 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* ibm-plex-mono-regular - latin */
+/* inter-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'IBM Plex Mono';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  src: url('/assets/fonts/ibm-plex-mono-v19-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/assets/fonts/inter-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* ibm-plex-mono-italic - latin */
+/* inter-600 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'IBM Plex Mono';
-  font-style: italic;
-  font-weight: 400;
-  src: url('/assets/fonts/ibm-plex-mono-v19-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* ibm-plex-mono-600 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'IBM Plex Mono';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
-  src: url('/assets/fonts/ibm-plex-mono-v19-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/assets/fonts/inter-v18-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* ibm-plex-mono-600italic - latin */
+/* fira-code-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'IBM Plex Mono';
-  font-style: italic;
-  font-weight: 600;
-  src: url('/assets/fonts/ibm-plex-mono-v19-latin-600italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* literata-200 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Literata';
-  font-style: normal;
-  font-weight: 200;
-  src: url('/assets/fonts/literata-v35-latin-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* literata-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Literata';
+  font-family: 'Fira Code';
   font-style: normal;
   font-weight: 400;
-  src: url('/assets/fonts/literata-v35-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/assets/fonts/fira-code-v22-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* literata-600 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Literata';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/assets/fonts/literata-v35-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* literata-800 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Literata';
-  font-style: normal;
-  font-weight: 800;
-  src: url('/assets/fonts/literata-v35-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-body {
-  @apply font-body;
+body * {
+  @apply font-mono;
 }
 
 code * {
@@ -89,16 +43,32 @@ h3 code {
   @apply font-mono font-normal;
 }
 
+h1,
+h2,
+h3 {
+  @apply font-body font-semibold;
+}
+
+#note-content h1,
+#note-content h2,
+#note-content h3 {
+    @apply font-semibold py-2;
+}
+
 #note-content h1 {
-    @apply text-4xl font-semibold;
+    @apply text-4xl;
 }
 
 #note-content h2 {
-    @apply text-3xl font-semibold;
+    @apply text-3xl;
 }
 
 #note-content h3 {
-    @apply text-2xl font-semibold;
+    @apply text-2xl;
+}
+
+#note-content p {
+    @apply font-body;
 }
 
 #note-content .hljs {
@@ -108,4 +78,24 @@ h3 code {
 
 a[aria-current="page"] {
     @apply underline;
+}
+
+.lang-c {
+    background-color: #555555;
+    color: white;
+}
+
+.lang-rust {
+    background-color: #DEA584;
+    color: white;
+}
+
+.lang-typescript {
+    background-color: #4476C0;
+    color: white;
+}
+
+.lang-webassembly {
+    background-color: #5B3BE8;
+    color: white;
 }

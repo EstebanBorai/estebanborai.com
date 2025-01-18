@@ -1,6 +1,6 @@
 ---
 title: "Pxid: Developer Friendly IDs"
-description: "When it comes to work with taxonomy rich APIs, having descriptive IDs that prevides context about the resource in question is crucial"
+description: "When it comes to work with taxonomy rich APIs, having descriptive IDs that provides context about the resource in question is crucial"
 categories: [id, api, graphql, design, software, rust]
 icon: rust
 date: 2023-07-22

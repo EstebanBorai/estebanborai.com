@@ -84,7 +84,7 @@ pub fn Note() -> impl IntoView {
         <section id="note-container" class="pb-10">
             <article id="note-header" class="pb-8">
                 <h1 class="text-3xl font-semibold py-2">{move || metadata.get().map(|meta| meta.title).unwrap_or_default()}</h1>
-                <p class="text-gray-600">{{move || metadata.get().map(|meta| meta.description).unwrap_or_default()}}</p>
+                <p class="text-gray-600 text-sm">{{move || metadata.get().map(|meta| meta.description).unwrap_or_default()}}</p>
                 <time class="text-sm text-gray-600">{move || metadata.get().map(|meta| meta.date).unwrap_or_default()}</time>
             </article>
             <div class="md:relative md:grid md:gap-4 md:grid-cols-[900px,200px]">
@@ -111,8 +111,8 @@ pub fn Note() -> impl IntoView {
                     <img src="/assets/images/whoami.jpg" alt="whoami" height="100" width="100" />
                 </figure>
                 <article>
-                    <h1 class="text-lg">"Esteban Borai"</h1>
-                    <div class="text-sm space-y-2">
+                    <h1 class="text-lg text-gray-800">"Esteban Borai"</h1>
+                    <div class="text-sm space-y-2 text-gray-600">
                         <p>
                             "Hi there! I'm a "<u>"Rust Software Engineer"</u>" with 8 years of experience in Systems and Web Programming using Rust & TypeScript."
                         </p>

@@ -77,3 +77,13 @@ pub struct BookshelfBook {
     pub review: String,
     pub shopping: BookshelfBookShopping,
 }
+
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
+pub struct Project {
+    pub title: String,
+    pub repo_url: String,
+    pub extract: String,
+    pub website: Option<String>,
+    pub tags: Vec<String>,
+    pub langs: Vec<String>,
+}

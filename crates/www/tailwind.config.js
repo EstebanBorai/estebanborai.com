@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Literata', 'serif'],
-        mono: ['IBM Plex Mono', 'monospace'],
+        body: ['Inter', 'serif'],
+        mono: ['Fira Code', 'monospace'],
       },
     }
   },

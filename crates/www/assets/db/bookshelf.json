@@ -1,12 +1,24 @@
 [
   {
+    "title": "Computer Architecture",
+    "author": "Charles Fox",
+    "isbn_10": "1718502869",
+    "isbn_13": "978-1718502864",
+    "publisher": "No Starch Press",
+    "read_on": 2024,
+    "review": "Computer Architecture walks you through the evolution of Computer Systems, it starts by establishing \"What is a computer\" then explains how Humans went through different machinery before getting into programmable systems, then it explains how these programmable systems used for non-data production drived the evolution to machines like Babbage's Analytical Machine. At some point in the book the Sillicon joins the story and here is when Charles Fox goes from the most simple transistor to how the Sillicon performs changes on state and flow on electrons causing data to be stored in our CPU registers. Finally he walks you through machines of different magnitudes, data centers, storege hardware and how these systems are programmed. Theres also an actity to assamble the Manchester Baby using Logisim.",
+    "shopping": {
+      "amazon": "https://www.amazon.com/Computer-Architecture-Charles-Fox/dp/1718502869/"
+    }
+  },
+  {
     "title": "Street Coder: The rules to break and how to break them",
     "author": "Sedat Kapanoglu",
     "isbn_10": "1617298379",
     "isbn_13": "978-1617298370",
     "publisher": "Manning",
     "read_on": 2023,
-    "review": "",
+    "review": "Either if you are a Self-Taught programmer or a CS degree backed programmer, this book is for you. It covers from daily life programmer experiences that most of us face through our career to more specific topics such as security, anti-patters, testing, refactoring and scalability. Is important to note that this book don't goes depth into these topics but instead it gives you a brief on them an Sedat will also share his POV on these topics.",
     "shopping": {
       "amazon": "https://www.amazon.com/Street-Coder-rules-break-them/dp/1617298379/"
     }
@@ -21,6 +33,18 @@
     "review": "Rust in Action its a great introduction into System's Programming. This book not only made me improve my way of thinking around Rust, but also to play around with whats available in a Computer System.  Tim McNamara does a great job explaining the fundamentals on System's Programming and also applies Rust on top of it. If you didn't know he is also doing Rust courses on LinkedIn Learning!",
     "shopping": {
       "amazon": "https://www.amazon.com/Rust-Action-TS-McNamara/dp/1617294551"
+    }
+  },
+  {
+    "title": "Understanding the Machine. (Vol. 1 from Write Great Code Series)",
+    "author": "Randall Hyde",
+    "isbn_10": "171850036X",
+    "isbn_13": "978-1718500365",
+    "publisher": "No Starch Press",
+    "read_on": 2020,
+    "review": "Randall Hyde goes into the depth understanding on how computers work. This book is great for those who want to understand how the computer works from the ground up, Randall continuously explains how High-Level Code gets translated into Machine Code and how the CPU executes it. It is a great introduction if you are jumping into Systems Programming.",
+    "shopping": {
+      "amazon": "https://www.amazon.com/Write-Great-Code-2nd-Understanding/dp/171850036X"
     }
   },
   {

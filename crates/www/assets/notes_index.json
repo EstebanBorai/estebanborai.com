@@ -126,7 +126,7 @@
   {
     "meta": {
       "title": "Pxid: Developer Friendly IDs",
-      "description": "When it comes to work with taxonomy rich APIs, having descriptive IDs that prevides context about the resource in question is crucial",
+      "description": "When it comes to work with taxonomy rich APIs, having descriptive IDs that provides context about the resource in question is crucial",
       "icon": "rust",
       "date": "2023-07-22",
       "preview_image_url": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2272&q=1",

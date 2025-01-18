@@ -9,7 +9,7 @@ use leptos_router::A;
 use proto::{NotesIndex, RichNoteMetadata};
 use reqwest::get;
 
-use crate::utils::hostname;
+use crate::{components::atoms::section::Section, utils::hostname};
 
 #[component]
 pub fn Notes() -> impl IntoView {
@@ -42,8 +42,10 @@ pub fn Notes() -> impl IntoView {
             formatter=|text| format!("{text} — Esteban Borai")
         />
         <div>
-            <h2 class="text-lg">"Notes"</h2>
-            <p class="text-sm text-gray-600">"Notes on Software Development journeys. Here I keep notes that others might find useful, and for my future self to serve as reference."</p>
+            <Section
+                title="Notes"
+                description="Notes on Software Development journeys. Here I keep notes that others might find useful, and for my future self to serve as reference."
+            />
             <ul class="py-4">
                 <For
                   each=move || notes_index.get()
@@ -54,12 +56,12 @@ pub fn Notes() -> impl IntoView {
                   }| {
                     view! {
                         <article class="self-start flex flex-col justify-start w-full col-span-4 border-b mb-4">
-                            <h3 class="font-semibold hover:underline">
-                                <A exact={true} href={format!("/notes/{slug}")}>
+                            <h3 class="hover:underline">
+                                <A class="font-body font-semibold" exact={true} href={format!("/notes/{slug}")}>
                                     {meta.title}
                                 </A>
                             </h3>
-                            <p class="py-2 text-sm truncate">
+                            <p class="text-gray-600 py-2 text-sm truncate">
                                 {meta.description}
                             </p>
                             <ul class="flex justify-start items-start flex-wrap gap-2 py-2">
@@ -68,9 +70,9 @@ pub fn Notes() -> impl IntoView {
                                     key=|cat| cat.clone()
                                     children=move |cat: String| {
                                         view! {
-                                            <span class="uppercase inline-block bg-lt-alte dark:bg-dk-alte rounded-md text-center">
-                                                <span class="text-xs bg-gray-100 px-2 py-0.25 rounded-md">{cat}</span>
-                                            </span>
+                                            <li class="text-xs bg-gray-100 text-gray-800 uppercase rounded-md py-0.5 px-2">
+                                                {cat}
+                                            </li>
                                         }
                                     }
                                 />
